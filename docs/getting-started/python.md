@@ -13,7 +13,7 @@ And now you can log some data:
 import rerun as rr
 import numpy as np
 
-rr.init("python_example", True)
+rr.init("python_example", spawn_and_connect=True)
 rr.log_points("points", np.random.rand(20, 3))
 ```
 TODO(jleibs): Image of the output
