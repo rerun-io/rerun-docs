@@ -8,7 +8,9 @@ the main [Rerun repository](https://github.com/rerun-io/rerun)
 
 ## Contributions
 
-Contributions are welcome via pull-request. Changes frequently go live on our website, but not automatically.
+Contributions are welcome via pull-request. Note that even landed PRs will not deploy to the main site
+until the next time we roll out a site-update. We will generally to do this at least once per release.
+
 
 ## Organization
 
