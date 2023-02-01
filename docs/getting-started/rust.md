@@ -3,6 +3,8 @@ title: For Rust Users
 order: 4
 ---
 
+[TODO(#1044)](https://github.com/rerun-io/rerun/issues/1044): The APIs below neeed to be updated for the real API
+
 Much of our getting-started documentation is tailored toward python.
 
 Even for Rust users, the Python [quick tour](quick-tour) is a good way to get an overview of the core
