@@ -3,6 +3,8 @@ title: Quick Tour
 order: 1
 ---
 
+[TODO(#1042)](https://github.com/rerun-io/rerun/issues/1042)
+
 A quick tour of Rerun:
 
 1. pip install & run first example

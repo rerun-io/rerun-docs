@@ -3,4 +3,4 @@ title: The Examples
 order: 6
 ---
 
-TODO(jleibs): More details on running the examples
+[TODO(#1045)](https://github.com/rerun-io/rerun/issues/1045)
