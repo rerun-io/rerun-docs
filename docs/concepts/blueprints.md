@@ -3,4 +3,6 @@ title: Blueprints
 order: 3
 ---
 
-TODO(jleibs): blueprint explanation
+[TODO(#1048)](https://github.com/rerun-io/rerun/issues/1048)
+
+blueprint explanation
