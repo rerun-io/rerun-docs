@@ -3,31 +3,13 @@ title: The Examples
 order: 6
 ---
 
-[TODO(#1045)](https://github.com/rerun-io/rerun/issues/1045)
+[//impl ticket]: (https://github.com/rerun-io/rerun/issues/1045)
 
-
+In the Rerun [Github](https://github.com/rerun-io/rerun) repository we maintain a list of examples that demonstrate using the Rerun logging APIs. Generally the examples are individually self-contained, and can be run directly from a Git clone of the repository. Many of the Python examples need additional dependencies set up in a `requirements.txt` next to the example. These are noted in the individual example sections below.
 
 ## Examples with Artificial Data
-* [Hello World](#hello-world)
-* [API Demo](#api-demo)
-* [Car](#car)
-* [Clock](#clock)
-* [Multiprocessing](#multiprocessing)
-* [Multithreading](#multithreading)
-* [Plots](#plots)
-* [Text Logging](#text-logging)
 
-## Examples with Real Data
-
-* [COLMAP](#colmap)
-* [Deep SDF](#deep-sdf)
-* [DICOM](#dicom)
-* [MP Pose](#mp-pose)
-* [NYUD](#nyud)
-* [Objectron](#objectron)
-* [Raw Mesh](#raw-mesh)
-* [Stable Diffusion](#stable-diffusion)
-* [Tracking HF OpenCV](#tracking-hf-opencv)
+The following examples serve to illustrate various uses of the Rerun logging SDK. They should not require any additional data downloads, and should run offline.
 
 ### Hello World
 
@@ -48,9 +30,7 @@ python examples/api_demo/main.py
 
 This is a swiss-army-knife example showing the usage of most of the Rerun SDK APIs. The data logged is static and meaningless.
 
-The following sub-examples are available (select one or more using the `--demo` flag):
-
-`all, 3d_points, log_cleared, rects, segmentation, text, transforms_3d, bbox, extension_components`
+Multiple sub-examples are available (See the instructions by running with the `--help` flag).
 
 ```bash
 python examples/api_demo/main.py
@@ -63,7 +43,7 @@ python examples/api_demo/main.py
 
 ![car example>](/docs-media/car1.png)
 
-A very simple 2D car is drawn using OpenCV, and a depth image is simulated to create a point cloud.
+A very simple 2D car is drawn using OpenCV, and a depth image is simulated and logged as a point cloud.
 
 ```bash
 pip install -r examples/car/requirements.txt
@@ -133,6 +113,10 @@ Rerun is able to act as a Python logging handler, and can show all your Python l
 python examples/text_logging/main.py
 ```
 ---
+
+## Examples with Real Data
+
+The following examples illustrate using the Rerun logging SDK with potential real-world (if toy) use cases.  They all require additional data to be downloaded, so an internet connection is needed at least once. The dataset fetching logic is all built into the examples, so no additional steps are needed. In some of the examples such as [Stable Diffusion](#stable-diffusion), the algorithm is run on-line, and may benefit from a GPU-enabled PyTorch machine.
 
 ### COLMAP
 
@@ -247,7 +231,7 @@ python examples/raw_mesh/main.py
 
 A more elaborate example running Depth Guided Stable Diffusion 2.0.
 
-For more info see: https://github.com/Stability-AI/stablediffusion
+For more info see [here](https://github.com/Stability-AI/stablediffusion).
 
 ```bash
 pip install -r examples/stable_diffusion/requirements.txt
