@@ -1,6 +1,6 @@
 ---
 title: Timeline
-order: 1
+order: 3
 ---
 
 Timeline controls

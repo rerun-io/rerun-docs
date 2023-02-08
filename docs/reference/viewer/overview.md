@@ -6,34 +6,25 @@ order: 0
 Overview
 --------------------------
 
-![screenshot of the viewer with different parts annotated](/docs-media/viewer-concept.png)
+![screenshot of the viewer with different parts annotated](/docs-media/viewer-overview.png)
+
+### [Blueprint](reference/viewer/blueprint.md)
+The Blueprint view is where you see and edit the Blueprint for the whole viewer, i.e. what is shown in the viewer (and how it is shown).
+
+### [Selection](reference/viewer/selection.md)
+The selection view let's you see details and edit configurations of the current [selection(s)](concepts/selections).
+
+### [Timeline](reference/viewer/timeline.md)
+The timeline panel gives you controls over what point in time you're looking at on which [timeline](concepts/timelines) for the rest of the viewer.
+Additionally, it gives you an overview of all events on a given timeline.
+
+### [Viewport](reference/viewer/viewport.md)
+The viewport is where your visualizations live. It is composed of one or more [Space Views](concepts/spaces) that you can arrange freely.
 
 ### Top bar & Menu
 The top bar contains operating system controls and generic information.
 In the menu you find application wide options and actions.
-
-With the buttons at the top right corner you can hide/show the Blueprint/Selection/Streams panels respectively.
-
-### Blueprint
-The Blueprint view is where you see and edit the [Blueprint](reference/blueprint-cfg) for the whole viewer, i.e. what is shown in the viewer (and how it is shown).
-It’s also an easy way to select a [Space View](concepts/spaces) and the [Entities](concepts/entity-component) it shows.
-
-### Selection
-The selection view let's you see details and edit configurations of the current [selection(s)](concepts/selections).
-
-TODO:
-* Context of selections etc..
-* Selection History
-
-
-### Timeline
-
-The timeline panel gives you controls over what point in time you're looking at on which [timeline](concepts/timelines) for the rest of the viewer.
-Additionally, it gives you an overview of all events on a given timeline. Learn more about the timeline panel [here](reference/viewer/timeline)
-
-### Viewport
-The viewport is where your visualizations live. It is composed of one or more [Space Views](concepts/spaces) that you can arrange freely.
-
+Use the buttons at the top right corner to hide/show parts of the viewer.
 
 Command Palette
 ----------------------------
