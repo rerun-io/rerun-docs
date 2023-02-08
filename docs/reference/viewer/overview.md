@@ -1,6 +1,6 @@
 ---
-title: The Viewer
-order: 1
+title: Overview
+order: 0
 ---
 
 Overview
@@ -10,7 +10,8 @@ Overview
 
 ### Top bar & Menu
 The top bar contains operating system controls and generic information.
-In the menu you find application wide options and actions.  
+In the menu you find application wide options and actions.
+
 With the buttons at the top right corner you can hide/show the Blueprint/Selection/Streams panels respectively.
 
 ### Blueprint
@@ -20,11 +21,15 @@ It’s also an easy way to select a [Space View](concepts/spaces) and the [Entit
 ### Selection
 The selection view let's you see details and edit configurations of the current [selection(s)](concepts/selections).
 
-### Timeline controls
-The timeline controls allows you to control the playback and what [timeline](concepts/timelines) is active.
+TODO:
+* Context of selections etc..
+* Selection History
 
-### Streams
-The streams on the active timeline are shown in the streams view. Each circle shown is a new timepoint for the respective [entity/component](concepts/entity-component).
+
+### Timeline
+
+The timeline panel gives you controls over what point in time you're looking at on which [timeline](concepts/timelines) for the rest of the viewer.
+Additionally, it gives you an overview of all events on a given timeline. Learn more about the timeline panel [here](reference/viewer/timeline)
 
 ### Viewport
 The viewport is where your visualizations live. It is composed of one or more [Space Views](concepts/spaces) that you can arrange freely.
@@ -40,6 +45,10 @@ Once it's open just start typing to filter and press `Enter` to execute the sele
 [TODO(#1132)](https://github.com/rerun-io/rerun/issues/1132): The command palette is too limited right now.
 
 
-View specific navigation
-----------------------------
-Most views have an info icon at the top right corner. On hover it displays additional information on how to use a view.
+Help icons
+----------
+Most views have an info icon at the top right corner.
+
+TODO: Image
+
+On hover it displays additional information on how to use a view.
