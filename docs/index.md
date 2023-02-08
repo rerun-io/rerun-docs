@@ -13,7 +13,7 @@ TODO(jleibs): Splash image
 
 Rerun is made up of two main components:
  - The [Rerun Library](reference/library) lets you log data from [python](getting-started/python) or [rust](getting-started/rust)
- - The [Rerun Viewer](reference/viewer) lets you view data live or from a recording.
+ - The [Rerun Viewer](reference/viewer/overview) lets you view data live or from a recording.
 
 ## Learning About Rerun
  * If this is your first time using Rerun, we recommend starting with the [Quick Tour](getting-started/quick-tour), and then checking out some of the [examples](getting-started/examples).

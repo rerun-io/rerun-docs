@@ -34,6 +34,6 @@ fn main() {
 ```
 
 For more on using the Rerun viewer, checkout the [quick tour](getting-started/quick-tour) or the
-[viewer reference](reference/viewer).
+[viewer reference](reference/viewer/overview).
 
 Or, to find out about how to log data with Rerun see [Logging Data from Rust](getting-started/logging-data-rust)

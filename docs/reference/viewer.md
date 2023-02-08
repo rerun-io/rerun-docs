@@ -1,11 +1,5 @@
 ---
-title: The Viewer
+title: Viewer
 order: 1
+redirect: reference/viewer/overview
 ---
-
-[TODO(#972)](https://github.com/rerun-io/rerun/issues/972)
-
- - What are the different panels?
- - What do specific menu items / buttons / config options do?
- - General navigation
- - Keyboard shortcuts
