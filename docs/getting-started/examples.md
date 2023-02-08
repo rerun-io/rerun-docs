@@ -29,7 +29,9 @@ order: 6
 * [Stable Diffusion](#stable-diffusion)
 * [Tracking HF OpenCV](#tracking-hf-opencv)
 
-### Hello World ([source](https://github.com/rerun-io/rerun/tree/main/examples/hello_world))
+### Hello World
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/hello_world/main.py)
 
 The simplest example of how to use Rerun.
 
@@ -38,7 +40,9 @@ python examples/api_demo/main.py
 ```
 ---
 
-### API Demo ([source](https://github.com/rerun-io/rerun/tree/main/examples/api_demo))
+### API Demo
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/api_demo/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/api_demo/src/main.rs)
 
 ![api_demo example>](/docs-media/api_demo1.png)
 
@@ -53,7 +57,9 @@ python examples/api_demo/main.py
 ```
 ---
 
-### Car ([source](https://github.com/rerun-io/rerun/tree/main/examples/car))
+### Car
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/car/main.py)
 
 ![car example>](/docs-media/car1.png)
 
@@ -65,7 +71,9 @@ python examples/car/main.py
 ```
 ---
 
-### Clock ([source](https://github.com/rerun-io/rerun/tree/main/examples/clock))
+### Clock
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/clock/main.py)
 
 ![clock example>](/docs-media/clock1.png)
 
@@ -76,7 +84,9 @@ python examples/clock/main.py
 ```
 ---
 
-### Multiprocessing ([source](https://github.com/rerun-io/rerun/tree/main/examples/multiprocessing))
+### Multiprocessing
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/multiprocessing/main.py)
 
 Demonstrates how rerun can work with the python `multiprocessing` library.
 
@@ -85,7 +95,9 @@ python examples/multiprocessing/main.py
 ```
 ---
 
-### Multithreading ([source](https://github.com/rerun-io/rerun/tree/main/examples/multithreading))
+### Multithreading
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/multithreading/main.py)
 
 Demonstration of logging to Rerun from multiple threads.
 
@@ -94,7 +106,9 @@ python examples/multithreading/main.py
 ```
 ---
 
-### Plots ([source](https://github.com/rerun-io/rerun/tree/main/examples/plots))
+### Plots
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/plots/main.py)
 
 ![plots example>](/docs-media/plots1.png)
 
@@ -105,7 +119,9 @@ python examples/plots/main.py
 ```
 ---
 
-### Text Logging ([source](https://github.com/rerun-io/rerun/tree/main/examples/text_logging))
+### Text Logging
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/text_logging/main.py)
 
 ![text_logging example>](/docs-media/text_logging1.png)
 
@@ -118,7 +134,9 @@ python examples/text_logging/main.py
 ```
 ---
 
-### COLMAP ([source](https://github.com/rerun-io/rerun/tree/main/examples/colmap))
+### COLMAP
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/colmap/main.py)
 
 ![colmap example>](/docs-media/colmap1.png)
 
@@ -135,7 +153,9 @@ python examples/colmap/main.py
 ```
 ---
 
-### Deep SDF ([source](https://github.com/rerun-io/rerun/tree/main/examples/deep_sdf))
+### Deep SDF
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/deep_sdf/main.py)
 
 ![deep_sdf example>](/docs-media/deep_sdf1.png)
 
@@ -147,7 +167,9 @@ python examples/deep_sdf/main.py
 ```
 ---
 
-### Dicom ([source](https://github.com/rerun-io/rerun/tree/main/examples/dicom))
+### Dicom
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/dicom/main.py)
 
 ![dicom example>](/docs-media/dicom1.png)
 
@@ -159,7 +181,9 @@ python examples/dicom/main.py
 ```
 ---
 
-### MP Pose ([source](https://github.com/rerun-io/rerun/tree/main/examples/mp_pose))
+### MP Pose
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/mp_pose/main.py)
 
 ![mp_pose example>](/docs-media/mp_pose1.png)
 
@@ -171,11 +195,13 @@ python examples/mp_pose/main.py
 ```
 ---
 
-### NYUD ([source](https://github.com/rerun-io/rerun/tree/main/examples/nyud))
+### NYUD
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/nyud/main.py)
 
 ![nyud example>](/docs-media/nyud1.png)
 
-Example using an example dataset from NYU with RGB and Depth channels: https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html
+Example using an [example dataset](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) from New York University with RGB and Depth channels.
 
 ```bash
 pip install -r examples/nyud/requirements.txt
@@ -183,7 +209,9 @@ python examples/nyud/main.py
 ```
 ---
 
-### Objectron ([source](https://github.com/rerun-io/rerun/tree/main/examples/objectron))
+### Objectron
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/objectron/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/objectron/src/main.rs)
 
 ![objectron example>](/docs-media/objectron1.png)
 
@@ -197,7 +225,9 @@ python examples/objectron/main.py
 ```
 ---
 
-### Raw Mesh ([source](https://github.com/rerun-io/rerun/tree/main/examples/raw_mesh))
+### Raw Mesh
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/raw_mesh/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/raw_mesh/src/main.rs)
 
 ![raw_mesh example>](/docs-media/raw_mesh1.png)
 
@@ -209,7 +239,9 @@ python examples/raw_mesh/main.py
 ```
 ---
 
-### Stable Diffusion ([source](https://github.com/rerun-io/rerun/tree/main/examples/stable_diffusion))
+### Stable Diffusion
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/stable_diffusion/main.py)
 
 ![stable_diffusion example>](/docs-media/stable_diffusion1.png)
 
@@ -223,7 +255,9 @@ python examples/stable_diffusion/main.py
 ```
 ---
 
-### Tracking HF OpenCV ([source](https://github.com/rerun-io/rerun/tree/main/examples/tracking_hf_opencv))
+### Tracking HF OpenCV
+
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/tracking_hf_opencv/main.py)
 
 ![tracking_hf_opencv example>](/docs-media/tracking_hf_opencv1.png)
 
