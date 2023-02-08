@@ -1,5 +1,5 @@
 ---
-title: Spaces
+title: Space Views
 order: 2
 ---
 
