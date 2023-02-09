@@ -39,7 +39,7 @@ If there is no Space View context, the Blueprint section shows which Space Views
 Click-through selections
 ------------------------
 Making selections can be context sensitive to the current selection.
-The most common case for this is selecting instances of an entity:
+The most common case for this is selecting instances of an entity (see also [Batch Data](concepts/batches.md)):
 E.g. in order to select a point of a point cloud in a Space View,
 first select the entire entity (the cloud) by clicking on one of the points,
 then click again to select individual points.
