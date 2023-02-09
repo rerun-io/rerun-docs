@@ -28,9 +28,10 @@ but is also important for what the following sections are showing.
 
 ### Data & Blueprint sections
 The data section always shows static, raw user logged data for the currently selected time.
+Some objects, e.g. Space Views, may not have a data section and expose only Blueprint options.
 
-In contrast, the Blueprint section is timeline independent and exposes settings of an Entity
-in the context of a given Space View.
+In contrast, the Blueprint section is timeline independent and exposes the
+[Blueprint settings](reference/concepts/blueprints.md) of an Entity in the context of a given Space View.
 To learn more about the various settings check the on-hover tooltips.
 
 If there is no Space View context, the Blueprint section shows which Space Views display the selected object.
