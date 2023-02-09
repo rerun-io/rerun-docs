@@ -1,6 +1,6 @@
 ---
 title: Events and Timelines
-order: 4
+order: 3
 ---
 
 [TODO(#1048)](https://github.com/rerun-io/rerun/issues/1048)
