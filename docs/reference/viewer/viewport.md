@@ -19,9 +19,9 @@ The maximize button makes a single Space View fill the entire viewport.
 Only one Space view can be maximized at a time.
 
 
-Kinds of Space Views
---------------------
-Rerun distinguishes various kinds of Space Views:
+Categories of Space Views
+---------------------------
+Rerun distinguishes various categories of Space Views:
 * ![3d icon](/docs-media/spaceview_3d.png) Spatial  
   Generic 2D & 3D data.
 * ![tensor icon](/docs-media/spaceview_tensor.png) Tensor  
@@ -33,7 +33,7 @@ Rerun distinguishes various kinds of Space Views:
 * ![histogram icon](/docs-media/spaceview_histogram.png) Bar chart  
   Bar-chart lots made from 1D tensor data.
 
-Which kind is used is determined upon creation of a Space View.
+Which category is used is determined upon creation of a Space View.
 
 [TODO(@#1164)](https://github.com/rerun-io/rerun/issues/1164): Allow configuring the category of a space view after its creation 
 
