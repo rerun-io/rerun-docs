@@ -4,7 +4,7 @@ order: 4
 ---
 
 The viewport is a flexible area where you can arrange your Space Views:
-You can grab the title of any Space View to doc it to different parts of the viewport or to form tabs.
+You can grab the title of any Space View to dock it to different parts of the viewport or to form tabs.
 
 View controls
 -------------
