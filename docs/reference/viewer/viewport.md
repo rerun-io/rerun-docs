@@ -10,8 +10,8 @@ View controls
 -------------
 ![3d icon](/docs-media/view-controls.png)
 
-Clicking on the title of a Space View has the same effect as selecting it in the [Blueprint view](reference/viewer/blueprint.md)
-and will show additional information & settings in the [Selection view](reference/viewer/selection.md) or other means.
+Clicking on the title of a Space View has the same effect as selecting it in the [Blueprint view](blueprint.md)
+and will show additional information & settings in the [Selection view](selection.md) or other means.
 
 For more information on how to navigate a specific Space View, hover its help icon at the top right corner.
 
