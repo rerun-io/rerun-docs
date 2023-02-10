@@ -24,7 +24,7 @@ The Streams panel can be hidden with the layout config buttons at the top right 
 
 On the right side you see circles for each logged [event](concepts/timelines.md) on the currently selected timeline over time.
 You can use the mouse to scrub the vertical time selector line to jump to arbitrary moments in time.
-The stream view allows panning with right click and zooming with `Ctrl/cmd + scroll`.
+The stream view allows panning with right click and zooming with `ctrl/cmd + scroll`.
 
 
 The tree on the left shows you all Entities that were logged for this timeline.

@@ -32,7 +32,7 @@ Use the buttons at the top right corner to hide/show parts of the viewer.
 Command Palette
 ----------------------------
 The command palette is a powerful tool to reach arbitrary actions from anywhere via a simple text search.
-You reach it with `Cmd/Ctrl + P` or via the menu.
+You reach it with `cmd/ctrl + P` or via the menu.
 ![screenshot of the command palette](/docs-media/command-palette.png)
 Once it's open just start typing to filter and press `Enter` to execute the selected action or cancel with `Esc`.
 
