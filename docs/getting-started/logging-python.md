@@ -15,11 +15,13 @@ In a few lines of code, we'll go from a blank sheet to something you don't see e
 
 We will move fast, optimizing for breadth over depth. As we go along, we will give out points to other pages in the reference where you'll be able to explore these ideads in further details.
 
-At any time, you can checkout the complete listing of what we're building[here](https://github.com/rerun-io/rerun/blob/97fc327322fdccbf3fceb30c27c54ab69e5da45f/examples/dna/main.py) to better keep track of the overall picture.
+At any time, you can checkout the complete listing of what we're building[here](https://github.com/rerun-io/rerun/blob/28c0a137840ad76feaeca35b61f0a4ace1e396d9/examples/dna/main.py) to better keep track of the overall picture.
 
 ## Prerequisites
 
 We assume you have working Python and `rerun-sdk` installations: checkout the [setup page](python).
+
+TODO: It's probably a much better UX to first show `rr.spawn()` and then `rr.init()`
 
 ## Initializing the SDK
 
@@ -56,6 +58,7 @@ The core structure of our DNA looking shape can easily be described using two po
 NUM_POINTS = 100
 
 from rerun_demo.data import build_color_spiral
+from math import pi
 # points and colors are both np.array((NUM_POINTS, 3))
 points1, colors1 = build_color_spiral(NUM_POINTS)
 points2, colors2 = build_color_spiral(NUM_POINTS, angular_offset=pi)
@@ -108,6 +111,7 @@ Adding the missing pieces is just more of the same.
 
 We can log the scaffolding as a batch of [3D line segments]():
 ```python
+from rerun_demo.util import interleave
 points = interleave(points1, points2)
 rr.log_line_segments("dna/structure/body", points, color=[128, 128, 128])
 ```
@@ -117,6 +121,8 @@ rr.log_line_segments("dna/structure/body", points, color=[128, 128, 128])
 
 Which only leaves the beads!
 ```python
+import numpy as np
+from rerun_demo.util import bounce_lerp
 offsets = np.random.rand(NUM_POINTS)
 beads = [bounce_lerp(points1[n], points2[n], offsets[n]) for n in range(NUM_POINTS)]
 colors = [[int(bounce_lerp(80, 230, offsets[n] * 2))] for n in range(NUM_POINTS)]
@@ -148,8 +154,9 @@ Rerun has rich support for time: whether you want concurrent or disjoint timelin
 
 Let's add our custom timeline:
 ```python
+import numpy as np
+from rerun_demo.util import bounce_lerp
 time_offsets = np.random.rand(NUM_POINTS)
-
 for i in range(400):
     time = i * 0.01
     rr.set_time_seconds("stable_time", time)
@@ -185,16 +192,18 @@ TODO: we've just introduced the semantics of LatestAt
 
 
 ```python
-    for i in range(400):
-        # [...]
+for i in range(400):
+    # [...] 
 
-        rr.log_rigid3(
-            "dna/structure",
-            parent_from_child=(
-                [0, 0, 0],
-                Rotation.from_euler("z", time / 4.0 * tau).as_quat(),
-            ),
-        )
+    from math import tau
+    from scipy.spatial.transform import Rotation
+    rr.log_rigid3(
+        "dna/structure",
+        parent_from_child=(
+            [0, 0, 0],
+            Rotation.from_euler("z", time / 4.0 * tau).as_quat(),
+        ),
+    )
 ```
 
 TODO: this need a GIF
