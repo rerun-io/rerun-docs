@@ -164,6 +164,10 @@ That's all it takes: a call to [`set_time_seconds`](https://rerun-io.github.io/r
 
 ⚠️  If you run this code as is, the result will be.. surprising: the beads are animating as expected, but everything we've logged until that point is gone!  
 
+Enter...
+
+### Latest At semantics
+
 That's because the Rerun Viewer has switched to displaying your custom timeline by default, and all that data from before does not exist there.
 Here's a simple fix:
 ```python

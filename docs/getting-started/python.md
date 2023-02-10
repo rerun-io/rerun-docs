@@ -35,7 +35,7 @@ colors = np.array(list(zip(r.reshape(-1), g.reshape(-1), b.reshape(-1))), dtype=
 
 rr.log_points("my_points", positions=positions, colors=colors)
 ```
-<!-- TODO: s/my_points/cube_cloud
+<!-- TODO: s/my_points/cube_cloud -->
 
 Once everything is set up properly, you'll be greeted with the [Rerun Viewer]():
 ![intro users - result](/docs-media/intro_users1_result.png)
