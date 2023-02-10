@@ -30,3 +30,10 @@ The stream view allows panning with right click and zooming with `Ctrl/cmd + scr
 The tree on the left shows you all Entities that were logged for this timeline.
 When you expand an Entity you will see both the Components that are associated with it, as well as any child Entities.
 Selecting Entities or Events in the Streams view shows additional information in the Selection panel about them respectively.
+
+### Discontinuity skipping
+Rerun automatically detects discontinuities in the selected timeline and will skip over them while playing.
+This is particularly useful whenever you have large gaps in the timestamps of your data recordings.
+Detected discontinuities are visualized with a zigzag cut in the timeline.
+
+[TODO(#1150)](https://github.com/rerun-io/rerun/issues/1150): Allow adjusting or disabling the time-discontinuity collapsing.
