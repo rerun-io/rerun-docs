@@ -34,6 +34,6 @@ Selecting Entities or Events in the Streams view shows additional information in
 ### Discontinuity skipping
 Rerun automatically detects discontinuities in the selected timeline and will skip over them while playing.
 This is particularly useful whenever you have large gaps in the timestamps of your data recordings.
-Detected discontinuities are visualized as gaps in the timeline.
+Detected discontinuities are visualized with a zigzag cut in the timeline.
 
 [TODO(#1150)](https://github.com/rerun-io/rerun/issues/1150): Allow adjusting or disabling the time-discontinuity collapsing.
