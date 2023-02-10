@@ -3,22 +3,48 @@ title: For Python Users
 order: 2
 ---
 
-Everything you need to use rerun is available via the [rerun-sdk](https://pypi.org/project/rerun-sdk/) python package:
+This section will set you up with the Rerun SDK and Viewer.
+
+### Prerequisites
+
+We assume you have a working Python 3.8+ installation on your system.
+
+### Installing Rerun
+
+Everything you need to use Rerun is available via the [rerun-sdk](https://pypi.org/project/rerun-sdk/) pip package:
 ```bash
-$ pip install rerun-sdk
+$ pip install rerun-sdk && python -m rerun --version
+rerun 0.1.0
 ```
 
-And now you can log some data:
+That's all there is to it: you can immediately start logging and visualizing data.  
+Try running the following [example](https://github.com/rerun-io/rerun/blob/97fc327322fdccbf3fceb30c27c54ab69e5da45f/examples/minimal/main.py)!
 ```python
-import rerun as rr
+import rerun as rr  # NOTE: `rerun`, not `rerun-sdk`!
 import numpy as np
 
-rr.init("python_example", spawn_and_connect=True)
-rr.log_points("points", np.random.rand(20, 3))
+SIZE = 10
+
+rr.spawn()
+
+x, y, z = np.meshgrid(np.linspace(-5, 5, SIZE), np.linspace(-5, 5, SIZE), np.linspace(-5, 5, SIZE))
+positions = np.array(list(zip(x.reshape(-1), y.reshape(-1), z.reshape(-1))))
+
+r, g, b = np.meshgrid(np.linspace(0, 255, SIZE), np.linspace(0, 255, SIZE), np.linspace(0, 255, SIZE))
+colors = np.array(list(zip(r.reshape(-1), g.reshape(-1), b.reshape(-1))), dtype=np.uint8)
+
+rr.log_points("my_points", positions=positions, colors=colors)
 ```
-TODO(jleibs): Image of the output
+<!-- TODO: s/my_points/cube_cloud
 
-For more on using the Rerun viewer, checkout the [quick tour](getting-started/quick-tour) or the
-[viewer reference](reference/viewer/overview).
+Once everything is set up properly, you'll be greeted with the [Rerun Viewer]():
+![intro users - result](/docs-media/intro_users1_result.png)
+<!-- TODO: real screenshot on a mac -->
 
-Or, to find out about how to log data with Rerun see [Logging Data from Python](getting-started/logging-data-python)
+If you're facing any difficulties, don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose), [ask a question](https://github.com/rerun-io/rerun/discussions) or [join the Discord server](https://discord.com/invite/rerun).
+
+### What's next
+
+This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quick Tour](getting-started/quick-tour) and the [Viewer reference](reference/viewer/overview) for an overview of the features available.
+
+If you're ready to move on to more advanced tasks, checkout our thorough [Getting Started guide](logging-python) where we will explore the core concepts that make Rerun tick and log our first non-trivial dataset.

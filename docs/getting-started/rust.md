@@ -3,37 +3,56 @@ title: For Rust Users
 order: 4
 ---
 
-[TODO(#1044)](https://github.com/rerun-io/rerun/issues/1044): The APIs below neeed to be updated for the real API
+This section will set you up with the Rerun SDK and Viewer.
 
-Much of our getting-started documentation is tailored toward python.
+### Prerequisites
 
-Even for Rust users, the Python [quick tour](quick-tour) is a good way to get an overview of the core
-functionality. The viewer is the same regardless which language you use to log data.
+We assume you have a working Rust 1.67+ installation on your system.
 
-In rust, the rerun visualizer and the logging library both accessed via the [rerun](https://crates.io/crates/rerun)
-crate.
+### Installing Rerun
 
-Install rerun viewer:
+Everything you need to use Rerun is available via the [rerun](https://crates.io/crates/rerun) crate.
+Let's try it out in a new Rust project:
 ```bash
-$ cargo install rerun
+$ cargo init cube && cd cube && cargo add rerun
 ```
 
-Add rerun to your `Cargo.toml`
-```bash
-$ cargo add rerun
-```
-
-And a truly minimal logging application:
+That's all there is to it: you can immediately start logging and visualizing data.  
+Try running the following [example](https://github.com/rerun-io/rerun/blob/97fc327322fdccbf3fceb30c27c54ab69e5da45f/examples/minimal/src/main.rs)!
 ```rust
-use rerun;
+use rerun::demo_util::grid;
+use rerun::external::glam;
+use rerun::{ColorRGBA, MsgSender, Point3D, Session};
 
-fn main() {
-    rerun.init("rust_example");
-    rerun.log_points("points", ...);
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut session = Session::new();
+
+    let points = grid(glam::Vec3::splat(-5.0), glam::Vec3::splat(5.0), 10)
+        .map(Point3D::from)
+        .collect::<Vec<_>>();
+    let colors = grid(glam::Vec3::ZERO, glam::Vec3::splat(255.0), 10)
+        .map(|v| ColorRGBA::from_rgb(v.x as u8, v.y as u8, v.z as u8))
+        .collect::<Vec<_>>();
+
+    MsgSender::new("my_point")
+        .with_component(&points)?
+        .with_component(&colors)?
+        .send(&mut session)?;
+
+    session.show()?;
+
+    Ok(())
 }
 ```
 
-For more on using the Rerun viewer, checkout the [quick tour](getting-started/quick-tour) or the
-[viewer reference](reference/viewer/overview).
+Once everything is set up properly, you'll be greeted with the [Rerun Viewer]():
+![intro users - result](/docs-media/intro_users1_result.png)
+<!-- TODO: real screenshot on a mac -->
 
-Or, to find out about how to log data with Rerun see [Logging Data from Rust](getting-started/logging-data-rust)
+If you're facing any difficulties, don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose), [ask a question](https://github.com/rerun-io/rerun/discussions) or [join the Discord server](https://discord.com/invite/rerun).
+
+### What's next
+
+This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quick Tour](getting-started/quick-tour) and the [Viewer reference](reference/viewer/overview) for an overview of the features available.
+
+If you're ready to move on to more advanced tasks, checkout our thorough [Getting Started guide](logging-rust) where we will explore the core concepts that make Rerun tick and log our first non-trivial dataset.
