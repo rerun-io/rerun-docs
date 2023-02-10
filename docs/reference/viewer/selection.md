@@ -34,8 +34,6 @@ In contrast, the Blueprint section is timeline independent and exposes the
 [Blueprint settings](reference/viewer/blueprint.md) of an Entity in the context of a given Space View.
 To learn more about the various settings check the on-hover tooltips.
 
-If there is no Space View context, the Blueprint section shows which Space Views display the selected object.
-
 Click-through selections
 ------------------------
 Making selections can be context sensitive to the current selection.
