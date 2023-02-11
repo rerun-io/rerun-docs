@@ -3,8 +3,6 @@ title: For Python Users
 order: 2
 ---
 
-This section will set you up with the Rerun SDK and Viewer.
-
 ### Prerequisites
 
 We assume you have a working Python 3.8+ installation on your system.
@@ -13,12 +11,12 @@ We assume you have a working Python 3.8+ installation on your system.
 
 Everything you need to use Rerun is available via the [rerun-sdk](https://pypi.org/project/rerun-sdk/) pip package:
 ```bash
-$ pip install rerun-sdk && python -m rerun --version
-rerun 0.1.0
+$ pip install rerun-sdk
 ```
 
-That's all there is to it: you can immediately start logging and visualizing data.  
-Try running the following [example](https://github.com/rerun-io/rerun/blob/97fc327322fdccbf3fceb30c27c54ab69e5da45f/examples/minimal/main.py)!
+<!-- TODO: make sure that commit hash is up-to-date before final PR -->
+That's all! You can now immediately start logging and visualizing data.  
+Try running the following [example](https://github.com/rerun-io/rerun/blob/97fc327322fdccbf3fceb30c27c54ab69e5da45f/examples/minimal/main.py):
 ```python
 import rerun as rr  # NOTE: `rerun`, not `rerun-sdk`!
 import numpy as np
@@ -37,9 +35,8 @@ rr.log_points("my_points", positions=positions, colors=colors)
 ```
 <!-- TODO: s/my_points/cube_cloud -->
 
-Once everything is set up properly, you'll be greeted with the [Rerun Viewer]():
+Once everything properly is set up, you'll be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
 ![intro users - result](/docs-media/intro_users1_result.png)
-<!-- TODO: real screenshot on a mac -->
 
 If you're facing any difficulties, don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose), [ask a question](https://github.com/rerun-io/rerun/discussions) or [join the Discord server](https://discord.com/invite/rerun).
 
@@ -47,4 +44,4 @@ If you're facing any difficulties, don't hesitate to [open an issue](https://git
 
 This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quick Tour](getting-started/quick-tour) and the [Viewer reference](reference/viewer/overview) for an overview of the features available.
 
-If you're ready to move on to more advanced tasks, checkout our thorough [Getting Started guide](logging-python) where we will explore the core concepts that make Rerun tick and log our first non-trivial dataset.
+If you're ready to move on to more advanced topics, checkout our thorough [Getting Started guide](logging-python) where we will explore the core concepts that make Rerun tick and log our first non-trivial dataset.
