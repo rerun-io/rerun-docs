@@ -8,22 +8,24 @@ order: 4
 In this section we'll build out, log and visualize our first non-trivial dataset, putting many of Rerun's core concepts and features to use.
 
 In a few lines of code, we'll go from a blank sheet to something you don't see everyday: an animated, interactive, DNA-shaped abacus:  
-<!-- ![logging data - result](/docs-media/logging_data1_result.png) -->
-![logging data - result](/docs-media/logging_data1_resultx.gif)
-<!-- TODO: decent screenshot using a mac or better yet: a GIF -->
+<video width="100%" autoplay loop muted controls>
+    <source src="/docs-media/logging_data1_result.webm" type="video/webm" />
+</video>
 
+This guide aims to go wide instead of deep.  
+There are links to other doc pages where you can learn more about specific topics.
 
-We will move fast, optimizing for breadth over depth. As we go along, we will give out points to other pages in the reference where you'll be able to explore these ideads in further details.
-
-At any time, you can checkout the complete listing of what we're building[here](https://github.com/rerun-io/rerun/blob/28c0a137840ad76feaeca35b61f0a4ace1e396d9/examples/dna/main.py) to better keep track of the overall picture.
+At any time, you can checkout the complete code listing for this tutorial [here](https://github.com/rerun-io/rerun/blob/28c0a137840ad76feaeca35b61f0a4ace1e396d9/examples/dna/main.py) to better keep track of the overall picture.
 
 ## Prerequisites
 
-We assume you have working Python and `rerun-sdk` installations: checkout the [setup page](python).
-
-TODO: It's probably a much better UX to first show `rr.spawn()` and then `rr.init()`
+We assume you have working Python and `rerun-sdk` installations. If not, check out the [setup page](python).
 
 ## Initializing the SDK
+
+Start by opening your editor of choice and creating a new file called `dna_example.py`.
+
+The first thing we want to do is to import `rerun` and name the dataset we're working on by setting its [`ApplicationId`](https://rerun-io.github.io/rerun/docs/python/HEAD/common/initialization/#rerun.init):
 
 ```python
 import rerun as rr
@@ -31,109 +33,127 @@ import rerun as rr
 rr.init("DNA Abacus")
 ```
 
-The first thing we want to do is to name the dataset we're working on by setting an [`ApplicationId`]().  
-Among other things, a stable [`ApplicationId`]() will make it so the [Rerun Viewer](../reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
+Among other things, a stable [`ApplicationId`](https://rerun-io.github.io/rerun/docs/python/HEAD/common/initialization/#rerun.init) will make it so the [Rerun Viewer](../reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
 Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions).
 
 ## Starting the Viewer
 
+Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview) itself.
+
+To do this, you can add the line:
 ```python
 rr.spawn()
 ```
 
-Next up, start the [Rerun Viewer](../reference/viewer/overview) itself.
+Now you can run your application just as you would any other python script:
+```
+(venv) $ python dna_example.py
+```
+
+And with that, we're ready to start sending out data:
+![logging data - waiting for data](/docs-media/logging_data2_waiting.png)
 
 By default, the SDK will start a viewer in another process and automatically pipe the data through.  
 There are other means of sending data to a viewer as we'll see at the end of this section, but for now this default will work great as we experiment.
 
-And with that, we're ready to start sending out data:
-![logging data - waiting for data](/docs-media/logging_data2_waiting.png)
-<!-- TODO: decent screenshot using a mac -->
+---
+The following sections will require importing a few different things to your script.  
+We will do so incrementally, but if you just want to update your imports once and call it a day, add the following to the top of your script right now:
+```python
+from math import tau
+import numpy as np
+from rerun_demo.data import build_color_spiral
+from rerun_demo.util import bounce_lerp, interleave
+from scipy.spatial.transform import Rotation
+```
+---
 
 ## Logging our first points
 
-The core structure of our DNA looking shape can easily be described using two point clouds shaped like spirals:
+The core structure of our DNA looking shape can easily be described using two point clouds shaped like spirals.  
+Add the following to your file:
 ```python
+# new imports
+from rerun_demo.data import build_color_spiral
+from math import tau
+
 NUM_POINTS = 100
 
-from rerun_demo.data import build_color_spiral
-from math import pi
 # points and colors are both np.array((NUM_POINTS, 3))
 points1, colors1 = build_color_spiral(NUM_POINTS)
-points2, colors2 = build_color_spiral(NUM_POINTS, angular_offset=pi)
+points2, colors2 = build_color_spiral(NUM_POINTS, angular_offset=tau*0.5)
 
 rr.log_points("dna/structure/left", points1, colors=colors1, radii=0.08)
 rr.log_points("dna/structure/right", points2, colors=colors2, radii=0.08)
 ```
 
-And just like that, we have a scene!
+Run your script once again and you should now see this scene in the viewer.  
+Note that if the viewer was still running, Rerun will simply connect to this existing session and replace the data with this new [_recording_](../concepts/apps-and-sessions).
 
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 <!-- TODO: decent screenshot using a mac -->
 
-_This is a good time to gain familiarity with the viewer: try interacting with the scene and exploring the different menus._  
+_This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._  
 _Checkout the [viewer reference](../reference/viewer/overview) for a complete tour._
 
 ### Under the hood
 
-This little snippet of code holds much more than meets the eye at first.
+This tiny snippet of code actually holds much more than meets the eye...
+
+`Components`
 
 The first thing you'll notice is that [points](../reference/data-types/points), [colors](../reference/data-types/colors), and [radii](../reference/data-types/radii) are all native primitives in Rerun.  
-In Rerun these primitives are called [Components](../concepts/entity-component) and in fact a [whole bunch of them](../reference/data-types) are supported natively.
+In Rerun these primitives are called [Components](../concepts/entity-component) and in fact a [whole bunch of them](../reference/data-types) are natively supported.
 
-Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) was designed with conciseness and integration with the ecosystem in mind, first and foremost.  
-In this example, the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) are simple `numpy` arrays: the SDK takes care of mapping those to actual Rerun types depending on the logging function we use ([`log_points`]() in this case)!
+Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays!  
+Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/log/points/#rerun.log.points.log_points) in this case)!
 
----
+`Entities & hierarchies`
 
-The next thing to notice are these two strings: `"dna/structure/left"` & `"dna/structure/right"`.  
-Those are [Entity Paths](../concepts/entity-component), which uniquely identify each Entity in our scene. These are the two ingredients that make up an Entity in Rerun: one or more Components associated with a unique Entity Path.  
+Note the two strings we're passing in: `"dna/structure/left"` & `"dna/structure/right"`.
 
-It is no coincidence that these identifiers look like traditional filesystem paths: within Rerun, [Entities form a hierarchy](../concepts/entity-path) and that hierarchy plays a major role in how data is visualized and transformed (as we shall soon see).
+These are [Entity Paths](../concepts/entity-component), which uniquely identify each Entity in our scene. Every Entity is made up of a path and one or more Components.  
+[Entity paths typically form a hierarchy](../concepts/entity-path) which plays an important role in how data is visualized and transformed (as we shall soon see).
 
----
+`Batches`
 
 One final observation: notice how we're logging a whole batch of points and colors all at once here!  
-[Batches of data](http://localhost:3000/docs/concepts/batches) are first-class citizens in Rerun and come with all sorts of performance improvements and dedicated features.  
-You're looking at one of these dedicated features right now: notice how we're only logging a single radius for all these points, yet it applies to all of them!
+[Batches of data](../docs/concepts/batches) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.  
+You're looking at one of these dedicated features right now in fact: notice how we're only logging a single radius for all these points, yet somehow it applies to all of them!
 
 ---
 
-A _lot_ has happened with these two simple function calls.  
-Good news is: once you've digested all of the above, logging any other Component won't be any different. In fact, let's log the rest of the scene right now.
+A _lot_ is happening in these two simple function calls.  
+Good news is: once you've digested all of the above, logging any other Component will simply be more of the same. In fact, let's log everything else in the scene right now.
 
 ## Adding the missing pieces
 
-<!-- TODO: s/body/scaffolding -->
-
-Adding the missing pieces is just more of the same.
-
-We can log the scaffolding as a batch of [3D line segments]():
+We can represent the scaffolding using a batch of [3D line segments](../reference/data-types/line-segments):
 ```python
+# new imports
 from rerun_demo.util import interleave
-points = interleave(points1, points2)
-rr.log_line_segments("dna/structure/body", points, color=[128, 128, 128])
-```
 
-<!-- ![logging data - body](/docs-media/logging_data4_body.png) -->
-<!-- TODO: decent screenshot using a mac -->
+points = interleave(points1, points2)
+rr.log_line_segments("dna/structure/scaffolding", points, color=[128, 128, 128])
+```
 
 Which only leaves the beads!
 ```python
+# new imports
 import numpy as np
 from rerun_demo.util import bounce_lerp
+
 offsets = np.random.rand(NUM_POINTS)
 beads = [bounce_lerp(points1[n], points2[n], offsets[n]) for n in range(NUM_POINTS)]
 colors = [[int(bounce_lerp(80, 230, offsets[n] * 2))] for n in range(NUM_POINTS)]
-rr.log_points("dna/structure/body/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
+rr.log_points("dna/structure/scaffolding/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
 ```
 
 Once again, although we are getting fancier and fancier with our [`numpy` incantations](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun_demo/util/#rerun_demo.util.bounce_lerp), there is nothing new here: it's all about building out `numpy` arrays and feeding them to the Rerun API.  
 You'll find this holds true for most of our [Component types](../reference/data-types)!
 
 ![logging data - beads](/docs-media/logging_data5_beads.png)
-<!-- TODO: decent screenshot using a mac -->
 
 ## Animating the beads
 
@@ -141,21 +161,20 @@ You'll find this holds true for most of our [Component types](../reference/data-
 
 Up until this point, we've completely set aside one of the core primitives of Rerun: [Time and Timelines](../concepts/timelines)!
 
-Even so, if you look at your [Timeline View](../reference/viewer/timeline) right now, you'll notice that Rerun has kept track of time on your behalf anyhow.  
-Rerun always keep track of the logging time by default.
+Even so, if you look at your [Timeline View](../reference/viewer/timeline) right now, you'll notice that Rerun has kept track of time on your behalf anyways by memorizing when each log call occurred.
 
 ![logging data - timeline closeup](/docs-media/logging_data6_timeline.png)
-<!-- TODO: decent screenshot using a mac -->
 
 Unfortunately, the logging time isn't particularly helpful to us in this case: we can't have our beads animate depending on the logging time, else they would move at different speeds depending on the performance of the logging process!  
-For that, we need to introduce our own custom timeline, using a deterministic clock that we have full control over.
+For that, we need to introduce our own custom timeline that uses a deterministic clock which we control.
 
-Rerun has rich support for time: whether you want concurrent or disjoint timelines, out-of-order insertions or even data that lives _beyond time_... you'll find a lot of flexibility in there.
+Rerun has rich support for time: whether you want concurrent or disjoint timelines, out-of-order insertions or even data that lives _outside_ of the timeline(s)... you'll find a lot of flexibility in there.
 
 Let's add our custom timeline:
 ```python
-import numpy as np
+# new imports
 from rerun_demo.util import bounce_lerp
+
 time_offsets = np.random.rand(NUM_POINTS)
 for i in range(400):
     time = i * 0.01
@@ -164,39 +183,47 @@ for i in range(400):
     times = np.repeat(time, NUM_POINTS) + time_offsets
     beads = [bounce_lerp(points1[n], points2[n], times[n]) for n in range(NUM_POINTS)]
     colors = [[int(bounce_lerp(80, 230, times[n] * 2))] for n in range(NUM_POINTS)]
-    rr.log_points("dna/structure/body/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
+    rr.log_points("dna/structure/scaffolding/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
 ```
 
-That's all it takes: a call to [`set_time_seconds`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.set_time_seconds) will create our new Timeline and make sure that any logging calls that follow gets assigned that time.
+A call to [`set_time_seconds`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.set_time_seconds) will create our new `Timeline` and make sure that any logging calls that follow gets assigned that time.
 
-⚠️  If you run this code as is, the result will be.. surprising: the beads are animating as expected, but everything we've logged until that point is gone!  
+⚠️  If you run this code as is, the result will be.. surprising: the beads are animating as expected, but everything we've logged until that point is gone! ⚠️ 
+
+![logging data - wat](/docs-media/logging_data7_wat.png)
 
 Enter...
 
 ### Latest At semantics
 
-That's because the Rerun Viewer has switched to displaying your custom timeline by default, and all that data from before does not exist there.
-Here's a simple fix:
+That's because the Rerun Viewer has switched to displaying your custom timeline by default, but the original data was only logged to the *default* timeline (called `log_time`).  
+To fix this, go back to the top of the file and add:
 ```python
 rr.spawn()
 rr.set_time_seconds("stable_time", 0)
 ```
 
-This fix actually introduces yet another very important concept: so-called "latest at" semantics.  
-TODO: we've just introduced the semantics of LatestAt
+![logging data - latest at](/docs-media/logging_data8_latest_at.png)
 
-![logging data - stable time](/docs-media/logging_data7_time.png)
-<!-- TODO: decent GIF using a mac -->
+This fix actually introduces yet another very important concept in Rerun: "latest at" semantics.  
+Notice how entities `"dna/structure/left"` & `"dna/structure/right"` have only ever been logged at time zero, and yet they are still visible when querying times far beyond that point.
 
-### Transforming space
+_Rerun always reasons in terms of "latest" data: for a given entity, it retrieves all of its most recent components at a given time._
 
+## Transforming space
 
+There's only one thing left: our original scene had the abacus rotate along its principal axis!
+
+As was the case with time, (hierarchical) space transformations are first class-citizens in Rerun.  
+Now it's just a matter of combining the two: we need to log the transform of the scaffolding at each timestamp.
+
+Expand the previous loop to also include:
 ```python
+# new imports
+from scipy.spatial.transform import Rotation
+
 for i in range(400):
     # [...] 
-
-    from math import tau
-    from scipy.spatial.transform import Rotation
     rr.log_rigid3(
         "dna/structure",
         parent_from_child=(
@@ -206,27 +233,41 @@ for i in range(400):
     )
 ```
 
-TODO: this need a GIF
+Voila!
 
-### Sending data to any Rerun Viewer
+<video width="100%" autoplay loop muted controls>
+    <source src="/docs-media/logging_data1_result.webm" type="video/webm" />
+</video>
 
-### Saving, sharing and loading data
 
-TODO: --save, standalone viewer, rrd files and their backwards/forwards compat guarantees (..or lack thereof)
+## Other ways of logging & visualizing data
+
+[`rr.spawn`]() is great when you're experimenting on a single machine like we did in this tutorial, but what if the process that's doing the logging doesn't have a graphical interface to begin with?
+
+Rerun offers several solutions for these use cases.
+
+### Logging data over the network
+
+At any time, you can start a Rerun Viewer by running `python -m rerun`. This viewer is in fact a server that's ready to accept data over TCP (it's listening on `0.0.0.0:9876` by default)!
+
+On the logger side, simply use [`rr.connect`]() instead of [`rr.spawn`]() to start sending the data over to any TCP address.
+
+Checkout `python -m rerun --help` for more options.
+
+### Saving & loading to/from RRD files
+
+Sometimes, sending the data over the network is not an option. Maybe you'd like to share the data, attach it to a bug report, etc.
+
+Rerun has you covered:
+- Use [`rr.save`]() to save all the data logged so far to disk.
+- Visualize it via `python -m rerun path/to/recording.rrd`
+
+You can also save a recording (or a portion of it) as you're visualizing it, directly from the viewer.
+
+⚠️  [RRD files don't yet handle versioning!](https://github.com/rerun-io/rerun/issues/873) ⚠️ 
 
 ### Closing
 
-This closes our whirldwind tour of Rerun. We've barely scratched the surface of what's possible, but this should already give you many pointers to start experimenting (if it didn't, feel free to open an issue!)
+This closes our whirlwind tour of Rerun. We've barely scratched the surface of what's possible, but this should have hopefully given you plenty pointers to start experimenting!
 
-TODO: 1 line summary of what we've covered.
-
-To go further, have a look at some of our more [real-world-like examples](./examples).
-
-<!-- point to full example in github at every step -->
-
-### TODO
-
-Quick-start style guide to a few of the basics of logging data.
- - `save()`
- - `connect()`
- - Pointer to the [Data Types Reference](../reference/data-types)
+To go further, have a look at some of our other [examples](./examples).

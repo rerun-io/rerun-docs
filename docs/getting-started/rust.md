@@ -9,14 +9,15 @@ We assume you have a working Rust 1.67+ installation on your system.
 
 ### Installing Rerun
 
-Everything you need to use Rerun is available via the [rerun](https://crates.io/crates/rerun) crate.
+Everything you need to use Rerun is available via the [rerun](https://crates.io/crates/rerun) crate.  
 Let's try it out in a brand new Rust project:
 ```bash
 $ cargo init cube && cd cube && cargo add rerun -F glam
 ```
 
+That's all! You can now immediately start logging and visualizing data.
+
 <!-- TODO: make sure that commit hash is up-to-date before final PR -->
-That's all! You can now immediately start logging and visualizing data.  
 Try running the following [example](https://github.com/rerun-io/rerun/blob/97fc327322fdccbf3fceb30c27c54ab69e5da45f/examples/minimal/src/main.rs)!
 ```rust
 use rerun::demo_util::grid;
@@ -47,7 +48,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-Once everything properly is set up, you'll be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
+Once everything is properly set up, you'll be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
 ![intro users - result](/docs-media/intro_users1_result.png)
 
 If you're facing any difficulties, don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose), [ask a question](https://github.com/rerun-io/rerun/discussions) or [join the Discord server](https://discord.com/invite/rerun).
