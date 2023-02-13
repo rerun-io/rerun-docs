@@ -11,8 +11,8 @@ later analysis. Utilize data-specific views to get a deeper understanding of you
 
 TODO(jleibs): Splash image
 
-Rerun is made up of two main components:
- - The Rerun SDK lets you log data from [python](getting-started/python) or [rust](getting-started/rust)
+The Rerun SDK is made up of two main components:
+ - The Rerun API lets you log data from [python](getting-started/python) or [rust](getting-started/rust)
  - The [Rerun Viewer](reference/viewer/overview) lets you view data live or from a recording.
 
 ## Learning About Rerun
