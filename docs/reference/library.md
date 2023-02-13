@@ -16,7 +16,7 @@ order: 0
 
 ## Controlling logging globally
 
-Rerun logging is enabled by default. The default logging behavior can be overridden at runtime using the `RERUN` environment variable:
+Rerun logging is enabled by default. The logging behavior can be overridden at runtime using the `RERUN` environment variable:
 
 ```sh
 export RERUN=off
