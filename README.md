@@ -35,7 +35,7 @@ The display titles navigation order of documentation sections are managed by the
 file:
 ```
 ---
-title: The Examples
+title: Examples
 order: 6
 ---
 ```

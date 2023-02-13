@@ -9,9 +9,9 @@ The repository stores the high-level documentation for the main [rerun repositor
 These docs should cover:
  - Getting started instructions
  - General usage information
- - How-to guides
  - Concepts
  - References
+ - How-to guides ([TODO(1046)](https://github.com/rerun-io/rerun/issues/1046): Add such a page)
 
 Specific API-related documentation should continue to live in the main repository.
 

@@ -11,15 +11,15 @@ later analysis. Utilize data-specific views to get a deeper understanding of you
 
 TODO(jleibs): Splash image
 
-Rerun is made up of two main components:
- - The [Rerun Library](reference/library) lets you log data from [python](getting-started/python) or [rust](getting-started/rust)
+The Rerun SDK is made up of two main components:
+ - The Rerun API lets you log data from [python](getting-started/python) or [rust](getting-started/rust)
  - The [Rerun Viewer](reference/viewer/overview) lets you view data live or from a recording.
 
 ## Learning About Rerun
- * If this is your first time using Rerun, we recommend starting with the [Quick Tour](getting-started/quick-tour), and then checking out some of the [examples](getting-started/examples).
- * After that the [How To Guides](how-to-guides) cover common use-cases of the viewer and APIs
+ * If this is your first time using Rerun, we recommend starting with the [Quick Tour](getting-started/quick-tour)
+    and then continue with our introduction for [Python](getting-started/python.md) or [Rust](getting-started/rust.md)
  * The [Concepts](concept) section will explain how to think about the Rerun architecture and data-model
- * And lastly, the [Reference](reference) covers specific data-types, Configuration and API details.
+ * And lastly, the [Reference](reference) covers specific primitives, configuration and API details.
 
 ## Can't find what you're looking for?
  * Drop in to the [Rerun Community Discord](https://discord.gg/xwcxHUjD35)
