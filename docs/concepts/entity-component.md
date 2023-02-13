@@ -12,7 +12,8 @@ data associated with those Entities.
    [Entity Path](entity-path.md) string that is the first argument to most of the logging APIs.
  * Components, however, are what contains the data that is associated with those "things". For example, position, color,
    pixel data, etc.
-### Logging Components
+### Logging data
+All of the data that you log within rerun is mapped to the concepts of entities and components.
 For example, consider the case of logging a point
 ```python
 rr.log_point("my_point", position=[32.7, 45.9], color=[255, 0, 0])
