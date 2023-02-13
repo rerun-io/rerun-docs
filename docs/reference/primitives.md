@@ -10,10 +10,7 @@ In contrast, the [Rust API](https://docs.rs/rerun/) works by adding components e
 This is more flexible & extendable but also requires a rough understanding of
 which components the Viewer can interpret together as documented below.
 
-## Spatial Primitives
-
-https://docs.rs/rerun/latest/rerun/components/struct.LineStrip2D.html
-
+## Spatial **Primitives**
 
 ### Arrow 3D
 * Python: [log_arrow](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_arrow)
@@ -43,13 +40,14 @@ https://docs.rs/rerun/latest/rerun/components/struct.LineStrip2D.html
 
 ### Line 3D
 * Python: [log_line_strip](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_line_strip), [log_line_segments](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_line_segments)
-* Rust (primary): [LineStrip2D](https://docs.rs/rerun/latest/rerun/components/struct.LineStrip2D.html)
+* Rust (primary): [LineStrip3D](https://docs.rs/rerun/latest/rerun/components/struct.LineStrip3D.html)
 * Primary component: `linestrip3d`
 * Secondary components: `colorrgba`, `radius`
 
 ### Mesh
-* Python: [log_mesh](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_mesh), 
-[log_meshes](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_meshes)
+* Python: [log_mesh](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_mesh),
+[log_meshes](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_meshes),
+[log_mesh_file](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_mesh_file)
 * Rust (primary): [Mesh3D](https://docs.rs/rerun/latest/rerun/components/struct.Mesh3D.html)
 * Primary component: `mesh3d`
 * Secondary components: `colorrgba`
@@ -75,8 +73,7 @@ https://docs.rs/rerun/latest/rerun/components/struct.LineStrip2D.html
 [log_image](https://rerun-io.github.io/rerun/docs/python/latest/common/images/#rerun.log_image**),
 [log_image_file](https://rerun-io.github.io/rerun/docs/python/latest/common/images/#rerun.log_image_file**),
 [log_depth_image](https://rerun-io.github.io/rerun/docs/python/latest/common/images/#rerun.log_depth_image**),
-[log_segmentation_image](https://rerun-io.github.io/rerun/docs/python/latest/common/images/#rerun.log_segmentation_image**),
-[log_tensor](https://rerun-io.github.io/rerun/docs/python/latest/common/tensors/#rerun.log_tensor)
+[log_segmentation_image](https://rerun-io.github.io/rerun/docs/python/latest/common/images/#rerun.log_segmentation_image**)
 * Rust (primary): [Tensor](https://docs.rs/rerun/latest/rerun/components/struct.Tensor.html)
 * Primary component: `tensor`
 * Secondary components: `colorrgba`
