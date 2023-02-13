@@ -67,12 +67,12 @@ Rerun transforms are currently limited to connections between _Spatial_ views of
 transforms that can be logged:
 
 - Rigid3D transforms define a pure 3D translation + rotation relationship between two paths.
-  [rerun.log_rigid3](https://rerun-io.github.io/rerun/docs/python/HEAD/common/transforms/#rerun.log_rigid3))
+  [rerun.log_rigid3](https://rerun-io.github.io/rerun/docs/python/latest/common/transforms/#rerun.log_rigid3))
 - Pinhole transforms define a 3D -> 2D camera projection. (See:
-  [rerun.log_pinhole](https://rerun-io.github.io/rerun/docs/python/HEAD/common/transforms/#rerun.log_pinhole))
+  [rerun.log_pinhole](https://rerun-io.github.io/rerun/docs/python/latest/common/transforms/#rerun.log_pinhole))
 - Unknown transforms specify that the data cannot be transformed. In this case it will not be possible to combine the
   data into a single view and you will need to create two separate views to explore the data. (See:
-  [rerun.log_unknown_transform](https://rerun-io.github.io/rerun/docs/python/HEAD/common/transforms/#rerun.log_unknown_transform))
+  [rerun.log_unknown_transform](https://rerun-io.github.io/rerun/docs/python/latest/common/transforms/#rerun.log_unknown_transform))
 
 In the future, Rerun will be adding support for additional types of transforms.
  - [#349: Log 2D -> 2D transformations in the transform hierarchy](https://github.com/rerun-io/rerun/issues/349)
@@ -105,7 +105,7 @@ Note that none of the names in the paths are special.
 
 
 ### View coordinates
-You can use [rerun.log_view_coordinates](https://rerun-io.github.io/rerun/docs/python/HEAD/common/transforms/#rerun.log_view_coordinates)) to set your preferred view coordinate systems, giving semantic meaning to the XYZ axes of the space.
+You can use [rerun.log_view_coordinates](https://rerun-io.github.io/rerun/docs/python/latest/common/transforms/#rerun.log_view_coordinates)) to set your preferred view coordinate systems, giving semantic meaning to the XYZ axes of the space.
 
 This is in particular useful when taking the point of view of a given entity in the viewer. The view coordinates will then answer e.g. which axis is forward.
 

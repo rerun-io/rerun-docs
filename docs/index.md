@@ -19,7 +19,7 @@ Rerun is made up of two main components:
  * If this is your first time using Rerun, we recommend starting with the [Quick Tour](getting-started/quick-tour)
     and then continue with our introduction for [Python](getting-started/python.md) or [Rust](getting-started/rust.md)
  * The [Concepts](concept) section will explain how to think about the Rerun architecture and data-model
- * And lastly, the [Reference](reference) covers the viewer ui, specific data-types, Configuration and API details.
+ * And lastly, the [Reference](reference) covers specific primitives, configuration and API details.
 
 ## Can't find what you're looking for?
  * Drop in to the [Rerun Community Discord](https://discord.gg/xwcxHUjD35)
