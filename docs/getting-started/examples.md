@@ -1,5 +1,5 @@
 ---
-title: The Examples
+title: Examples
 order: 6
 ---
 
