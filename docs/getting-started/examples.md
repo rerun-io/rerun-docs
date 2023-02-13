@@ -11,20 +11,20 @@ In the Rerun [Github](https://github.com/rerun-io/rerun) repository we maintain 
 
 The following examples serve to illustrate various uses of the Rerun logging SDK. They should not require any additional data downloads, and should run offline.
 
-### Hello World
+### Minimal
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/hello_world/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/minimal/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/minimal/src/main.rs)
 
 The simplest example of how to use Rerun.
 
 ```bash
-python examples/api_demo/main.py
+python examples/python/minimal/main.py
 ```
 ---
 
 ### API Demo
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/api_demo/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/api_demo/src/main.rs)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/api_demo/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/api_demo/src/main.rs)
 
 ![api_demo example>](/docs-media/api_demo1.png)
 
@@ -33,13 +33,13 @@ This is a swiss-army-knife example showing the usage of most of the Rerun SDK AP
 Multiple sub-examples are available (See the instructions by running with the `--help` flag).
 
 ```bash
-python examples/api_demo/main.py
+python examples/python/api_demo/main.py
 ```
 ---
 
 ### Car
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/car/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/car/main.py)
 
 ![car example>](/docs-media/car1.png)
 
@@ -47,61 +47,61 @@ A very simple 2D car is drawn using OpenCV, and a depth image is simulated and l
 
 ```bash
 pip install -r examples/car/requirements.txt
-python examples/car/main.py
+python examples/python/car/main.py
 ```
 ---
 
 ### Clock
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/clock/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/clock/main.py)
 
 ![clock example>](/docs-media/clock1.png)
 
 An example visualizing an analog clock with hour, minute and seconds hands using Rerun Arrow3D primitives.
 
 ```bash
-python examples/clock/main.py
+python examples/python/clock/main.py
 ```
 ---
 
 ### Multiprocessing
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/multiprocessing/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/multiprocessing/main.py)
 
 Demonstrates how rerun can work with the python `multiprocessing` library.
 
 ```bash
-python examples/multiprocessing/main.py
+python examples/python/multiprocessing/main.py
 ```
 ---
 
 ### Multithreading
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/multithreading/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/multithreading/main.py)
 
 Demonstration of logging to Rerun from multiple threads.
 
 ```bash
-python examples/multithreading/main.py
+python examples/python/multithreading/main.py
 ```
 ---
 
 ### Plots
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/plots/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/plots/main.py)
 
 ![plots example>](/docs-media/plots1.png)
 
 This example demonstrates how to log simple plots with the Rerun SDK. Charts can be created from 1-dimensional tensors, or from time-varying scalars.
 
 ```bash
-python examples/plots/main.py
+python examples/python/plots/main.py
 ```
 ---
 
 ### Text Logging
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/text_logging/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/text_logging/main.py)
 
 ![text_logging example>](/docs-media/text_logging1.png)
 
@@ -110,7 +110,7 @@ This example demonstrates how to integrate python's native `logging` with the Re
 Rerun is able to act as a Python logging handler, and can show all your Python log messages in the viewer next to your other data.
 
 ```bash
-python examples/text_logging/main.py
+python examples/python/text_logging/main.py
 ```
 ---
 
@@ -120,7 +120,7 @@ The following examples illustrate using the Rerun logging SDK with potential rea
 
 ### COLMAP
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/colmap/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/colmap/main.py)
 
 ![colmap example>](/docs-media/colmap1.png)
 
@@ -133,13 +133,13 @@ In this example a short video clip has been processed offline by the COLMAP pipe
 
 ```bash
 pip install -r examples/colmap/requirements.txt
-python examples/colmap/main.py
+python examples/python/colmap/main.py
 ```
 ---
 
 ### Deep SDF
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/deep_sdf/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/deep_sdf/main.py)
 
 ![deep_sdf example>](/docs-media/deep_sdf1.png)
 
@@ -147,13 +147,13 @@ Generate Signed Distance Fields for arbitrary meshes using both traditional meth
 
 ```bash
 pip install -r examples/deep_sdf/requirements.txt
-python examples/deep_sdf/main.py
+python examples/python/deep_sdf/main.py
 ```
 ---
 
 ### Dicom
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/dicom/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/dicom/main.py)
 
 ![dicom example>](/docs-media/dicom1.png)
 
@@ -161,13 +161,13 @@ Example using a [DICOM](https://en.wikipedia.org/wiki/DICOM) MRI scan. This demo
 
 ```bash
 pip install -r examples/dicom/requirements.txt
-python examples/dicom/main.py
+python examples/python/dicom/main.py
 ```
 ---
 
 ### MP Pose
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/mp_pose/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/mp_pose/main.py)
 
 ![mp_pose example>](/docs-media/mp_pose1.png)
 
@@ -175,13 +175,13 @@ Use the [MediaPipe](https://google.github.io/mediapipe/) Pose solution to detect
 
 ```bash
 pip install -r examples/mp_pose/requirements.txt
-python examples/mp_pose/main.py
+python examples/python/mp_pose/main.py
 ```
 ---
 
 ### NYUD
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/nyud/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/nyud/main.py)
 
 ![nyud example>](/docs-media/nyud1.png)
 
@@ -189,13 +189,13 @@ Example using an [example dataset](https://cs.nyu.edu/~silberman/datasets/nyu_de
 
 ```bash
 pip install -r examples/nyud/requirements.txt
-python examples/nyud/main.py
+python examples/python/nyud/main.py
 ```
 ---
 
 ### Objectron
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/objectron/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/objectron/src/main.rs)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/objectron/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/objectron/src/main.rs)
 
 ![objectron example>](/docs-media/objectron1.png)
 
@@ -205,13 +205,13 @@ Example of using the Rerun SDK to log the [Objectron](https://github.com/google-
 
 ```bash
 pip install -r examples/objectron/requirements.txt
-python examples/objectron/main.py
+python examples/python/objectron/main.py
 ```
 ---
 
 ### Raw Mesh
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/raw_mesh/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/raw_mesh/src/main.rs)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/raw_mesh/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/raw_mesh/src/main.rs)
 
 ![raw_mesh example>](/docs-media/raw_mesh1.png)
 
@@ -219,13 +219,13 @@ This example demonstrates how to use the Rerun SDK to log raw 3D meshes (so-call
 
 ```bash
 pip install -r examples/raw_mesh/requirements.txt
-python examples/raw_mesh/main.py
+python examples/python/raw_mesh/main.py
 ```
 ---
 
 ### Stable Diffusion
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/stable_diffusion/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/stable_diffusion/main.py)
 
 ![stable_diffusion example>](/docs-media/stable_diffusion1.png)
 
@@ -235,13 +235,13 @@ For more info see [here](https://github.com/Stability-AI/stablediffusion).
 
 ```bash
 pip install -r examples/stable_diffusion/requirements.txt
-python examples/stable_diffusion/main.py
+python examples/python/stable_diffusion/main.py
 ```
 ---
 
 ### Tracking HF OpenCV
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/tracking_hf_opencv/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/tracking_hf_opencv/main.py)
 
 ![tracking_hf_opencv example>](/docs-media/tracking_hf_opencv1.png)
 
@@ -251,6 +251,6 @@ For more info see: https://huggingface.co/docs/transformers/index
 
 ```bash
 pip install -r examples/tracking_hf_opencv/requirements.txt
-python examples/tracking_hf_opencv/main.py
+python examples/python/tracking_hf_opencv/main.py
 ```
 ---
