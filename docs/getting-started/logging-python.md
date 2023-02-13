@@ -100,8 +100,11 @@ This tiny snippet of code actually holds much more than meets the eye...
 
 `Components`
 
-The first thing you'll notice is that [points](../reference/data-types/points), [colors](../reference/data-types/colors), and [radii](../reference/data-types/radii) are all native primitives in Rerun.  
-In Rerun these primitives are called [Components](../concepts/entity-component) and in fact a [whole bunch of them](../reference/data-types) are natively supported.
+Although the Rerun [Python SDK](https://rerun-io.github.io/rerun/docs/python) exposes concepts related to logging 
+primitives such as points, and lines, under the hood these primitives are
+made up of individual components like positions, colors, and radii. For
+more information on how the rerun data model works, refer to our section
+on [entities and components](../concepts/entity-component.md).
 
 Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.  
 Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun/log/points/#rerun.log.points.log_points) in this case).
@@ -126,7 +129,7 @@ Good news is: once you've digested all of the above, logging any other Component
 
 ## Adding the missing pieces
 
-We can represent the scaffolding using a batch of [3D line segments](../reference/data-types/line-segments):
+We can represent the scaffolding using a batch of 3D line segments:
 ```python
 # new imports
 from rerun_demo.util import interleave
@@ -147,8 +150,8 @@ colors = [[int(bounce_lerp(80, 230, offsets[n] * 2))] for n in range(NUM_POINTS)
 rr.log_points("dna/structure/scaffolding/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
 ```
 
-Once again, although we are getting fancier and fancier with our [`numpy` incantations](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun_demo/util/#rerun_demo.util.bounce_lerp), there is nothing new here: it's all about building out `numpy` arrays and feeding them to the Rerun API.  
-You'll find this holds true for most of our [Component types](../reference/data-types).
+Once again, although we are getting fancier and fancier with our [`numpy` incantations](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun_demo/util/#rerun_demo.util.bounce_lerp),
+there is nothing new here: it's all about building out `numpy` arrays and feeding them to the Rerun API.
 
 ![logging data - beads](/docs-media/logging_data5_beads.png)
 
@@ -156,7 +159,7 @@ You'll find this holds true for most of our [Component types](../reference/data-
 
 ### Introducing Time
 
-Up until this point, we've completely set aside one of the core primitives of Rerun: [Time and Timelines](../concepts/timelines).
+Up until this point, we've completely set aside one of the core concepts of Rerun: [Time and Timelines](../concepts/timelines).
 
 Even so, if you look at your [Timeline View](../reference/viewer/timeline) right now, you'll notice that Rerun has kept track of time on your behalf anyways by memorizing when each log call occurred.
 
