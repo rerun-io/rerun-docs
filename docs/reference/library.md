@@ -37,6 +37,6 @@ code-example: default-off-session
 
 ### Dynamically controlling on/off
 
-See the [is_enabled()](https://docs.rs/re_sdk/latest/re_sdk/struct.Session.html#method.is_enabled) and [set_enabled()](https://docs.rs/re_sdk/latest/re_sdk/struct.Session.html#method.set_enabled) methods for Rust on `rerun::Session`.
+See the [`is_enabled()`](https://docs.rs/re_sdk/latest/re_sdk/struct.Session.html#method.is_enabled) and [`set_enabled()`](https://docs.rs/re_sdk/latest/re_sdk/struct.Session.html#method.set_enabled) methods for Rust on `rerun::Session`.
 
 See the [`is_enabled()`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.is_enabled) and [`set_enabled()`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.set_enabled) methods for Python.
