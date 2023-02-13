@@ -10,6 +10,7 @@ The first argument to each log function is this path. Each time you log to a spe
 
 Rerun treats these paths as being arranged in a hierarchy with the "/" character acting as a separator between path
 elements. The conventional path semantics including concepts of "root" and "parent" / "child" generally apply.
+
 When writing paths in logging APIs the leading "/" is omitted.
 
 Note that there is no path-level distinction between "file-like" and "directory-like" concepts. Any path may be an
