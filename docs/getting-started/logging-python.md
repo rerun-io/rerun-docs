@@ -3,8 +3,6 @@ title: Logging Data in Python
 order: 4
 ---
 
-<!-- we really need to be able to show the screenshots as miniature on the side, they take sooo much space otherwise -->
-
 In this section we'll build out, log and visualize our first non-trivial dataset, putting many of Rerun's core concepts and features to use.
 
 In a few lines of code, we'll go from a blank sheet to something you don't see everyday: an animated, interactive, DNA-shaped abacus:  
@@ -15,7 +13,7 @@ In a few lines of code, we'll go from a blank sheet to something you don't see e
 This guide aims to go wide instead of deep.  
 There are links to other doc pages where you can learn more about specific topics.
 
-At any time, you can checkout the complete code listing for this tutorial [here](https://github.com/rerun-io/rerun/blob/28c0a137840ad76feaeca35b61f0a4ace1e396d9/examples/dna/main.py) to better keep track of the overall picture.
+At any time, you can checkout the complete code listing for this tutorial [here](https://github.com/rerun-io/rerun/blob/main/examples/python/dna/main.py) to better keep track of the overall picture.
 
 ## Prerequisites
 
@@ -92,7 +90,6 @@ Run your script once again and you should now see this scene in the viewer.
 Note that if the viewer was still running, Rerun will simply connect to this existing session and replace the data with this new [_recording_](../concepts/apps-and-sessions).
 
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
-<!-- TODO: decent screenshot using a mac -->
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._  
 _Checkout the [viewer reference](../reference/viewer/overview) for a complete tour._
@@ -106,8 +103,8 @@ This tiny snippet of code actually holds much more than meets the eye...
 The first thing you'll notice is that [points](../reference/data-types/points), [colors](../reference/data-types/colors), and [radii](../reference/data-types/radii) are all native primitives in Rerun.  
 In Rerun these primitives are called [Components](../concepts/entity-component) and in fact a [whole bunch of them](../reference/data-types) are natively supported.
 
-Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays!  
-Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/log/points/#rerun.log.points.log_points) in this case)!
+Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.  
+Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/log/points/#rerun.log.points.log_points) in this case).
 
 `Entities & hierarchies`
 
@@ -118,9 +115,9 @@ These are [Entity Paths](../concepts/entity-component), which uniquely identify 
 
 `Batches`
 
-One final observation: notice how we're logging a whole batch of points and colors all at once here!  
-[Batches of data](../docs/concepts/batches) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.  
-You're looking at one of these dedicated features right now in fact: notice how we're only logging a single radius for all these points, yet somehow it applies to all of them!
+One final observation: notice how we're logging a whole batch of points and colors all at once here.  
+[Batches of data](../concepts/batches) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.  
+You're looking at one of these dedicated features right now in fact: notice how we're only logging a single radius for all these points, yet somehow it applies to all of them.
 
 ---
 
@@ -138,7 +135,7 @@ points = interleave(points1, points2)
 rr.log_line_segments("dna/structure/scaffolding", points, color=[128, 128, 128])
 ```
 
-Which only leaves the beads!
+Which only leaves the beads:
 ```python
 # new imports
 import numpy as np
@@ -151,7 +148,7 @@ rr.log_points("dna/structure/scaffolding/beads", beads, radii=0.06, colors=np.re
 ```
 
 Once again, although we are getting fancier and fancier with our [`numpy` incantations](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun_demo/util/#rerun_demo.util.bounce_lerp), there is nothing new here: it's all about building out `numpy` arrays and feeding them to the Rerun API.  
-You'll find this holds true for most of our [Component types](../reference/data-types)!
+You'll find this holds true for most of our [Component types](../reference/data-types).
 
 ![logging data - beads](/docs-media/logging_data5_beads.png)
 
@@ -159,7 +156,7 @@ You'll find this holds true for most of our [Component types](../reference/data-
 
 ### Introducing Time
 
-Up until this point, we've completely set aside one of the core primitives of Rerun: [Time and Timelines](../concepts/timelines)!
+Up until this point, we've completely set aside one of the core primitives of Rerun: [Time and Timelines](../concepts/timelines).
 
 Even so, if you look at your [Timeline View](../reference/viewer/timeline) right now, you'll notice that Rerun has kept track of time on your behalf anyways by memorizing when each log call occurred.
 
@@ -212,7 +209,7 @@ _Rerun always reasons in terms of "latest" data: for a given entity, it retrieve
 
 ## Transforming space
 
-There's only one thing left: our original scene had the abacus rotate along its principal axis!
+There's only one thing left: our original scene had the abacus rotate along its principal axis.
 
 As was the case with time, (hierarchical) space transformations are first class-citizens in Rerun.  
 Now it's just a matter of combining the two: we need to log the transform of the scaffolding at each timestamp.
@@ -242,15 +239,15 @@ Voila!
 
 ## Other ways of logging & visualizing data
 
-[`rr.spawn`]() is great when you're experimenting on a single machine like we did in this tutorial, but what if the process that's doing the logging doesn't have a graphical interface to begin with?
+[`rr.spawn`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.spawn) is great when you're experimenting on a single machine like we did in this tutorial, but what if the process that's doing the logging doesn't have a graphical interface to begin with?
 
 Rerun offers several solutions for these use cases.
 
 ### Logging data over the network
 
-At any time, you can start a Rerun Viewer by running `python -m rerun`. This viewer is in fact a server that's ready to accept data over TCP (it's listening on `0.0.0.0:9876` by default)!
+At any time, you can start a Rerun Viewer by running `python -m rerun`. This viewer is in fact a server that's ready to accept data over TCP (it's listening on `0.0.0.0:9876` by default).
 
-On the logger side, simply use [`rr.connect`]() instead of [`rr.spawn`]() to start sending the data over to any TCP address.
+On the logger side, simply use [`rr.connect`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.connect) instead of [`rr.spawn`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.spawn) to start sending the data over to any TCP address.
 
 Checkout `python -m rerun --help` for more options.
 
@@ -259,7 +256,7 @@ Checkout `python -m rerun --help` for more options.
 Sometimes, sending the data over the network is not an option. Maybe you'd like to share the data, attach it to a bug report, etc.
 
 Rerun has you covered:
-- Use [`rr.save`]() to save all the data logged so far to disk.
+- Use [`rr.save`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/__init__/#rerun.save) to save all the data logged so far to disk.
 - Visualize it via `python -m rerun path/to/recording.rrd`
 
 You can also save a recording (or a portion of it) as you're visualizing it, directly from the viewer.
@@ -268,6 +265,6 @@ You can also save a recording (or a portion of it) as you're visualizing it, dir
 
 ### Closing
 
-This closes our whirlwind tour of Rerun. We've barely scratched the surface of what's possible, but this should have hopefully given you plenty pointers to start experimenting!
+This closes our whirlwind tour of Rerun. We've barely scratched the surface of what's possible, but this should have hopefully given you plenty pointers to start experimenting.
 
 To go further, have a look at some of our other [examples](./examples).
