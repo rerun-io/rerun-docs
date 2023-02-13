@@ -105,13 +105,12 @@ Note that none of the names in the paths are special.
 
 
 ### View coordinates
-You can use [rerun.log_view_coordinates](https://rerun-io.github.io/rerun/docs/python/HEAD/common/transforms/#rerun.log_view_coordinates)) to set your preferred view coordinate systems.
+You can use [rerun.log_view_coordinates](https://rerun-io.github.io/rerun/docs/python/HEAD/common/transforms/#rerun.log_view_coordinates)) to set your preferred view coordinate systems, giving semantic meaning to the XYZ axes of the space.
 
-Each entity defines its own coordinate system, called a space.
-By logging view coordinates you can give semantic meaning to the XYZ axes of the space.
-This is for instance useful for camera entities ("what axis is forward?").
+This is in particular useful when taking the point of view of a given entity in the viewer. The view coordinates will then answer e.g. which axis is forward.
 
 For camera spaces this could for instance be `rr.log_view_coordinates("world/camera", xyz="RDF")` to indicate that `X=Right, Y=Down, Z=Forward`. For convenience, `log_rigid3` also takes this as an argument. Logging view coordinates helps Rerun figure out how to interpret your logged camera.
 
 For 3D world spaces it can be useful to log what the up-axis is in your coordinate system. This will help Rerun set a good default view of your 3D scene, as well as make the virtual eye interactions more natural. This can be done with `rr.log_view_coordinates("world", up="+Z", timeless=True)`.
 
+For 2D spaces and other entities the view coordinates currently do nothing.

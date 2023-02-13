@@ -3,16 +3,12 @@ title: Events and Timelines
 order: 3
 ---
 
-[TODO(#1048)](https://github.com/rerun-io/rerun/issues/1048)
-
-Timelines, time points, timeless, how they relate to events
-ordering, indexing, etc.
-
 ### Timelines
 Each piece of logged data is associated with one or more timelines.
 By default, each log is added to the `log_time` timeline, with a timestamp assigned by the SDK.
 
 In Python, use the _set time_ functions (`set_time_sequence`, `set_time_seconds`, `set_time_nanos`) to associate logs with other timestamps on other timelines. For example:
+
 ```python
 for frame in read_sensor_frames():
     rr.set_time_sequence("frame_idx", frame.idx)
@@ -20,6 +16,9 @@ for frame in read_sensor_frames():
 
     rr.log_points("sensor/points", frame.points)
 ```
+
+<!-- TODO(emilk): add Rust version -->
+
 This will add the logged points to the timelines `log_time`, `frame_idx`, and `sensor_time`.
 You can then choose which timeline you want to organize your data along in the expanded timeline view in the bottom of the Rerun Viewer.
 
