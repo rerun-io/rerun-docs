@@ -17,7 +17,7 @@ $ cargo init cube && cd cube && cargo add rerun -F glam
 
 That's all. You can now immediately start logging and visualizing data.
 
-Try running the following [example](https://github.com/rerun-io/rerun/blob/main/examples/rust/minimal/src/main.rs)!
+Try running the following [example](https://github.com/rerun-io/rerun/tree/latest/examples/rust/minimal/src/main.rs)!
 ```rust
 use rerun::demo_util::grid;
 use rerun::external::glam;
