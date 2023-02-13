@@ -22,7 +22,7 @@ This log statement is recording data about the Entity "my_point". The data will 
 In this case `point2d` and `colorrgba`.  Behind the scenes, this function is simply making records in the data store
 that these component values are associated with the "my_point" entity.
 
-#### Primitives
+### Primitives
 Later, the Space View for spatial types queries the data store for all of the entities that have a `point2d` component.
 In this case it would find the "my_point" entity. This query additionally returns the `colorrgba` component because that
 component is associated with the same entity.
@@ -33,10 +33,10 @@ how data should be displayed.
 
 The assorted logging APIs all simply set different combinations of components on some specified entity, and the
 corresponding space views look for entities with these components in the data store.  
-For more information on the different primitives and how they relate to the different components see the
+For more information on the different primitives and how they relate to components see the
 [Primitives reference](../reference/primitives.md)
 
-#### Additional Components
+### Additional Components
 Your entity could have any number of other components as well. This isn't a problem. Any components that
 aren't relevant to the scene that the space view is drawing are safely ignored. In fact, Rerun even lets you to log you
 own components -- see the [User Components](../reference/user-components.md) for more information).

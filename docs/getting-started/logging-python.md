@@ -100,8 +100,11 @@ This tiny snippet of code actually holds much more than meets the eye...
 
 `Components`
 
-The first thing you'll notice is that positions, colors, and radii are all native [Components](../concepts/entity-component) in Rerun.  
-Together they feed into the points Primitive. You find a [list of all Primitives](../reference/primitives.md) in the reference.
+Although the Rerun [Python SDK](https://rerun-io.github.io/rerun/docs/python) exposes concepts related to logging 
+primitives such as points, and lines, under the hood these primitives are
+made up of individual components like positions, colors, and radii. For
+more information on how the rerun data model works, refer to our section
+on [entities and components](../concepts/entity-component.md).
 
 Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.  
 Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/HEAD/package/rerun/log/points/#rerun.log.points.log_points) in this case).
