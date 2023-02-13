@@ -14,10 +14,9 @@ Everything you need to use Rerun is available via the [rerun-sdk](https://pypi.o
 $ pip install rerun-sdk
 ```
 
-That's all! You can now immediately start logging and visualizing data.
+That's all. You can now immediately start logging and visualizing data.
 
-<!-- TODO: make sure that commit hash is up-to-date before final PR -->
-Try running the following [example](https://github.com/rerun-io/rerun/blob/97fc327322fdccbf3fceb30c27c54ab69e5da45f/examples/minimal/main.py):
+Try running the following [example](https://github.com/rerun-io/rerun/blob/main/examples/python/minimal/main.py):
 ```python
 import rerun as rr  # NOTE: `rerun`, not `rerun-sdk`!
 import numpy as np
@@ -34,15 +33,14 @@ colors = np.array(list(zip(r.reshape(-1), g.reshape(-1), b.reshape(-1))), dtype=
 
 rr.log_points("my_points", positions=positions, colors=colors)
 ```
-<!-- TODO: s/my_points/cube_cloud -->
 
 Once everything is properly set up, you'll be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
 ![intro users - result](/docs-media/intro_users1_result.png)
 
-If you're facing any difficulties, don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose), [ask a question](https://github.com/rerun-io/rerun/discussions) or [join the Discord server](https://discord.com/invite/rerun).
+If you're facing any difficulties, don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose) or [join the Discord server](https://discord.gg/PXtCgFBSmH).
 
 ### What's next
 
-This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quick Tour](getting-started/quick-tour) and the [Viewer reference](reference/viewer/overview) for an overview of the features available.
+This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quick Tour](quick-tour) and the [Viewer reference](../reference/viewer/overview) for an overview of the features available.
 
 If you're ready to move on to more advanced topics, checkout our thorough [Getting Started guide](logging-python) where we will explore the core concepts that make Rerun tick and log our first non-trivial dataset.
