@@ -16,7 +16,7 @@ $ pip install rerun-sdk
 
 That's all. You can now immediately start logging and visualizing data.
 
-Try running the following [example](https://github.com/rerun-io/rerun/blob/main/examples/python/minimal/main.py):
+Try running the following [example](https://github.com/rerun-io/rerun/tree/latest/examples/python/minimal/main.py):
 ```python
 import rerun as rr  # NOTE: `rerun`, not `rerun-sdk`!
 import numpy as np

@@ -13,7 +13,7 @@ The following examples serve to illustrate various uses of the Rerun logging SDK
 
 ### Minimal
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/minimal/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/minimal/src/main.rs)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/minimal/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/minimal/src/main.rs)
 
 The simplest example of how to use Rerun.
 
@@ -24,7 +24,7 @@ python examples/python/minimal/main.py
 
 ### API Demo
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/api_demo/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/api_demo/src/main.rs)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/api_demo/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/api_demo/src/main.rs)
 
 ![api_demo example>](/docs-media/api_demo1.png)
 
@@ -39,7 +39,7 @@ python examples/python/api_demo/main.py
 
 ### Car
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/car/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/car/main.py)
 
 ![car example>](/docs-media/car1.png)
 
@@ -53,7 +53,7 @@ python examples/python/car/main.py
 
 ### Clock
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/clock/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/clock/main.py)
 
 ![clock example>](/docs-media/clock1.png)
 
@@ -66,7 +66,7 @@ python examples/python/clock/main.py
 
 ### Multiprocessing
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/multiprocessing/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/multiprocessing/main.py)
 
 Demonstrates how rerun can work with the python `multiprocessing` library.
 
@@ -77,7 +77,7 @@ python examples/python/multiprocessing/main.py
 
 ### Multithreading
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/multithreading/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/multithreading/main.py)
 
 Demonstration of logging to Rerun from multiple threads.
 
@@ -88,7 +88,7 @@ python examples/python/multithreading/main.py
 
 ### Plots
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/plots/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/plots/main.py)
 
 ![plots example>](/docs-media/plots1.png)
 
@@ -101,7 +101,7 @@ python examples/python/plots/main.py
 
 ### Text Logging
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/text_logging/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/text_logging/main.py)
 
 ![text_logging example>](/docs-media/text_logging1.png)
 
@@ -120,7 +120,7 @@ The following examples illustrate using the Rerun logging SDK with potential rea
 
 ### COLMAP
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/colmap/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/colmap/main.py)
 
 ![colmap example>](/docs-media/colmap1.png)
 
@@ -139,7 +139,7 @@ python examples/python/colmap/main.py
 
 ### Deep SDF
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/deep_sdf/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/deep_sdf/main.py)
 
 ![deep_sdf example>](/docs-media/deep_sdf1.png)
 
@@ -153,7 +153,7 @@ python examples/python/deep_sdf/main.py
 
 ### Dicom
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/dicom/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/dicom/main.py)
 
 ![dicom example>](/docs-media/dicom1.png)
 
@@ -167,7 +167,7 @@ python examples/python/dicom/main.py
 
 ### MP Pose
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/mp_pose/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/mp_pose/main.py)
 
 ![mp_pose example>](/docs-media/mp_pose1.png)
 
@@ -181,7 +181,7 @@ python examples/python/mp_pose/main.py
 
 ### NYUD
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/nyud/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/nyud/main.py)
 
 ![nyud example>](/docs-media/nyud1.png)
 
@@ -195,7 +195,7 @@ python examples/python/nyud/main.py
 
 ### Objectron
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/objectron/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/objectron/src/main.rs)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/objectron/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/objectron/src/main.rs)
 
 ![objectron example>](/docs-media/objectron1.png)
 
@@ -211,7 +211,7 @@ python examples/python/objectron/main.py
 
 ### Raw Mesh
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/raw_mesh/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/main/examples/rust/raw_mesh/src/main.rs)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/raw_mesh/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/raw_mesh/src/main.rs)
 
 ![raw_mesh example>](/docs-media/raw_mesh1.png)
 
@@ -225,7 +225,7 @@ python examples/python/raw_mesh/main.py
 
 ### Stable Diffusion
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/stable_diffusion/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/stable_diffusion/main.py)
 
 ![stable_diffusion example>](/docs-media/stable_diffusion1.png)
 
@@ -241,7 +241,7 @@ python examples/python/stable_diffusion/main.py
 
 ### Tracking HF OpenCV
 
-[Python](https://github.com/rerun-io/rerun/tree/main/examples/python/tracking_hf_opencv/main.py)
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/tracking_hf_opencv/main.py)
 
 ![tracking_hf_opencv example>](/docs-media/tracking_hf_opencv1.png)
 
