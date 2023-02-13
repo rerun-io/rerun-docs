@@ -13,7 +13,7 @@ Licensing is permissive, the project is dual licensed under [MIT](https://github
 
 Under the hood
 --------------
-The software is almost entirely written in [Rust](https://www.rust-lang.org/), modern, fast and safe programming language.
+The software is almost entirely written in [Rust](https://www.rust-lang.org/), a modern, fast and safe programming language.
 If you're curious about why we love Rust, checkout our [blog](https://www.rerun.io/blog/why-rust), where we talk about some of the reasons.
 
 We depend on a number of third party libraries, most notably:
