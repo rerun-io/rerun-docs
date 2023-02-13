@@ -7,7 +7,7 @@ To learn more about Rerun, the company, visit our Website at [https://www.rerun.
 
 Code & License
 --------------
-The Rerun SDK & Viewer is open source, all code is available on [Github](https://github.com/rerun-io/rerun/) and open for contributions.
+The Rerun SDK & Viewer are open source, all code is available on [Github](https://github.com/rerun-io/rerun/) and open for contributions.
 Licensing is permissive, the project is dual licensed under [MIT](https://github.com/rerun-io/rerun/blob/latest/LICENSE-MIT) & [Apache 2.0](https://github.com/rerun-io/rerun/blob/latest/LICENSE-APACHE).
 
 
