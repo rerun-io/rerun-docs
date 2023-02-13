@@ -17,9 +17,8 @@ Rerun is made up of two main components:
 
 ## Learning About Rerun
  * If this is your first time using Rerun, we recommend starting with the [Quick Tour](getting-started/quick-tour), and then checking out some of the [examples](getting-started/examples).
- * After that the [How To Guides](how-to-guides) cover common use-cases of the viewer and APIs
  * The [Concepts](concept) section will explain how to think about the Rerun architecture and data-model
- * And lastly, the [Reference](reference) covers specific data-types, Configuration and API details.
+ * And lastly, the [Reference](reference) covers the viewer ui, specific data-types, Configuration and API details.
 
 ## Can't find what you're looking for?
  * Drop in to the [Rerun Community Discord](https://discord.gg/xwcxHUjD35)
