@@ -1,0 +1,1 @@
+let mut session = rerun::Session::with_default_enabled(false);
