@@ -36,10 +36,17 @@ corresponding space views look for entities with these components in the data st
 For more information on the different primitives and how they relate to components see the
 [Primitives reference](../reference/primitives.md)
 
-### Additional Components
+### User Components
 Your entity could have any number of other components as well. This isn't a problem. Any components that
 aren't relevant to the scene that the space view is drawing are safely ignored. In fact, Rerun even lets you to log you
-own components -- see the [User Components](../reference/user-components.md) for more information).
+own components.
+
+In Python this is done via [log_extension_components](https://rerun-io.github.io/rerun/docs/python/latest/common/extension_components/#rerun.log_extension_components)
+, whereas in Rust you implement the [Component](https://docs.rs/rerun/latest/rerun/trait.Component.html) trait.
+
+code-example: user-components
+
+
 
 ### Empty Entities
 An Entity, without Components, is nothing more than an identity (represented by its Entity
