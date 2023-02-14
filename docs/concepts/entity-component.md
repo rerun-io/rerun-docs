@@ -1,6 +1,6 @@
 ---
 title: Entities and Components
-order: 0
+order: 1
 ---
 
 ## Data model
