@@ -43,7 +43,7 @@ If all goes well, the output should end in a line that looks like:
 ```bash
 Successfully installed numpy-1.24.2 pyarrow-10.0.1 rerun-sdk-0.2.0
 ```
-in which case you're ready to get started.
+in which case you are ready to get started.
 
 If this installation does not work in your environment, please file an
 [issue](https://github.com/rerun-io/rerun/issues/new/choose) and provide details about your environment and the output
@@ -59,7 +59,7 @@ To start the demo, simply run:
 $ python -m rerun_demo
 ```
 
-*Note: If this is your first time launching rerun you will see a notification about the Rerun anonymous usage data
+*Note: If this is your first time launching Rerun you will see a notification about the Rerun anonymous data usage
 policy. Rerun collects anonymous usage data to help improve the SDK, though you may choose to opt out if you would
 like.*
 
@@ -104,13 +104,13 @@ Feel free to move the views around until you are happy with the layout.
 
 ## Exploring data
 The space views are where you can see the data that was actually logged. This scene has streams of data for 6 different
-entities:
-* [images]() that were captured from a camera.
-* [2d keypoints]() that were detected and tracked in those images.
-* a [camera]() model that describes the relationship between 2D and 3D space.
-* [3d points]() that were computed by the COLMAP slam pipeline.
-* A sequence of [transforms]() describing the 3D location of the camera in space.
-* A [scalar]() error metric that was computed by the algorithm for each frame.
+primitives, also known as [entities](../concepts/entity-component.md):
+* [images](../reference/primitives#tensors--images) that were captured from a camera.
+* [2d keypoints](../reference/primitives#point-2d) that were detected and tracked in those images.
+* a [camera](../reference/primitives#pinhole) model that describes the relationship between 2D and 3D space.
+* [3d points](../reference/primitives#point-3d) that were computed by the COLMAP slam pipeline.
+* A sequence of [transforms](../reference/primitives#rigid3d) describing the 3D location of the camera in space.
+* A [scalar](../reference/primitives#scalar) error metric that was computed by the algorithm for each frame.
 
 ### Hover and selection
 You can find out more about these entities by hovering over them in the different views. Hovering will bring up a
@@ -126,7 +126,7 @@ Try each of the following:
 
 Note that the views are actually connected. As you hover over points in the `/ (Spatial)` view you will see information
 about the depth of the projection in the image view. Conversely as you hover over pixels in the `image` you will see the
-corresponding ray projected into the `/ (Spatial)` scene. See the section on
+corresponding ray projected into the `/ (Spatial)` view. See the section on
 [Spaces and Transforms](../concepts/spaces-and-transforms.md) for more information on how this linking works.
 
 ### Rotate, zoom, and pan
@@ -140,14 +140,14 @@ over this icon to find out more information about the specific view.
 Try each of the following:
  * Drag the camera image and zoom in on one of the stickers
  * Rotate the 3D point cloud
- * Right-click and drag a square to see a zoomed-in region of the plot
+ * Right-click and drag a rectangle to see a zoomed-in region of the plot
  * Double-click in each of the views to return them to default
 
 ## Navigating the timeline
-So far, we have only been exploring data at a single point in time. However, if you look at the Timeline panel at the
+So far, we have only been exploring data from a single point in time. However, if you look at the Timeline panel at the
 bottom of the window, you will see a series of white dots. Each of those dots represents a piece of data that was logged
 at a different point in time. In fact, if you hover over the dot, the context popup will give you more information about
-the specific thing that was logged at that point in time.
+the specific thing that was logged.
 
 ### Changing the time slider
 To change the position on the timeline, simply grab the time indicator and pull it to the point in time you are
@@ -156,13 +156,19 @@ playback the Rerun data as you might with a video file.
 
 ![Adjust Time Slider](/docs-media/quickstart6_timeline.png)
 
+Try out the following:
+  * Use the arrow buttons (or arrow keys on your keyboard) to step forward and backwards by a single frame
+  * Click play to watch the data update on its own
+  * Hit space bar to stop and start the playback
+  * Hold shift and drag in the timeline to select a region
+  * Toggle the loop button to playback on a loop of either the whole recording or just the selection
+
 ### Selecting different timelines
 The current view of timeline is showing the data organized by the *frame number* at which it was logged. Using frame
 numbers can be a helpful way to synchronize things that may not have been logged at precisely the same time. However,
 it's possible to also view the data in the specific order that it was logged.  Click on the drop-down that says "frame"
-and switch it to "log_time." Just like with the space views, you can zoom in and out on the timeline itself, also using
-ctrl+scrollwheel (notice the timeline also has a "?" if you want more information). When you zoom in on this panel
-you can see that these events were all logged at slightly different times.
+and switch it to "log_time." If you zoom in on the timeline (using ctrl+scrollwheel), you can see that these events were
+all logged at slightly different times. 
 
 ![Log Time](/docs-media/quickstart7_log_time.png)
 
@@ -172,21 +178,22 @@ to the "frame" timeline and double-click the timeline panel to reset it to the d
 One thing to notice is there is a gap in the timeline in the "frame" view. This dataset is actually missing a few
 frames, and the timeline view of frames makes this easy to spot. This highlights the importance of applying meaningful
 timestamps to your data as you log it. You also aren't limited to frame and log_time. Rerun lets you define your own
-timelines however you would like. You can read more on [here](../concepts/timelines.md).*
+timelines however you would like. You can read more about timelines [here](../concepts/timelines.md).
 
 ## Configuring views
 Views in Rerun are configured by [Blueprints](../reference/viewer/blueprint.md). We will now use blueprints to adjust
 both an individual entity as well as the contents of a space view itself.
 
 ### Adjusting entity properties
-First, click to select the entity named `points` in the  `/ (Spatial)` in the view. In addition to the information about
-the data associated with that entity, you will see a "Blueprint" section.
+First, click to select the entity named `points` in the  `/ (Spatial)` view in the Blueprint panel. Now, look and the
+selection panel -- in addition to the information about the data associated with that entity, you will see a "Blueprint"
+section.
 
 Try toggling "visible" on and off and you will see that the points disappear and reappear. Next, click the control
-labeled "visible history" and drag it to the right to increase the value. As you drag you will see more points show up
-in the view. This is a collection of all the points that were recorded over multiple frames. Because the points are
-logged in 3d space, aggregating them gives us a better view of the car. Leave the visible history with a value of 50 --
-which says to include all the points from the last 50 frames.
+labeled "visible history" and drag it to the right to increase the value. As you drag farther you will see more points
+show up in the view. This is making historical points, from farther back in time visible within the time point of this
+view. Because the points are logged in stationary 3d space, aggregating them here gives us a more complete view of the
+car. Leave the visible history with a value of 50.
 
 ![Visible History](/docs-media/quickstart8_history.png)
 
@@ -197,10 +204,10 @@ top of the selection panel you will see a text box labeled "Space view:". Go ahe
 
 Like with the entity selection, you will see a Blueprint section within the Selection panel. This time, click on the
 button labeled "Add/Remove Entities". This pop-up shows all of the entities that were logged as part of this session.
-You can click on the "+" or "-" buttons to add or remove entities from the scene. Go ahead and remove the entity called
-"keypoints" from the scene, and then add them back again. Unlike hiding an entity, you will notice that as you remove
-entities they completely disappear from the blueprint panel on the left. Entities that are incompatible with the 
-selected view will be greyed out. For example, you cannot add a scalar to a spatial scene.
+You can click on the "+" or "-" buttons to add or remove entities from this view. Go ahead and remove the entity called
+"keypoints," and then add them back again. Unlike hiding an entity, you will notice that as you remove entities they
+completely disappear from the blueprint panel on the left. Entities that are incompatible with the selected view will be
+greyed out. For example, you cannot add a scalar to a spatial scene.
 
 ![Add/Remove Entities](/docs-media/quickstart9_add_remove.png)
 
@@ -214,10 +221,11 @@ need to choose a root for your new space. This is the space that will act as you
 After creating this new view, your view layout might be feeling a little cluttered. You can quickly hide views you're
 not using from the blueprint panel by hovering over the view and then clicking the icon that looks like an eye. Go ahead
 and hide the `image` and `avg_reproj_err` views, and collapse the expanded timeline panel using the button in the upper
-right corner. Note that even with the timeline collapsed you still git minimized timeline controls.
+right corner. Note that even with the timeline collapsed you still have access to timeline controls, including a slider.
 
 ![Toggle Vis](/docs-media/quickstart11_toggle_vis.png)
 
+### Reusing what you've learned
 Finally, use what we covered in the previous section to change the contents of this view. Select the new `camera` view,
 then choose "Add/remove entities." Remove the 2d "keypoints" and add in the 3d "points." Note that these points do not
 have visible history turned on -- that's because the the blueprint is part of the view and not part of the entity.
@@ -226,25 +234,25 @@ history as well. When you are done, your view should look like this:
 
 ![Camera View](/docs-media/quickstart12_cameraview.png)
 
-Now move the slider back and forth and see what happens in the scene. Even though they are both views of the same camera
-and point entities, they behave quite differently. On the top the camera moves relative to the car, while on the bottom
-the car moves relative to the camera. This is because the new views have *different* space roots, and Rerun uses the
-transform system to transform system to transform or project all data into the space root for the given view.
+Now move the slider back and forth and see what happens. Even though they are both views of the same camera and point
+entities, they behave quite differently. On the top the camera moves relative to the car, while on the bottom the car
+moves relative to the camera. This is because the new views have *different* space roots, and Rerun uses the transform
+system to transform system to transform or project all data into the space root for the given view.
 
 ## Conclusion
 
 That brings us to the end of this quickstart. To recap, you have learned how to:
-- install the `rerun-sdk` pypi package.
-- run the rerun Viewer using the `rerun_demo` helper.
-- work with the [Blueprint](../reference/viewer/blueprint.md), [Selection](../reference/viewer/selection.md) and [Timeline](../reference/viewer/timeline.md) panels.
-- rearrange space view layouts
-- explore data through hover and selection
-- change the time selection
-- switch between different timelines
-- configure entity blueprint properties
-- add and remove entities from views
-- create and configure new views
-- and some basics of how transforms work
+- Install the `rerun-sdk` pypi package.
+- Run the Rerun Viewer using the `rerun_demo` helper.
+- Work with the [Blueprint](../reference/viewer/blueprint.md), [Selection](../reference/viewer/selection.md) and [Timeline](../reference/viewer/timeline.md) panels.
+- Rearrange space view layouts.
+- Explore data through hover and selection.
+- Change the time selection.
+- Switch between different timelines.
+- Configure entity blueprint properties.
+- Add and remove entities from views.
+- Create and configure new views.
+- And some basics of how transforms work.
 
 Again, if you ran into any issues following this guide, please don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose).
 
