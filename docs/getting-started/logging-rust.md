@@ -155,10 +155,8 @@ Good news is: once you've digested all of the above, logging any other Component
 
 We can represent the scaffolding using a batch of 3D line segments:
 ```rust
-let scaffolding = points1
-    .iter()
-    .interleave(points2.iter())
-    .copied()
+let all_points = points1.iter().interleave(points2.iter()).copied();
+let scaffolding = all_points
     .map(Vec3D::from)
     .chunks(2)
     .into_iter()
