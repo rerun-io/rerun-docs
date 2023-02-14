@@ -93,6 +93,8 @@ There are other means of sending data to a viewer as we'll see at the end of thi
 The core structure of our DNA looking shape can easily be described using two point clouds shaped like spirals.  
 Add the following to your `run` callback:
 ```rust
+const NUM_POINTS: usize = 100;
+
 let (points1, colors1) = color_spiral(NUM_POINTS, 2.0, 0.02, 0.0, 0.1);
 let (points2, colors2) = color_spiral(NUM_POINTS, 2.0, 0.02, TAU * 0.5, 0.1);
 
@@ -246,6 +248,7 @@ for i in 0..400 {
         .with_component(&colors)?
         .with_splat(Radius(0.06))?
         .send(&mut session)?;
+}
 ```
 
 First we [declare a name and type](https://docs.rs/rerun/latest/rerun/time/struct.Timeline.html#new) for our `Timeline`, then we pass it to [`MsgSender::with_time`](https://docs.rs/rerun/latest/rerun/struct.MsgSender.html#with_time) along with a timestamp for our data.  
