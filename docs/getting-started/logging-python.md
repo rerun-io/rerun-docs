@@ -19,6 +19,8 @@ At any time, you can checkout the complete code listing for this tutorial [here]
 
 We assume you have working Python and `rerun-sdk` installations. If not, check out the [setup page](python).
 
+For this tutorial you will also need to `pip install numpy scipy`.
+
 ## Initializing the SDK
 
 Start by opening your editor of choice and creating a new file called `dna_example.py`.
