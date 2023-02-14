@@ -3,13 +3,11 @@ title: Getting Started
 order: 0
 ---
 
-Rerun currently works with both [Python](getting-started/python) and [Rust](getting-started/rust).
-If you are looking for other language support, please check out the TODO(jleibs): Link to github ticket
-for the latest status.
+Rerun currently works with both [Python](getting-started/logging-python) and [Rust](getting-started/logging-rust).
+If you are looking for other language support, search for an open issue on [Github](https://github.com/rerun-io/rerun/issues) to find the status. If you can't find an issue for your language, [open one](https://github.com/rerun-io/rerun/issues/new/choose).
 
-Regardless of what language you plan to use with Rerun, the best way to get started is the
-[Quick Tour](getting-started/quick-tour). 
+The fastest way to get started is with a quick start guide for [Python](getting-started/python.md) or [Rust](getting-started/rust.md).
 
-Many of our [examples](getting-started/examples) currently utilize python. Even for
+Many of our [examples](getting-started/examples) currently utilize Python. Even for
 Rust users, these examples are a good way to get a sense of how Rerun works and how you might use it in your own
 project.
