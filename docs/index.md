@@ -3,24 +3,31 @@ title: Documentation
 order: 0
 ---
 
-TODO(jleibs): Tracking ticket for [remaining documentation tasks](https://github.com/rerun-io/rerun/issues/949)
+## Learn how to use Rerun to build CV systems faster
 
-## [Rerun](getting-started/what-is-rerun) is a visualization toolbox for real-world AI
-Rerun lets you log images, point clouds, and other rich data as easily as you log text. View data live or record it for
-later analysis. Utilize data-specific views to get a deeper understanding of your algorithms and application. Explore the entire lifetime of your application by navigating through time.
+Rerun is built to help developers debug and understand computer vision and robotics systems
+by quickly visualizing internal state and data.
 
-TODO(jleibs): Splash image
+- Jump right in with the a quick start for [Python](getting-started/python.md) or [Rust](getting-started/rust.md).
+- Follow it up with the [Viewer Walkthrough](getting-started/viewer-walkthrough.md) and a tutorial on logging data with [Python](getting-started/logging-python) or [Rust](getting-started/logging-rust).
+- Dive deeper in the [Concepts](concept) section.
+- The [Reference](reference) covers specific primitives, configuration and API details.
 
-The Rerun SDK is made up of two main components:
- - The Rerun API lets you log data from [python](getting-started/python) or [rust](getting-started/rust)
- - The [Rerun Viewer](reference/viewer/overview) lets you view data live or from a recording.
+## What is Rerun?
 
-## Learning About Rerun
- * If this is your first time using Rerun, we recommend starting with the [Quick Tour](getting-started/quick-tour)
-    and then continue with our introduction for [Python](getting-started/python.md) or [Rust](getting-started/rust.md)
- * The [Concepts](concept) section will explain how to think about the Rerun architecture and data-model
- * And lastly, the [Reference](reference) covers specific primitives, configuration and API details.
+Rerun is a tool for logging and visually exploring computer vision and robotics data over time. It's used to debug and understand the internal state and data of your systems with minimal code.
+Over time, Rerun will evolve from a tool to a fully customizable toolkit,
+where you’ll have control over everything from layout to data transforms and shaders.
+You’ll even be able to embed single views inside other applications.
+
+It's made up of the Rerun SDK and the Rerun Viewer
+
+- The Rerun SDK lets you log data from [Python](getting-started/python) or [Rust](getting-started/rust)
+- The [Rerun Viewer](reference/viewer/overview) lets you view data live or from a recording.
+
+![overview](/docs-media/docs_overview.png)
 
 ## Can't find what you're looking for?
- * Drop in to the [Rerun Community Discord](https://discord.gg/xwcxHUjD35)
- * Or [submit an issue](https://github.com/rerun-io/rerun/issues) in the Rerun github project
+
+- Drop in to the [Rerun Community Discord](https://discord.gg/xwcxHUjD35)
+- Or [submit an issue](https://github.com/rerun-io/rerun/issues) in the Rerun github project
