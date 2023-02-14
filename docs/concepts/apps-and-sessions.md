@@ -6,7 +6,7 @@ order: 8
 ## Application ID
 When you initialize rerun with [`rr.init`](https://ref.rerun.io/docs/python/v0.2.0/common/initialization/#rerun.init) you need to set an Application ID.
 
-Your Rerun Viewer will store the blueprint (layout) based on this Application ID.
+Your Rerun Viewer will store the Blueprint based on this Application ID.
 This means that you can run your app and set up the viewer to your liking,
 and then when you run the app again the Rerun Viewer will remember how you set up your Space Views etc.
 
