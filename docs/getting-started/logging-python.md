@@ -107,7 +107,7 @@ more information on how the rerun data model works, refer to our section
 on [entities and components](../concepts/entity-component.md).
 
 Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.  
-Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun/log/points/#rerun.log.points.log_points) in this case).
+Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_points) in this case).
 
 `Entities & hierarchies`
 
@@ -186,7 +186,7 @@ for i in range(400):
     rr.log_points("dna/structure/scaffolding/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
 ```
 
-A call to [`set_time_seconds`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun/__init__/#rerun.set_time_seconds) will create our new `Timeline` and make sure that any logging calls that follow gets assigned that time.
+A call to [`set_time_seconds`](https://rerun-io.github.io/rerun/docs/python/latest/common/time/#rerun.set_time_seconds) will create our new `Timeline` and make sure that any logging calls that follow gets assigned that time.
 
 ⚠️  If you run this code as is, the result will be.. surprising: the beads are animating as expected, but everything we've logged until that point is gone! ⚠️ 
 
@@ -250,7 +250,7 @@ Rerun offers several solutions for these use cases.
 
 At any time, you can start a Rerun Viewer by running `python -m rerun`. This viewer is in fact a server that's ready to accept data over TCP (it's listening on `0.0.0.0:9876` by default).
 
-On the logger side, simply use [`rr.connect`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun/__init__/#rerun.connect) instead of [`rr.spawn`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun/__init__/#rerun.spawn) to start sending the data over to any TCP address.
+On the logger side, simply use [`rr.connect`](https://rerun-io.github.io/rerun/docs/python/latest/common/initialization/#rerun.connect) instead of [`rr.spawn`](https://rerun-io.github.io/rerun/docs/python/latest/common/initialization/#rerun.spawn) to start sending the data over to any TCP address.
 
 Checkout `python -m rerun --help` for more options.
 
