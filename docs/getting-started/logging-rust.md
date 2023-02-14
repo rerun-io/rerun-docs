@@ -23,7 +23,7 @@ We assume you have a working Rust environment and have started a new project wit
 For this example in particular, we're going to need all of these:
 ```toml
 [dependencies]
-rerun = { workspace = true, features = ["glam"] }
+rerun = "0.2.0"
 itertools = "0.10"
 rand = "0.8"
 ```
