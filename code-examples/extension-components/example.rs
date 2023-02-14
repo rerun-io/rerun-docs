@@ -13,7 +13,8 @@ impl rerun::Component for MyComponent {
 
 // Then you can log it just like built-in components.
 fn log_custom(session: &mut Session) -> Result<(), rerun::MsgSenderError> {
-    MsgSender::new("my_points")
+    MsgSender::new("your/entity/path")
         .with_splat(MyComponent(0.9))?
         .send(session)
 }
+c
