@@ -54,6 +54,6 @@ If you're facing any difficulties, don't hesitate to [open an issue](https://git
 
 ### What's next
 
-This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quick Tour](quick-tour) and the [Viewer reference](../reference/viewer/overview) for an overview of the features available.
+This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quickstart](quickstart) and the [Viewer reference](../reference/viewer/overview) for an overview of the features available.
 
 If you're ready to move on to more advanced topics, checkout our thorough [Getting Started guide](logging-rust) where we will explore the core concepts that make Rerun tick and log our first non-trivial dataset.
