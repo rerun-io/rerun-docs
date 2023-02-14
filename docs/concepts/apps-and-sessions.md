@@ -1,8 +1,21 @@
 ---
-title: Apps and Sessions
+title: Application IDs and Recording IDs
 order: 8
 ---
 
-[TODO(#1048)](https://github.com/rerun-io/rerun/issues/1048)
+## Application ID
+When you initialize rerun with [`rr.init`](https://ref.rerun.io/docs/python/v0.2.0/common/initialization/#rerun.init) you need to set an Application ID.
 
-Information about the IDs, how they are set, and what they do
+Your Rerun Viewer will store the blueprint (layout) based on this Application ID.
+This means that you can run your app and set up the viewer to your liking,
+and then when you run the app again the Rerun Viewer will remember how you set up your Space Views etc.
+
+## Recording ID
+Each time you start logging using Rerun, a random _Recording ID_ is generated.
+For instance, each `.rrd` file will have a unique Recording ID.
+
+This means you can have multiple recordings with different Recording IDs sharing the same application ID.
+
+If you want to log from multiple processes and want all the log data to show up
+together in the viewer, you need to make sure all processes use the same Recording ID.
+You can use [`rr.set_recording_id`](https://ref.rerun.io/docs/python/v0.2.0/common/viewer_control/#rerun.set_recording_id) for this.
