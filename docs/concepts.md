@@ -3,4 +3,4 @@ title: Concepts
 order: 2
 ---
 
-This section contains guides on concepts that help you understand Rerun deeper.
+For a deeper understanding of how your logging data can be organized and visualized, it is useful to learn about the underlying concepts in Rerun.

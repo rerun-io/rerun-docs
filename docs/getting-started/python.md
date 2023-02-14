@@ -34,6 +34,8 @@ colors = np.array(list(zip(r.reshape(-1), g.reshape(-1), b.reshape(-1))), dtype=
 rr.log_points("my_points", positions=positions, colors=colors)
 ```
 
+(for this example you need to `pip install numpy`)
+
 Once everything is properly set up, you'll be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
 ![intro users - result](/docs-media/intro_users1_result.png)
 

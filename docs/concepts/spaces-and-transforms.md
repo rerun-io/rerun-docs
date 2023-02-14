@@ -3,7 +3,7 @@ title: Spaces and Transforms
 order: 2
 ---
 
-### The Definition of Spaces
+## The Definition of Spaces
 
 Every Entity in Rerun exists in some *Space.* This is at the core of how Rerun organizes the visualizations of the data
 that you have logged.  In the [Rerun Viewer](../reference/viewer.md) you view data by configuring a "Space View," which is a view
@@ -56,7 +56,7 @@ from `world/robot/observed_features` are not directly comparable. If you were to
 coordinate system the results would be meaningless. Fortunately, Rerun can still put these entities in the same Space View because it is able to automatically transform data between different spaces.
 
 
-### Space Transformations
+## Space Transformations
 
 In order to correctly display data from different Spaces in the same view, Rerun uses the information from logged
 transforms. Since most transforms are invertible, Rerun can usually transform data from a parent space to a child space
@@ -78,7 +78,7 @@ In the future, Rerun will be adding support for additional types of transforms.
  - [#349: Log 2D -> 2D transformations in the transform hierarchy](https://github.com/rerun-io/rerun/issues/349)
 
 
-### Examples
+## Examples
 
 Say you have a 3D world with two cameras with known extrinsics (pose) and intrinsics (pinhole model and resolution). You want to log some things in the shared 3D space, and also log each camera image and some detection in these images.
 
@@ -104,7 +104,7 @@ Rerun will from this understand how the `world` space and the two image spaces (
 Note that none of the names in the paths are special.
 
 
-### View coordinates
+## View coordinates
 You can use [rerun.log_view_coordinates](https://rerun-io.github.io/rerun/docs/python/latest/common/transforms/#rerun.log_view_coordinates)) to set your preferred view coordinate systems, giving semantic meaning to the XYZ axes of the space.
 
 This is in particular useful when taking the point of view of a given entity in the viewer. The view coordinates will then answer e.g. which axis is forward.

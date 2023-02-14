@@ -22,16 +22,16 @@ Only one Space view can be maximized at a time.
 Categories of Space Views
 ---------------------------
 Rerun distinguishes various categories of Space Views:
-* ![3d icon](/docs-media/spaceview_3d.png) Spatial  
-  Generic 2D & 3D data.
-* ![tensor icon](/docs-media/spaceview_tensor.png) Tensor  
-  Tensor view with support for arbitrary dimensionality.
-* ![text icon](/docs-media/spaceview_text.png) Text log  
-  Text over time.
-* ![scatterplot icon](/docs-media/spaceview_scatterplot.png) Time series plot  
-  Scalars over time.
-* ![histogram icon](/docs-media/spaceview_histogram.png) Bar chart  
-  Bar-chart lots made from 1D tensor data.
+* Spatial
+  * Generic 2D & 3D data.
+* Tensor
+  * Tensor view with support for arbitrary dimensionality.
+* Text log
+  * Text over time.
+* Time series plot
+  * Scalars over time.
+* Bar chart
+  * Bar-chart lots made from 1D tensor data.
 
 Which category is used is determined upon creation of a Space View.
 

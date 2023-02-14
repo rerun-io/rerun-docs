@@ -3,4 +3,4 @@ title: Reference
 order: 2
 ---
 
-This section contains references guides for using Rerun.
+The reference docs details how to use the logging APIs and the viewer.
