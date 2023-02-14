@@ -197,7 +197,7 @@ MsgSender::new("dna/structure/scaffolding/beads")
     .send(&mut session)?;
 ```
 
-Once again, although we are getting fancier and fancier with our [iterator mappings](), there is nothing new here: it's all about building out vectors of [`Component`s](https://docs.rs/rerun/latest/rerun/struct.Component.html) and feeding them to the Rerun API.
+Once again, although we are getting fancier and fancier with our iterator mappings, there is nothing new here: it's all about building out vectors of [`Component`s](https://docs.rs/rerun/latest/rerun/struct.Component.html) and feeding them to the Rerun API.
 
 ![logging data - beads](/docs-media/logging_data5_beads.png)
 
