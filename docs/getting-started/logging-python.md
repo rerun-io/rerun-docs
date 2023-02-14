@@ -3,7 +3,7 @@ title: Logging Data in Python
 order: 4
 ---
 
-In this section we'll build out, log and visualize our first non-trivial dataset, putting many of Rerun's core concepts and features to use.
+In this section we'll log and visualize our first non-trivial dataset, putting many of Rerun's core concepts and features to use.
 
 In a few lines of code, we'll go from a blank sheet to something you don't see everyday: an animated, interactive, DNA-shaped abacus:  
 <video width="100%" autoplay loop muted controls>
@@ -92,7 +92,7 @@ Note that if the viewer was still running, Rerun will simply connect to this exi
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._  
-_Checkout the [viewer reference](../reference/viewer/overview) for a complete tour._
+_Checkout the [Quickstart](quickstart) and [viewer reference](../reference/viewer/overview) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
@@ -100,11 +100,7 @@ This tiny snippet of code actually holds much more than meets the eye...
 
 `Components`
 
-Although the Rerun [Python SDK](https://rerun-io.github.io/rerun/docs/python) exposes concepts related to logging 
-primitives such as points, and lines, under the hood these primitives are
-made up of individual components like positions, colors, and radii. For
-more information on how the rerun data model works, refer to our section
-on [entities and components](../concepts/entity-component.md).
+Although the Rerun [Python SDK](https://rerun-io.github.io/rerun/docs/python) exposes concepts related to logging primitives such as points, and lines, under the hood these primitives are made up of individual components like positions, colors, and radii. For more information on how the rerun data model works, refer to our section on [entities and components](../concepts/entity-component.md).
 
 Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.  
 Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_points) in this case).

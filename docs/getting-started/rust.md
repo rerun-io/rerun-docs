@@ -12,7 +12,7 @@ We assume you have a working Rust 1.67+ installation on your system.
 Everything you need to use Rerun is available via the [rerun](https://crates.io/crates/rerun) crate.  
 Let's try it out in a brand new Rust project:
 ```bash
-$ cargo init cube && cd cube && cargo add rerun -F glam
+$ cargo init cube && cd cube && cargo add rerun
 ```
 
 That's all. You can now immediately start logging and visualizing data.
