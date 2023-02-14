@@ -1,6 +1,6 @@
 ---
-title: For Rust Users
-order: 3
+title: Rust Quick Start
+order: 2
 ---
 
 ### Prerequisites
@@ -9,7 +9,7 @@ We assume you have a working Rust 1.67+ installation on your system.
 
 ### Installing Rerun
 
-Everything you need to use Rerun is available via the [rerun](https://crates.io/crates/rerun) crate.  
+Everything you need to use Rerun is available via the [rerun](https://crates.io/crates/rerun) crate.
 Let's try it out in a brand new Rust project:
 ```bash
 $ cargo init cube && cd cube && cargo add rerun

@@ -1,6 +1,6 @@
 ---
 title: Viewer Walkthrough
-order: 4
+order: 3
 ---
 
 ## Coming Soon...
