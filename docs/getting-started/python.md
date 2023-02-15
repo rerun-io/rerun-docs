@@ -57,13 +57,11 @@ import numpy as np
 
 rr.init("my data", spawn=True)
 
-positions = np.vstack([np.zeros(10),
-                       np.zeros(10),
-                       np.linspace(-10,10,10)]).T
+positions = np.zeros((10, 3))
+positions[:,2] = np.linspace(-10,10,10)
 
-colors = np.vstack([np.linspace(0,255,10),
-                    np.zeros(10),
-                    np.zeros(10)]).astype(np.uint8).T
+colors = np.zeros((10,3), dtype=np.uint8)
+colors[:,0] = np.linspace(0,255,10)
 
 rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 ```
@@ -79,10 +77,14 @@ take any Nx2 or Nx3 numpy array as a collection of positions.
 Feel free to modify the code to log a different set of points. If you want to generate the colored cube from the
 build-in demo, you can use the following numpy incantation.
 ```python
-positions = np.vstack([xyz.ravel() for xyz in
-                         np.mgrid[ 3 * [slice(-10, 10, 10j)]]]).T
-colors = np.vstack([rgb.ravel() for rgb in
-                         np.mgrid[3 * [slice(0, 255, 10j)]]]).astype(np.uint8).T
+SIZE = 10
+
+pos_grid = np.meshgrid(*[np.linspace(-10, 10, SIZE)]*3)
+positions = np.array(list(zip(d.reshape(-1) for d in pos_grid)))
+
+col_grid = np.meshgrid(*[np.linspace(0, 255, SIZE)]*3)
+colors = np.array(list(zip(c.reshape(-1) for c in col_grid)),
+                  dtype=np.uint8)
 
 rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 ```
