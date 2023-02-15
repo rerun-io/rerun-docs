@@ -19,6 +19,7 @@ arrays as arguments, corresponding to the batches.
 - Each Instance is identified within the Entity by its **"Instance Key"**.
 - When every Instance within an Entity has the same value for a component, that component is called a **"Splat"**. This
   is a common enough case that there is special handling for it.
+  For instance, you can set all the colors of a point cloud to the same color using a Splat.
 - During queries, a batch always has a **"Primary"** component. The primary component is what determines
   how many instances exist in the batch.
 
