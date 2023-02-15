@@ -3,9 +3,8 @@ title: Viewer Walkthrough
 order: 3
 ---
 
-This guide will familiarize you with the basics of using Rerun with an example dataset. By the end you should be
-comfortable with the following topics:
- * [Installing the Rerun SDK](#installing-the-rerun-sdk)
+This guide will familiarize you with the basics of using the Rerun Viewer with an example dataset. By the end you should
+be comfortable with the following topics:
  * [Launching the demo](#launching-the-demo)
  * [The viewer panels](#the-viewer-panels)
  * [Exploring data](#exploring-data)
@@ -13,44 +12,32 @@ comfortable with the following topics:
  * [Configuring views](#configuring-views)
  * [Creating new views](#creating-new-views)
 
+Here is a preview of the dataset that we will be working with:
+
+![Preview](/docs-media/viewer_walkthrough0_preview.png)
+
 The demo uses the output of the [COLMAP](https://colmap.github.io/) structure-from-motion pipeline on a small dataset.
-Familiarity with structure-from-motion algorithms is not a prerequisite for following guide. All you need to know is
+Familiarity with structure-from-motion algorithms is not a prerequisite for following the guide. All you need to know is
 that at a very high level, COLMAP processes a series of images, and by tracking identifiable "keypoints" from frame to
 frame, it is able to reconstruct both a sparse representation of the scene as well as the positions of the camera used
 to take the images.
 
-By the time you are done, you should be able to set up the following visualization running locally:
-
-![Preview](/docs-media/quickstart0_preview.png)
-
-## Installing the Rerun SDK
-Although the Rerun SDK is available in both Python and Rust, this quickstart uses the Python installation process. Even
-if you plan to use Rerun with Rust, we still recommend having a Rerun Python environment available for quick
-experimentation and working with examples.
-
-To get started you will need to have [Python-3.8](https://www.python.org/) or greater installed on your system.
-
-
-Once your Python environment is setup, the Rerun SDK can be installed from pypi via the
-[`rerun-sdk`](https://pypi.org/project/rerun-sdk/) package.
+## Prerequisites
+Although the Rerun SDK is available in both Python and Rust, this walkthrough makes use the Python installation. Even if
+you plan to use Rerun with Rust, we still recommend having a Rerun Python environment available for quick
+experimentation and working with examples. You can either follow the [Python Quickstart](python.md) or simply run:
 
 ```bash
-$ pip install rerun-sdk
+pip install rerun-sdk
 ```
 
-
-in which case you are ready to get started.
-
-
-
 ## Launching the demo
-The `rerun-sdk` includes two Python packages:
-- `rerun` is the core Rerun SDK library, which you'll learn about more in the other guides.
-- `rerun_demo` contains assorted helper data to make it easy to experiment with many of the Rerun APIs.
 
-To start the demo, simply run:
+If you have already followed the Python Quickstart you may have used `rerun_demo` already to run the cube demo.
+
+This time, we will pass an additional flag:
 ```bash
-$ python -m rerun_demo
+$ python -m rerun_demo --colmap
 ```
 
 *Note: If this is your first time launching Rerun you will see a notification about the Rerun anonymous data usage
@@ -59,12 +46,12 @@ like.*
 
 In your terminal you should see an output along the lines of:
 ```
-2023-02-13T05:16:06.835424Z  INFO rerun::run: Loading "/home/rerun/venv/lib/python3.10/site-packages/rerun_sdk/rerun_demo/demo.rrd"…
+2023-02-13T05:16:06.835424Z  INFO rerun::run: Loading "/home/rerun/venv/lib/python3.10/site-packages/rerun_sdk/rerun_demo/colmap.rrd"…
 ```
 
 And a window that looks like this will appear:
 
-![First Launch](/docs-media/quickstart1_first_launch.png)
+![First Launch](/docs-media/viewer_walkthrough1_first_launch.png)
 
 Depending on your display size, the panels may have a different arrangements. This does not yet look like the initial
 preview, but the remainder of this guide will walk you through how to configure the Viewer to meet your needs.
@@ -84,7 +71,7 @@ There are 4 main parts to this window:
 Each of the 3 side panels has a corresponding button in the upper right corner. Try clicking each of these to hide and
 show the corresponding panel.
 
-![Toggle Panel](/docs-media/quickstart2_toggle_panel.png)
+![Toggle Panel](/docs-media/viewer_walkthrough2_toggle_panel.png)
 
 For now, leave the panels visible since we will use them through the remainder of this guide.
 
@@ -92,7 +79,7 @@ It is also possible to re-arrange the individual space views. Try grabbing any o
 dragging it to different locations in the Viewport. You can also resize individual views by grabbing the edge of the
 view.
 
-![Rearrange Views](/docs-media/quickstart3_rearrange.png)
+![Rearrange Views](/docs-media/viewer_walkthrough3_rearrange.png)
 
 Feel free to move the views around until you are happy with the layout.
 
@@ -111,7 +98,7 @@ You can find out more about these entities by hovering over them in the differen
 context popup with additional information. You can also click on entities to select them and see more details in the
 [Selection panel](../reference/viewer/selection.md).
 
-![Hover Data](/docs-media/quickstart4_hover.png)
+![Hover Data](/docs-media/viewer_walkthrough4_hover.png)
 
 Try each of the following:
  * Hover over the image to see a zoomed-in preview
@@ -129,7 +116,7 @@ also zoom using ctrl+scrollwheel or pinch gestures on a trackpad. Most views can
 double-clicking somewhere in the view. Every view has a "?" icon in the upper right hand corner. You can always mouse
 over this icon to find out more information about the specific view.
 
-![Adjust Scene Views](/docs-media/quickstart5_nav.png)
+![Adjust Scene Views](/docs-media/viewer_walkthrough5_nav.png)
 
 Try each of the following:
  * Drag the camera image and zoom in on one of the stickers
@@ -148,7 +135,7 @@ To change the position on the timeline, simply grab the time indicator and pull 
 interested in seeing.  The space views will adjust accordingly. You can also use the play/pause/step/loop controls to
 playback the Rerun data as you might with a video file.
 
-![Adjust Time Slider](/docs-media/quickstart6_timeline.png)
+![Adjust Time Slider](/docs-media/viewer_walkthrough6_timeline.png)
 
 Try out the following:
   * Use the arrow buttons (or arrow keys on your keyboard) to step forward and backwards by a single frame
@@ -164,7 +151,7 @@ it's possible to also view the data in the specific order that it was logged.  C
 and switch it to "log_time." If you zoom in on the timeline (using ctrl+scrollwheel), you can see that these events were
 all logged at slightly different times.
 
-![Log Time](/docs-media/quickstart7_log_time.png)
+![Log Time](/docs-media/viewer_walkthrough7_log_time.png)
 
 Feel free to spend a bit of time looking at the data across the different timelines. When you are done, switch back
 to the "frame" timeline and double-click the timeline panel to reset it to the default range.
@@ -189,7 +176,7 @@ show up in the view. This is making historical points, from farther back in time
 view. Because the points are logged in stationary 3d space, aggregating them here gives us a more complete view of the
 car. Leave the visible history with a value of 50.
 
-![Visible History](/docs-media/quickstart8_history.png)
+![Visible History](/docs-media/viewer_walkthrough8_history.png)
 
 ### Modifying the contents of a space view
 Now select the `/ (Spatial)` view itself. We will start by giving this space view a different name. At the very
@@ -203,39 +190,39 @@ You can click on the "+" or "-" buttons to add or remove entities from this view
 completely disappear from the blueprint panel on the left. Entities that are incompatible with the selected view will be
 greyed out. For example, you cannot add a scalar to a spatial scene.
 
-![Add/Remove Entities](/docs-media/quickstart9_add_remove.png)
+![Add/Remove Entities](/docs-media/viewer_walkthrough9_add_remove.png)
 
 ## Creating new views
 New views can be created using the "+" button at the top of the Blueprint panel. When you click this button you will
 need to choose a root for your new space. This is the space that will act as your origin within the
 [transform system](../concepts/spaces-and-transforms.md).
 
-![Create a view](/docs-media/quickstart10_create.png)
+![Create a view](/docs-media/viewer_walkthrough10_create.png)
 
 After creating this new view, your view layout might be feeling a little cluttered. You can quickly hide views you're
 not using from the blueprint panel by hovering over the view and then clicking the icon that looks like an eye. Go ahead
 and hide the `image` and `avg_reproj_err` views, and collapse the expanded timeline panel using the button in the upper
 right corner. Note that even with the timeline collapsed you still have access to timeline controls, including a slider.
 
-![Toggle Vis](/docs-media/quickstart11_toggle_vis.png)
+![Toggle Vis](/docs-media/viewer_walkthrough11_toggle_vis.png)
 
 ### Reusing what you've learned
 Finally, use what we covered in the previous section to change the contents of this view. Select the new `camera` view,
 then choose "Add/remove entities." Remove the 2d "keypoints" and add in the 3d "points." Note that these points do not
-have visible history turned on -- that's because the the blueprint is part of the view and not part of the entity.
+have visible history turned on -- that's because the blueprint is part of the view and not part of the entity.
 Select the points within this view by clicking on them in the blueprint or the view itself, and then give them visible
 history as well. When you are done, your view should look like this:
 
-![Camera View](/docs-media/quickstart12_cameraview.png)
+![Camera View](/docs-media/viewer_walkthrough12_cameraview.png)
 
 Now move the slider back and forth and see what happens. Even though they are both views of the same camera and point
 entities, they behave quite differently. On the top the camera moves relative to the car, while on the bottom the car
 moves relative to the camera. This is because the new views have *different* space roots, and Rerun uses the transform
-system to transform system to transform or project all data into the space root for the given view.
+system to transform or project all data into the space root for the given view.
 
 ## Conclusion
 
-That brings us to the end of this quickstart. To recap, you have learned how to:
+That brings us to the end of this walkthrough. To recap, you have learned how to:
 - Install the `rerun-sdk` pypi package.
 - Run the Rerun Viewer using the `rerun_demo` helper.
 - Work with the [Blueprint](../reference/viewer/blueprint.md), [Selection](../reference/viewer/selection.md) and [Timeline](../reference/viewer/timeline.md) panels.
@@ -254,6 +241,6 @@ Again, if you ran into any issues following this guide, please don't hesitate to
 To get started with writing a program to logging data with the Rerun SDK see the [Python](logging-python.md) or
 [Rust](logging-rust.md) getting started guides.
 
-To see and explore other data, you can check out the [examples][examples.md].
+To see and explore other data, you can check out the [examples](examples.md).
 
 For deeper context on the ideas covered here, consult the [Concept overview](../concepts.md).
