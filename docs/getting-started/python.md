@@ -25,7 +25,7 @@ If everything is installed and working correctly, you should end up with a windo
 ![Colored Cube](/docs-media/quickstart0_cube.png)
 
 *Note: If this is your first time launching Rerun you will see a notification in the terminal about the Rerun anonymous
-data usage policy. Rerun collects anonymous usage data to help improve the SDK, though you may choose to opt out if you
+data usage policy. Rerun collects anonymous usage data to help improve the project, though you may choose to opt out if you
 would like.*
 
 ### If you're having problems
