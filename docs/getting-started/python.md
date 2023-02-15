@@ -5,7 +5,7 @@ order: 1
 
 ## Installing Rerun
 
-The Rerun SDK for Python requires a working installation of [Python-3.8](https://www.python.org/).
+The Rerun SDK for Python requires a working installation of [Python-3.8+](https://www.python.org/).
 
 You can install the Reun SDK using the [rerun-sdk](https://pypi.org/project/rerun-sdk/) pypi package via pip:
 ```bash
@@ -75,7 +75,7 @@ The [rr.log_points](https://ref.rerun.io/docs/python/latest/common/spatial_primi
 take any Nx2 or Nx3 numpy array as a collection of positions.
 
 Feel free to modify the code to log a different set of points. If you want to generate the colored cube from the
-build-in demo, you can use the following numpy incantation.
+built-in demo, you can use the following numpy incantation.
 ```python
 SIZE = 10
 
