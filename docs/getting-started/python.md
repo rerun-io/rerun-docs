@@ -1,48 +1,98 @@
 ---
-title: For Python Users
-order: 2
+title: Python Quick Start
+order: 1
 ---
 
-### Prerequisites
+## Installing Rerun
 
-We assume you have a working Python 3.8+ installation on your system.
+The Rerun SDK for Python requires a working installation of [Python-3.8+](https://www.python.org/).
 
-### Installing Rerun
-
-Everything you need to use Rerun is available via the [rerun-sdk](https://pypi.org/project/rerun-sdk/) pip package:
+You can install the Reun SDK using the [rerun-sdk](https://pypi.org/project/rerun-sdk/) pypi package via pip:
 ```bash
-$ pip install rerun-sdk
+$ pip3 install rerun-sdk
 ```
 
-That's all. You can now immediately start logging and visualizing data.
+You are now ready to start logging and visualizing data.
 
-Try running the following [example](https://github.com/rerun-io/rerun/tree/latest/examples/python/minimal/main.py):
+## Trying out the viewer
+
+The Rerun SDK comes packaged with a simple demo so you can quickly get a feel for the viewer. You can launch it with
+```bash
+$ python3 -m rerun_demo
+```
+
+If everything is installed and working correctly, you should end up with a window like below.
+Try looping the recording to see the fun animation.
+![Colored Cube](/docs-media/quickstart0_cube.png)
+
+*Note: If this is your first time launching Rerun you will see a notification in the terminal about the Rerun anonymous
+data usage policy. Rerun collects anonymous usage data to help improve the project, though you may choose to opt out if you
+would like.*
+
+### If you're having problems
+ * Checkout out our [troubleshooting guide](troubleshooting.md).
+ * [open an issue](https://github.com/rerun-io/rerun/issues/new/choose).
+ * Or [join the Discord server](https://discord.gg/PXtCgFBSmH).
+
+## Using the viewer
+Try out the following to interact with the viewer:
+ * Click and drag in the main view to rotate the cube.
+ * Zoom in and out with the scroll wheel.
+ * Mouse over the "?" icons to find out about more controls.
+ * Grab the time-slider and move it to see the cube at different time-points.
+ * Click the "play" button to animate the cube.
+ * Click on the cube to select all of the points.
+ * Hover and select individual points to see more information.
+
+This is just a taste of some of what you can do with the viewer. We will cover other functionality in much
+more detail later in the [Viewer Walkthrough](viewer-walkthrough.md)
+
+## Logging your own data
+Now instead of using a prepackaged demo, let's create some data ourselves. We will start with an
+extremely simplified version of this dataset that just logs 1 dimension of points instead of 3.
+
+Create a new python script with the following code:
 ```python
 import rerun as rr  # NOTE: `rerun`, not `rerun-sdk`!
 import numpy as np
 
-SIZE = 10
+rr.init("my data", spawn=True)
 
-rr.spawn()
+positions = np.zeros((10, 3))
+positions[:,0] = np.linspace(-10,10,10)
 
-x, y, z = np.meshgrid(np.linspace(-5, 5, SIZE), np.linspace(-5, 5, SIZE), np.linspace(-5, 5, SIZE))
-positions = np.array(list(zip(x.reshape(-1), y.reshape(-1), z.reshape(-1))))
+colors = np.zeros((10,3), dtype=np.uint8)
+colors[:,0] = np.linspace(0,255,10)
 
-r, g, b = np.meshgrid(np.linspace(0, 255, SIZE), np.linspace(0, 255, SIZE), np.linspace(0, 255, SIZE))
-colors = np.array(list(zip(r.reshape(-1), g.reshape(-1), b.reshape(-1))), dtype=np.uint8)
-
-rr.log_points("my_points", positions=positions, colors=colors)
+rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 ```
 
-(for this example you need to `pip install numpy`)
+When you run this script you will again be greeted with the [Rerun Viewer](../reference/viewer/overview.md), this time
+only showing a simple line of red points.
 
-Once everything is properly set up, you'll be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
-![intro users - result](/docs-media/intro_users1_result.png)
+![Simple Line](/docs-media/quickstart1_line.png)
 
-If you're facing any difficulties, don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose) or [join the Discord server](https://discord.gg/PXtCgFBSmH).
+The [rr.log_points](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_points) function can
+take any Nx2 or Nx3 numpy array as a collection of positions.
 
-### What's next
+Feel free to modify the code to log a different set of points. If you want to generate the colored cube from the
+built-in demo, you can use the following numpy incantation.
+```python
+SIZE = 10
 
-This simple scene is a good opportunity to start experimenting with the Viewer: have a look at the [Quick Tour](quick-tour) and the [Viewer reference](../reference/viewer/overview) for an overview of the features available.
+pos_grid = np.meshgrid(*[np.linspace(-10, 10, SIZE)]*3)
+positions = np.vstack([d.reshape(-1) for d in pos_grid]).T
 
-If you're ready to move on to more advanced topics, checkout our thorough [Getting Started guide](logging-python) where we will explore the core concepts that make Rerun tick and log our first non-trivial dataset.
+col_grid = np.meshgrid(*[np.linspace(0, 255, SIZE)]*3)
+colors = np.vstack([c.reshape(-1) for c in col_grid]).astype(np.uint8).T
+
+rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
+```
+
+![Simple Cube](/docs-media/quickstart2_simple_cube.png)
+
+## What's next
+
+If you're ready to move on to more advanced topics, check out the [Viewer Walkthrough](viewer-walkthrough.md) or our
+more advanced guide for [Logging Data in Python](logging-python.md) where we will explore the core concepts that make
+Rerun tick and log our first non-trivial dataset.

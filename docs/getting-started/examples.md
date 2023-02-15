@@ -1,6 +1,6 @@
 ---
 title: Examples
-order: 7
+order: 6
 ---
 
 [//impl ticket]: (https://github.com/rerun-io/rerun/issues/1045)
