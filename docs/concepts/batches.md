@@ -11,7 +11,7 @@ Some examples of batched data include points in a pointcloud, bounding boxes for
 in a skeleton.
 
 In the Python APIs most of the log functions have both singular and plural signatures. The plural APIs, such as
-[log_points](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_point) generally take
+[log_points](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_points) generally take
 arrays as arguments, corresponding to the batches.
 
 ## Terminology
