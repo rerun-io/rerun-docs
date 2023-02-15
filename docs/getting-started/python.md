@@ -21,7 +21,8 @@ The Rerun SDK comes packaged with a simple demo so you can quickly get a feel fo
 $ python3 -m rerun_demo
 ```
 
-If everything is installed and working correctly, you should end up with a window like this:
+If everything is installed and working correctly, you should end up with a window like below.
+Try looping the recording to see the fun animation.
 ![Colored Cube](/docs-media/quickstart0_cube.png)
 
 *Note: If this is your first time launching Rerun you will see a notification in the terminal about the Rerun anonymous
