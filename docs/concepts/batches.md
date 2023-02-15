@@ -4,7 +4,7 @@ order: 4
 ---
 
 Rerun has built-in support for batch data. Whenever you have a collection of things that all have the same type, rather
-than logging each element individually, you can log the entire collection together as a single "Batch." This provides
+than logging each element individually, you can log the entire collection together as a single "Batch". This provides
 significant benefits in terms of storage and compute.
 
 Some examples of batched data include points in a pointcloud, bounding boxes for detected objects, or tracked keypoints
