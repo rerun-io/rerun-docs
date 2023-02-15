@@ -58,7 +58,7 @@ import numpy as np
 rr.init("my data", spawn=True)
 
 positions = np.zeros((10, 3))
-positions[:,2] = np.linspace(-10,10,10)
+positions[:,0] = np.linspace(-10,10,10)
 
 colors = np.zeros((10,3), dtype=np.uint8)
 colors[:,0] = np.linspace(0,255,10)
