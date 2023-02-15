@@ -116,7 +116,7 @@ Run your program once again and you should now see this scene in the viewer.
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._
-_Checkout the [Quickstart](quickstart) and [viewer reference](../reference/viewer/overview) for a complete tour of the viewer's capabilities._
+_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](../reference/viewer/overview) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
@@ -196,7 +196,7 @@ MsgSender::new("dna/structure/scaffolding/beads")
     .send(&mut session)?;
 ```
 
-Once again, although we are getting fancier and fancier with our iterator mappings, there is nothing new here: it's all about building out vectors of [`Component`s](https://docs.rs/rerun/latest/rerun/struct.Component.html) and feeding them to the Rerun API.
+Once again, although we are getting fancier and fancier with our iterator mappings, there is nothing new here: it's all about building out vectors of [`Component`s](https://docs.rs/rerun/latest/rerun/trait.Component.html) and feeding them to the Rerun API.
 
 ![logging data - beads](/docs-media/logging_data5_beads.png)
 
