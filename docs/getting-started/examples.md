@@ -17,7 +17,7 @@ The simplest example of how to use Rerun, showing how to log a point cloud.
 python examples/python/minimal/main.py
 ```
 
-![minimal example>](https://user-images.githubusercontent.com/1148717/219135171-f8681819-d0ed-45d4-8d41-d54b15f21aa8.png)
+![minimal example>](/docs-media/minimal.png)
 
 -------------------------------------------------------------------
 
