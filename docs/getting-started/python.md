@@ -80,11 +80,10 @@ built-in demo, you can use the following numpy incantation.
 SIZE = 10
 
 pos_grid = np.meshgrid(*[np.linspace(-10, 10, SIZE)]*3)
-positions = np.array(list(zip(d.reshape(-1) for d in pos_grid)))
+positions = np.vstack([d.reshape(-1) for d in pos_grid]).T
 
 col_grid = np.meshgrid(*[np.linspace(0, 255, SIZE)]*3)
-colors = np.array(list(zip(c.reshape(-1) for c in col_grid)),
-                  dtype=np.uint8)
+colors = np.vstack([c.reshape(-1) for c in col_grid]).astype(np.uint8).T
 
 rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 ```
