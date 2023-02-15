@@ -25,7 +25,7 @@ For this tutorial you will also need to `pip install numpy scipy`.
 
 Start by opening your editor of choice and creating a new file called `dna_example.py`.
 
-The first thing we want to do is to import `rerun` and name the dataset we're working on by setting its [`ApplicationId`](https://rerun-io.github.io/rerun/docs/python/latest/common/initialization/#rerun.init):
+The first thing we want to do is to import `rerun` and name the dataset we're working on by setting its [`ApplicationId`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init):
 
 ```python
 import rerun as rr
@@ -33,7 +33,7 @@ import rerun as rr
 rr.init("DNA Abacus")
 ```
 
-Among other things, a stable [`ApplicationId`](https://rerun-io.github.io/rerun/docs/python/latest/common/initialization/#rerun.init) will make it so the [Rerun Viewer](../reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
+Among other things, a stable [`ApplicationId`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init) will make it so the [Rerun Viewer](../reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
 Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions).
 
@@ -102,10 +102,10 @@ This tiny snippet of code actually holds much more than meets the eye...
 
 `Components`
 
-Although the Rerun [Python SDK](https://rerun-io.github.io/rerun/docs/python) exposes concepts related to logging primitives such as points, and lines, under the hood these primitives are made up of individual components like positions, colors, and radii. For more information on how the rerun data model works, refer to our section on [entities and components](../concepts/entity-component.md).
+Although the Rerun [Python SDK](https://ref.rerun.io/docs/python) exposes concepts related to logging primitives such as points, and lines, under the hood these primitives are made up of individual components like positions, colors, and radii. For more information on how the rerun data model works, refer to our section on [entities and components](../concepts/entity-component.md).
 
-Our [Python SDK](https://rerun-io.github.io/rerun/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.
-Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://rerun-io.github.io/rerun/docs/python/latest/common/spatial_primitives/#rerun.log_points) in this case).
+Our [Python SDK](https://ref.rerun.io/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://ref.rerun.io/docs/python/latest/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.
+Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_points) in this case).
 
 `Entities & hierarchies`
 
@@ -148,7 +148,7 @@ colors = [[int(bounce_lerp(80, 230, offsets[n] * 2))] for n in range(NUM_POINTS)
 rr.log_points("dna/structure/scaffolding/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
 ```
 
-Once again, although we are getting fancier and fancier with our [`numpy` incantations](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun_demo/util/#rerun_demo.util.bounce_lerp),
+Once again, although we are getting fancier and fancier with our [`numpy` incantations](https://ref.rerun.io/docs/python/latest/package/rerun_demo/util/#rerun_demo.util.bounce_lerp),
 there is nothing new here: it's all about building out `numpy` arrays and feeding them to the Rerun API.
 
 ![logging data - beads](/docs-media/logging_data5_beads.png)
@@ -184,7 +184,7 @@ for i in range(400):
     rr.log_points("dna/structure/scaffolding/beads", beads, radii=0.06, colors=np.repeat(colors, 3, axis=-1))
 ```
 
-A call to [`set_time_seconds`](https://rerun-io.github.io/rerun/docs/python/latest/common/time/#rerun.set_time_seconds) will create our new `Timeline` and make sure that any logging calls that follow gets assigned that time.
+A call to [`set_time_seconds`](https://ref.rerun.io/docs/python/latest/common/time/#rerun.set_time_seconds) will create our new `Timeline` and make sure that any logging calls that follow gets assigned that time.
 
 ⚠️  If you run this code as is, the result will be.. surprising: the beads are animating as expected, but everything we've logged until that point is gone! ⚠️
 
@@ -240,7 +240,7 @@ Voila!
 
 ## Other ways of logging & visualizing data
 
-[`rr.spawn`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun/__init__/#rerun.spawn) is great when you're experimenting on a single machine like we did in this tutorial, but what if the process that's doing the logging doesn't have a graphical interface to begin with?
+[`rr.spawn`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.spawn) is great when you're experimenting on a single machine like we did in this tutorial, but what if the process that's doing the logging doesn't have a graphical interface to begin with?
 
 Rerun offers several solutions for these use cases.
 
@@ -248,7 +248,7 @@ Rerun offers several solutions for these use cases.
 
 At any time, you can start a Rerun Viewer by running `python -m rerun`. This viewer is in fact a server that's ready to accept data over TCP (it's listening on `0.0.0.0:9876` by default).
 
-On the logger side, simply use [`rr.connect`](https://rerun-io.github.io/rerun/docs/python/latest/common/initialization/#rerun.connect) instead of [`rr.spawn`](https://rerun-io.github.io/rerun/docs/python/latest/common/initialization/#rerun.spawn) to start sending the data over to any TCP address.
+On the logger side, simply use [`rr.connect`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.connect) instead of [`rr.spawn`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.spawn) to start sending the data over to any TCP address.
 
 Checkout `python -m rerun --help` for more options.
 
@@ -257,7 +257,7 @@ Checkout `python -m rerun --help` for more options.
 Sometimes, sending the data over the network is not an option. Maybe you'd like to share the data, attach it to a bug report, etc.
 
 Rerun has you covered:
-- Use [`rr.save`](https://rerun-io.github.io/rerun/docs/python/latest/package/rerun/__init__/#rerun.save) to save all the data logged so far to disk.
+- Use [`rr.save`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.save) to save all the data logged so far to disk.
 - Visualize it via `python -m rerun path/to/recording.rrd`
 
 You can also save a recording (or a portion of it) as you're visualizing it, directly from the viewer.

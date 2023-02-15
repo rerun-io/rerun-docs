@@ -41,7 +41,7 @@ Your entity could have any number of other components as well. This isn't a prob
 aren't relevant to the scene that the space view is drawing are safely ignored. In fact, Rerun even lets you to log you
 own components.
 
-In Python this is done via [log_extension_components](https://rerun-io.github.io/rerun/docs/python/latest/common/extension_components/#rerun.log_extension_components)
+In Python this is done via [log_extension_components](https://ref.rerun.io/docs/python/latest/common/extension_components/#rerun.log_extension_components)
 , whereas in Rust you implement the [Component](https://docs.rs/rerun/latest/rerun/trait.Component.html) trait.
 
 code-example: extension-components
