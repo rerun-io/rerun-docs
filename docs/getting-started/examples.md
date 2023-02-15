@@ -7,112 +7,19 @@ order: 6
 
 In the Rerun [GitHub](https://github.com/rerun-io/rerun) repository we maintain a list of examples that demonstrate using the Rerun logging APIs. Generally the examples are individually self-contained, and can be run directly from a Git clone of the repository. Many of the Python examples need additional dependencies set up in a `requirements.txt` next to the example. These are noted in the individual example sections below.
 
-## Examples with Artificial Data
-
-The following examples serve to illustrate various uses of the Rerun logging SDK. They should not require any additional data downloads, and should run offline.
-
-### Minimal
+## Minimal example
 
 [Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/minimal/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/minimal/src/main.rs)
 
-The simplest example of how to use Rerun.
+The simplest example of how to use Rerun, showing how to log a point cloud.
 
 ```bash
 python examples/python/minimal/main.py
 ```
----
 
-### API Demo
+![minimal example>](/docs-media/minimal.png)
 
-[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/api_demo/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/api_demo/src/main.rs)
-
-![api_demo example>](/docs-media/api_demo1.png)
-
-This is a swiss-army-knife example showing the usage of most of the Rerun SDK APIs. The data logged is static and meaningless.
-
-Multiple sub-examples are available (See the instructions by running with the `--help` flag).
-
-```bash
-python examples/python/api_demo/main.py
-```
----
-
-### Car
-
-[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/car/main.py)
-
-![car example>](/docs-media/car1.png)
-
-A very simple 2D car is drawn using OpenCV, and a depth image is simulated and logged as a point cloud.
-
-```bash
-pip install -r examples/car/requirements.txt
-python examples/python/car/main.py
-```
----
-
-### Clock
-
-[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/clock/main.py)
-
-![clock example>](/docs-media/clock1.png)
-
-An example visualizing an analog clock with hour, minute and seconds hands using Rerun Arrow3D primitives.
-
-```bash
-python examples/python/clock/main.py
-```
----
-
-### Multiprocessing
-
-[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/multiprocessing/main.py)
-
-Demonstrates how rerun can work with the python `multiprocessing` library.
-
-```bash
-python examples/python/multiprocessing/main.py
-```
----
-
-### Multithreading
-
-[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/multithreading/main.py)
-
-Demonstration of logging to Rerun from multiple threads.
-
-```bash
-python examples/python/multithreading/main.py
-```
----
-
-### Plots
-
-[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/plots/main.py)
-
-![plots example>](/docs-media/plots1.png)
-
-This example demonstrates how to log simple plots with the Rerun SDK. Charts can be created from 1-dimensional tensors, or from time-varying scalars.
-
-```bash
-python examples/python/plots/main.py
-```
----
-
-### Text Logging
-
-[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/text_logging/main.py)
-
-![text_logging example>](/docs-media/text_logging1.png)
-
-This example demonstrates how to integrate python's native `logging` with the Rerun SDK.
-
-Rerun is able to act as a Python logging handler, and can show all your Python log messages in the viewer next to your other data.
-
-```bash
-python examples/python/text_logging/main.py
-```
----
+-------------------------------------------------------------------
 
 ## Examples with Real Data
 
@@ -253,4 +160,101 @@ For more info see: https://huggingface.co/docs/transformers/index
 pip install -r examples/tracking_hf_opencv/requirements.txt
 python examples/python/tracking_hf_opencv/main.py
 ```
+
+-------------------------------------------------------
+
+## Examples with Artificial Data
+
+The following examples serve to illustrate various uses of the Rerun logging SDK. They should not require any additional data downloads, and should run offline.
+
+### API Demo
+
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/api_demo/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/api_demo/src/main.rs)
+
+![api_demo example>](/docs-media/api_demo1.png)
+
+This is a swiss-army-knife example showing the usage of most of the Rerun SDK APIs. The data logged is static and meaningless.
+
+Multiple sub-examples are available (See the instructions by running with the `--help` flag).
+
+```bash
+python examples/python/api_demo/main.py
+```
 ---
+
+### Car
+
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/car/main.py)
+
+![car example>](/docs-media/car1.png)
+
+A very simple 2D car is drawn using OpenCV, and a depth image is simulated and logged as a point cloud.
+
+```bash
+pip install -r examples/car/requirements.txt
+python examples/python/car/main.py
+```
+---
+
+### Clock
+
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/clock/main.py)
+
+![clock example>](/docs-media/clock1.png)
+
+An example visualizing an analog clock with hour, minute and seconds hands using Rerun Arrow3D primitives.
+
+```bash
+python examples/python/clock/main.py
+```
+---
+
+### Multiprocessing
+
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/multiprocessing/main.py)
+
+Demonstrates how rerun can work with the python `multiprocessing` library.
+
+```bash
+python examples/python/multiprocessing/main.py
+```
+---
+
+### Multithreading
+
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/multithreading/main.py)
+
+Demonstration of logging to Rerun from multiple threads.
+
+```bash
+python examples/python/multithreading/main.py
+```
+---
+
+### Plots
+
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/plots/main.py)
+
+![plots example>](/docs-media/plots1.png)
+
+This example demonstrates how to log simple plots with the Rerun SDK. Charts can be created from 1-dimensional tensors, or from time-varying scalars.
+
+```bash
+python examples/python/plots/main.py
+```
+---
+
+### Text Logging
+
+[Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/text_logging/main.py)
+
+![text_logging example>](/docs-media/text_logging1.png)
+
+This example demonstrates how to integrate python's native `logging` with the Rerun SDK.
+
+Rerun is able to act as a Python logging handler, and can show all your Python log messages in the viewer next to your other data.
+
+```bash
+python examples/python/text_logging/main.py
+```
+----------------------------------------------------------------------
