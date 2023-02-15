@@ -69,7 +69,7 @@ rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 When you run this script you will again be greeted with the [Rerun Viewer](../reference/viewer/overview.md), this time
 only showing a simple line of red points.
 
-![Colored Cube](/docs-media/quickstart1_line.png)
+![Simple Line](/docs-media/quickstart1_line.png)
 
 The [rr.log_points](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_points) function can
 take any Nx2 or Nx3 numpy array as a collection of positions.
@@ -89,7 +89,7 @@ colors = np.array(list(zip(c.reshape(-1) for c in col_grid)),
 rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 ```
 
-![Colored Cube](/docs-media/quickstart2_simple_cube.png)
+![Simple Cube](/docs-media/quickstart2_simple_cube.png)
 
 ## What's next
 
