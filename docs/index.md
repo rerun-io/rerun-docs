@@ -10,7 +10,7 @@ by quickly visualizing internal state and data.
 
 - Jump right in with the a quick start for [Python](getting-started/python.md) or [Rust](getting-started/rust.md).
 - Follow it up with the [Viewer Walkthrough](getting-started/viewer-walkthrough.md) and a tutorial on logging data with [Python](getting-started/logging-python) or [Rust](getting-started/logging-rust).
-- Dive deeper in the [Concepts](concept) section.
+- Dive deeper in the [Concepts](concepts) section.
 - The [Reference](reference) covers specific primitives, configuration and API details.
 
 ## What is Rerun?
