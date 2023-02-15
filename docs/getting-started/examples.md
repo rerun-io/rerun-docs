@@ -5,7 +5,7 @@ order: 6
 
 [//impl ticket]: (https://github.com/rerun-io/rerun/issues/1045)
 
-In the Rerun [Github](https://github.com/rerun-io/rerun) repository we maintain a list of examples that demonstrate using the Rerun logging APIs. Generally the examples are individually self-contained, and can be run directly from a Git clone of the repository. Many of the Python examples need additional dependencies set up in a `requirements.txt` next to the example. These are noted in the individual example sections below.
+In the Rerun [GitHub](https://github.com/rerun-io/rerun) repository we maintain a list of examples that demonstrate using the Rerun logging APIs. Generally the examples are individually self-contained, and can be run directly from a Git clone of the repository. Many of the Python examples need additional dependencies set up in a `requirements.txt` next to the example. These are noted in the individual example sections below.
 
 ## Examples with Artificial Data
 

@@ -131,7 +131,7 @@ These are [Entity Paths](../concepts/entity-component), which uniquely identify 
 
 `Components`
 
-The Rerun [Rust SDK](https://rerun-io.github.io/rerun/docs/rust) works at a lower-level of abstraction than the [Python one](https://rerun-io.github.io/rerun/docs/python).
+The Rerun [Rust SDK](https://rerun-io.github.io/rerun/docs/rust) works at a lower-level of abstraction than the [Python one](https://ref.rerun.io/docs/python).
 In particular, when using the Rust SDK, you work directly with [`components`](https://docs.rs/rerun/latest/rerun/components) instead of higher-level primitives.
 
 By logging multiple components to an Entity, one can build up Primitives that can later be visualized in the viewer.
