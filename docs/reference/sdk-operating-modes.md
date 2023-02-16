@@ -24,9 +24,7 @@ Call [`rr.spawn`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__
 
 #### `Rust`
 
-In Rust, it spawns a new viewer on the main thread (for platform compatibility reasons) and continues executing user code on a new thread, streaming data between the two in real-time using an in-memory channel.
-
-Use [`Session::spawn`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.spawn) during the initialization phase of your program to replicate that behavior.
+[`Session::spawn`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.spawn) spawns a new viewer on the main thread (for platform compatibility reasons) and continues executing user code on a new thread, streaming data between the two in real-time using an in-memory channel.
 
 ## Connect
 
