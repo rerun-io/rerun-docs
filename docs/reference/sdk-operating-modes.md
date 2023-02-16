@@ -20,9 +20,7 @@ This is the default behavior you get when running all of our Python & Rust examp
 
 #### `Python`
 
-In Python, it starts a viewer in an external process and streams all the data to it via TCP; unless an external viewer was already running, in which case the client will simply connect to that one instead.
-
-You can achieve the same behavior in your own code by calling [`rr.spawn`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.spawn) once at the start of your program.
+Call [`rr.spawn`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.spawn) once at the start of your program to start a Rerun Viewer in an external process and stream all the data to it via TCP. If an external viewer was already running, `spawn` will connect to that one instead of spawning a new one.
 
 #### `Rust`
 
