@@ -54,7 +54,7 @@ Use [`rr.serve`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/
 
 #### `Rust`
 
-Make sure you have enabled the `web` feature, and then call [`Session::serve`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.serve).
+Make sure you have enabled the `web` feature when building, and then call [`Session::serve`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.serve).
 
 ## Save
 
