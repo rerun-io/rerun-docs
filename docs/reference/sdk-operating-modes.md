@@ -38,11 +38,11 @@ You will need to start a stand-alone viewer first, either by using `python -m re
 
 #### `Python`
 
-Use [`rr.connect`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.connect) to replicate that behavior.
+[`rr.connect`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.connect)
 
 #### `Rust`
 
-Use [`Session::connect`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.connect) to replicate that behavior.
+[`Session::connect`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.connect)
 
 ## Serve
 
