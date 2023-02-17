@@ -17,7 +17,7 @@ At any time, you can checkout the complete code listing for this tutorial [here]
 
 ## Prerequisites
 
-We assume you have a working Rust environment and have started a new project with the `rerun` dependency. If not, check out the [setup page](rust).
+We assume you have a working Rust environment and have started a new project with the `rerun` dependency. If not, check out the [setup page](/getting-started/rust).
 
 For this example in particular, we're going to need all of these:
 ```toml
@@ -116,7 +116,7 @@ Run your program once again and you should now see this scene in the viewer.
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._
-_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](/reference/viewer/overview) for a complete tour of the viewer's capabilities._
+_Checkout the [Viewer Walkthrough](/getting-started/viewer-walkthrough) and [viewer reference](/reference/viewer/overview) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
@@ -334,4 +334,4 @@ You can also save a recording (or a portion of it) as you're visualizing it, dir
 
 This closes our whirlwind tour of Rerun. We've barely scratched the surface of what's possible, but this should have hopefully given you plenty pointers to start experimenting.
 
-To go further, have a look at some of our other [examples](/examples).
+To go further, have a look at some of our other [examples](/getting-started/examples).

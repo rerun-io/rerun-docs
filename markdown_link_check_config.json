@@ -1,12 +1,17 @@
 {
+    "ignorePatterns": [
+        {
+            "pattern": "^https://crates.io/crates/rerun$"
+        }
+    ],
     "replacementPatterns": [
         {
             "pattern": "^/docs-media/",
             "replacement": "{{BASEURL}}/docs-media/"
         },
         {
-            "pattern": "^/(.*)",
-            "replacement": "{{BASEURL}}/docs/$1.md"
+            "pattern": "^/([^#]*)(.*)",
+            "replacement": "{{BASEURL}}/docs/$1.md$2"
         }
     ]
 }

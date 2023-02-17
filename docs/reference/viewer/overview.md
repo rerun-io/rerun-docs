@@ -11,17 +11,17 @@ Overview
 --------------------------
 ![screenshot of the viewer with different parts annotated](/docs-media/viewer-overview.png)
 
-### [Blueprint](blueprint)
+### [Blueprint](/reference/viewer/blueprint)
 The Blueprint view is where you see and edit the Blueprint for the whole viewer, i.e. what is shown in the viewer (and how it is shown).
 
-### [Selection](selection)
+### [Selection](/reference/viewer/selection)
 The Selection view let's you see details and edit configurations of the current selection(s).
 
-### [Timeline](timeline)
+### [Timeline](/concepts/timelines)
 The timeline panel gives you controls over what point in time you're looking at on which [timeline](/concepts/timelines) for the rest of the viewer.
 Additionally, it gives you an overview of all events on a given timeline.
 
-### [Viewport](viewport)
+### [Viewport](/reference/viewer/viewport)
 The viewport is where your visualizations live. It is composed of one or more Space Views that you can arrange freely.
 
 ### Top bar & Menu

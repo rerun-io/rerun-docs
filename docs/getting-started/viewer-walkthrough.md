@@ -25,7 +25,7 @@ to take the images.
 ## Prerequisites
 Although the Rerun SDK is available in both Python and Rust, this walkthrough makes use the Python installation. Even if
 you plan to use Rerun with Rust, we still recommend having a Rerun Python environment available for quick
-experimentation and working with examples. You can either follow the [Python Quickstart](python) or simply run:
+experimentation and working with examples. You can either follow the [Python Quickstart](/getting-started/python) or simply run:
 
 ```bash
 pip install rerun-sdk
@@ -238,9 +238,9 @@ That brings us to the end of this walkthrough. To recap, you have learned how to
 Again, if you ran into any issues following this guide, please don't hesitate to [open an issue](https://github.com/rerun-io/rerun/issues/new/choose).
 
 ### Up next
-To get started with writing a program to logging data with the Rerun SDK see the [Python](logging-python) or
-[Rust](logging-rust) getting started guides.
+To get started with writing a program to logging data with the Rerun SDK see the [Python](/getting-started/logging-python) or
+[Rust](/getting-started/logging-rust) getting started guides.
 
-To see and explore other data, you can check out the [examples](examples).
+To see and explore other data, you can check out the [examples](/getting-started/examples).
 
 For deeper context on the ideas covered here, consult the [Concept overview](/concepts).

@@ -8,7 +8,7 @@ It is saved between sessions and is unique to a given [application id](/concepts
 The Blueprint includes all Space View configurations, Entity groupings and Entity settings, also known as Data Blueprints.
 
 This view shows the Blueprint for the active recording.
-Everything visible in the [Viewport](viewport) has a representation here,
+Everything visible in the [Viewport](/reference/viewer/viewport) has a representation here,
 making it an easy way to select a Space View and the [Entities](/concepts/entity-component) it shows.
 
 ![blueprint view](/docs-media/blueprint-view.png)
@@ -20,7 +20,7 @@ The reset button resets the entire Blueprint back to its heuristic-chosen defaul
 This includes all settings for Entities, Groups and Space Views.
 
 ### Add Space View
-With this control you can add new Space Views for arbitrary [Spaces](/concepts/spaces).
+With this control you can add new Space Views for arbitrary [Spaces](/concepts/spaces-and-transforms).
 
 Contents
 --------
@@ -43,7 +43,7 @@ of blueprints.
 Adding Entities
 -----------------------------
 To (re-)add an Entity to a Space View, you need first need to select the respective Space View.
-You then can open a dedicated menu through a button in the the [Selection view](selection).
+You then can open a dedicated menu through a button in the the [Selection view](/reference/viewer/selection).
 
 This allows you to add any Entity with a matching [category](viewport.md#Categories-of-Space-Views) and a valid [transform](/concepts/spaces-and-transforms) to your
 Space View's path.

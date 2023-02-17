@@ -5,8 +5,8 @@ order: 2
 
 Making selections is one of the primary ways of exploring data in Rerun.
 The current selection can be changed with a mouse click on most elements of the - 
-including the [Blueprint](blueprint), [Viewport](viewport),
-[Timeline](timeline), [Event Log](overview.md#event-log)
+including the [Blueprint](/reference/viewer/blueprint), [Viewport](/reference/viewer/viewport),
+[Timeline](/concepts/timelines), [Event Log](overview.md#event-log)
 and even the Selection view itself.
 
 
@@ -31,7 +31,7 @@ The data section always shows static, raw user logged data for the currently sel
 Some objects, e.g. Space Views, may not have a data section and expose only Blueprint options.
 
 In contrast, the Blueprint section is timeline independent and exposes the
-[Blueprint settings](blueprint) of an Entity in the context of a given Space View.
+[Blueprint settings](/reference/viewer/blueprint) of an Entity in the context of a given Space View.
 To learn more about the various settings check the on-hover tooltips.
 
 Click-through selections

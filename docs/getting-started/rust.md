@@ -66,6 +66,6 @@ If you're facing any difficulties, don't hesitate to [open an issue](https://git
 
 ## What's next
 
-If you're ready to move on to more advanced topics, check out the [Viewer Walkthrough](viewer-walkthrough) or our
-more advanced guide for [Logging Data in Rust](logging-rust) where we will explore the core concepts that make
+If you're ready to move on to more advanced topics, check out the [Viewer Walkthrough](/getting-started/viewer-walkthrough) or our
+more advanced guide for [Logging Data in Rust](/getting-started/logging-rust) where we will explore the core concepts that make
 Rerun tick and log our first non-trivial dataset.
