@@ -94,7 +94,7 @@ Note that if the viewer was still running, Rerun will simply connect to this exi
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._
-_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](../reference/viewer/overview) for a complete tour of the viewer's capabilities._
+_Checkout the [Viewer Walkthrough](viewer-walkthrough.md) and [viewer reference](../reference/viewer/overview) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
