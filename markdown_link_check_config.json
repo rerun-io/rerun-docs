@@ -1,7 +1,8 @@
 {
-    "ignorePatterns": [
+    "replacementPatterns": [
         {
-            "pattern": "^/docs-media/"
+            "pattern": "^./",
+            "replacement": "{{BASEURL}}/"
         }
     ]
 }
