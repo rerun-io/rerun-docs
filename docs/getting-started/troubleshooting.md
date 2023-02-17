@@ -21,6 +21,9 @@ On WSL2 you need to run:
 
 `sudo apt-get install -y libvulkan1 libxcb-randr0 mesa-vulkan-drivers`
 
+[TODO(#1250)](https://github.com/rerun-io/rerun/issues/1250): Running with the wayland window manager 
+sometimes causes Rerun to crash. Try setting `WINIT_UNIX_BACKEND=x11` as a workaround.
+
 ## Graphics issues
 
 [Wgpu](https://github.com/gfx-rs/wgpu) (the graphics API we use) maintains a list of
