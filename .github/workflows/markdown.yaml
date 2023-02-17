@@ -16,9 +16,11 @@ jobs:
         with:
           files: |
             "**/*.md"
-  markdown-link-check:
-    name: Markdown links
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+
+  # Too many false positives: https://github.com/rerun-io/rerun-docs/pull/49
+  # markdown-link-check:
+  #   name: Markdown links
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@master
+  #     - uses: gaurav-nelson/github-action-markdown-link-check@v1
