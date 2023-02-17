@@ -42,5 +42,8 @@ since we don't support all of these settings equally well.
 When using Wgpu's Vukan backend (the default on Windows & Linux) on a computer that has both integrated and dedicated GPUs, a lot of issues can arise from Vulkan either picking the "wrong" GPU at runtime, or even simply from the fact that this choice conflicts with other driver picking technologies (e.g. NVIDIA Optimus).
 
 In both cases, forcing Vulkan to pick either the integrated or discrete GPU (try both!) using the [`VK_ICD_FILENAMES`](https://vulkan.lunarg.com/doc/view/1.3.204.1/mac/LoaderDriverInterface.html#user-content-driver-discovery) environment variable might help with crashes, artifacts and bad performance. E.g.:
-- Force the integrated GPU: `export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel.json`.
-- Force the discrete GPU: `export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia.json`.
+- Force the Intel integrated GPU:
+  - Linux: `export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel.json`.
+- Force the discrete Nvidia GPU:
+  - Linux: `export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia.json`.
+  - Windows: `set VK_ICD_FILENAMES=\windows\system32\nv-vk64.json`.
