@@ -47,3 +47,12 @@ Code-examples can be referenced in Markdown using this syntax:
 ```
 code-example: my-example
 ```
+
+
+## Markdown link checker
+This is run on the CI. To run it locally:
+
+```sh
+npm install -g markdown-link-check
+markdown-link-check -c markdown_link_check_config.json docs/**.md
+```
