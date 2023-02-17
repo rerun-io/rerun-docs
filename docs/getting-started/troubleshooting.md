@@ -24,6 +24,9 @@ On WSL2 you need to run:
 [TODO(#1250)](https://github.com/rerun-io/rerun/issues/1250): Running with the wayland window manager 
 sometimes causes Rerun to crash. Try setting `WINIT_UNIX_BACKEND=x11` as a workaround.
 
+On Linux, if your computer has both integrated and dedicated GPUs, forcing the dedicated GPU might help with crashes, artifacts and bad performance.
+For dedicated Nvidia GPUs this can be done with `export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia.json`.
+
 ## Graphics issues
 
 [Wgpu](https://github.com/gfx-rs/wgpu) (the graphics API we use) maintains a list of
