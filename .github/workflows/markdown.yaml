@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Markdown links check
-        uses: ruzickap/action-my-markdown-link-checker@v1
+      - uses: ruzickap/action-my-markdown-link-checker@v1
         with:
           search_paths: |
-            docs/
+            /
+            /docs/
