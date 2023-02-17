@@ -75,4 +75,4 @@ We provide helpers for both Python & Rust to effortlessly add and properly handl
 - For Python, checkout the [`script_helpers`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/script_helpers/) module.
 - For Rust, checkout our [`clap`]() [integration](https://docs.rs/rerun/latest/rerun/clap/index.html).
 
-Have a look at the [official examples](../../getting-started/examples) to see these helpers in action.
+Have a look at the [official examples](../../getting-started/examples.md) to see these helpers in action.

@@ -9,7 +9,7 @@ The Blueprint includes all Space View configurations, Entity groupings and Entit
 
 This view shows the Blueprint for the active recording.
 Everything visible in the [Viewport](viewport.md) has a representation here,
-making it an easy way to select a Space View and the [Entities](../../concepts/entity-component) it shows.
+making it an easy way to select a Space View and the [Entities](../../concepts/entity-component.md) it shows.
 
 ![blueprint view](/docs-media/blueprint-view.png)
 

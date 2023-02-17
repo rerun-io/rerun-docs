@@ -17,7 +17,7 @@ At any time, you can checkout the complete code listing for this tutorial [here]
 
 ## Prerequisites
 
-We assume you have working Python and `rerun-sdk` installations. If not, check out the [setup page](python).
+We assume you have working Python and `rerun-sdk` installations. If not, check out the [setup page](python.md).
 
 For this tutorial you will also need to `pip install numpy scipy`.
 
@@ -33,13 +33,13 @@ import rerun as rr
 rr.init("DNA Abacus")
 ```
 
-Among other things, a stable [`ApplicationId`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init) will make it so the [Rerun Viewer](../reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
+Among other things, a stable [`ApplicationId`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init) will make it so the [Rerun Viewer](../reference/viewer/overview.md) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
-Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions).
+Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions.md).
 
 ## Starting the Viewer
 
-Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview) itself.
+Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview.md) itself.
 
 To do this, you can add the line:
 ```python
@@ -89,7 +89,7 @@ rr.log_points("dna/structure/right", points2, colors=colors2, radii=0.08)
 ```
 
 Run your script once again and you should now see this scene in the viewer.
-Note that if the viewer was still running, Rerun will simply connect to this existing session and replace the data with this new [_recording_](../concepts/apps-and-sessions).
+Note that if the viewer was still running, Rerun will simply connect to this existing session and replace the data with this new [_recording_](../concepts/apps-and-sessions.md).
 
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
@@ -111,13 +111,13 @@ Rerun takes care of mapping those arrays to actual Rerun components depending on
 
 Note the two strings we're passing in: `"dna/structure/left"` & `"dna/structure/right"`.
 
-These are [Entity Paths](../concepts/entity-component), which uniquely identify each Entity in our scene. Every Entity is made up of a path and one or more Components.
-[Entity paths typically form a hierarchy](../concepts/entity-path) which plays an important role in how data is visualized and transformed (as we shall soon see).
+These are [Entity Paths](../concepts/entity-component.md), which uniquely identify each Entity in our scene. Every Entity is made up of a path and one or more Components.
+[Entity paths typically form a hierarchy](../concepts/entity-path.md) which plays an important role in how data is visualized and transformed (as we shall soon see).
 
 `Batches`
 
 One final observation: notice how we're logging a whole batch of points and colors all at once here.
-[Batches of data](../concepts/batches) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.
+[Batches of data](../concepts/batches.md) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.
 You're looking at one of these dedicated features right now in fact: notice how we're only logging a single radius for all these points, yet somehow it applies to all of them.
 
 ---
@@ -157,9 +157,9 @@ there is nothing new here: it's all about building out `numpy` arrays and feedin
 
 ### Introducing Time
 
-Up until this point, we've completely set aside one of the core concepts of Rerun: [Time and Timelines](../concepts/timelines).
+Up until this point, we've completely set aside one of the core concepts of Rerun: [Time and Timelines](../concepts/timelines.md).
 
-Even so, if you look at your [Timeline View](../reference/viewer/timeline) right now, you'll notice that Rerun has kept track of time on your behalf anyways by memorizing when each log call occurred.
+Even so, if you look at your [Timeline View](../reference/viewer/timeline.md) right now, you'll notice that Rerun has kept track of time on your behalf anyways by memorizing when each log call occurred.
 
 ![logging data - timeline closeup](/docs-media/logging_data6_timeline.png)
 
@@ -268,4 +268,4 @@ You can also save a recording (or a portion of it) as you're visualizing it, dir
 
 This closes our whirlwind tour of Rerun. We've barely scratched the surface of what's possible, but this should have hopefully given you plenty pointers to start experimenting.
 
-To go further, have a look at some of our other [examples](./examples).
+To go further, have a look at some of our other [examples](./examples.md).

@@ -6,7 +6,7 @@ order: 3
 Timeline controls
 --------------------------
 
-The timeline controls sit at the top of the timeline panel and allow you to control the playback and what [timeline](../../concepts/timelines) is active.
+The timeline controls sit at the top of the timeline panel and allow you to control the playback and what [timeline](../../concepts/timelines.md) is active.
 
 ![timeline controls](/docs-media/timeline-controls.png)
 
