@@ -3,7 +3,7 @@ title: Primitives
 order: 3
 ---
 
-To learn what Primitives are, check the concept page on [Entities and Components](../concepts/entity-component.md).
+To learn what Primitives are, check the concept page on [Entities and Components](/concepts/entity-component.md).
 
 In [Python](https://rerun-io.github.io/rerun) every Primitive is typically backed by one or more function calls.
 In contrast, the [Rust API](https://docs.rs/rerun/) works by adding components explicitly.

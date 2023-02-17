@@ -59,13 +59,13 @@ preview, but the remainder of this guide will walk you through how to configure 
 ## The viewer panels
 
 There are 4 main parts to this window:
-- In the middle of the screen is the [Viewport](../reference/viewer/viewport.md). This is where you see the rendered
+- In the middle of the screen is the [Viewport](/reference/viewer/viewport.md). This is where you see the rendered
   space views for your session.
-- On the left is the [Blueprint](../reference/viewer/blueprint.md) panel. This is where the different space views can be
+- On the left is the [Blueprint](/reference/viewer/blueprint.md) panel. This is where the different space views can be
   controlled.
-- On the right is the [Selection](../reference/viewer/selection.md) panel. This is where you see extra information
+- On the right is the [Selection](/reference/viewer/selection.md) panel. This is where you see extra information
   and configuration information for things that you have selected.
-- On the bottom is the [Timeline](../reference/viewer/timeline.md) panel. This is where you can control the current
+- On the bottom is the [Timeline](/reference/viewer/timeline.md) panel. This is where you can control the current
   point in time that is being viewed.
 
 Each of the 3 side panels has a corresponding button in the upper right corner. Try clicking each of these to hide and
@@ -85,18 +85,18 @@ Feel free to move the views around until you are happy with the layout.
 
 ## Exploring data
 The space views are where you can see the data that was actually logged. This scene has streams of data for 6 different
-primitives, also known as [entities](../concepts/entity-component.md):
-* [images](../reference/primitives#tensors--images) that were captured from a camera.
-* [2d keypoints](../reference/primitives#point-2d) that were detected and tracked in those images.
-* a [camera](../reference/primitives#pinhole) model that describes the relationship between 2D and 3D space.
-* [3d points](../reference/primitives#point-3d) that were computed by the COLMAP slam pipeline.
-* A sequence of [transforms](../reference/primitives#rigid3d) describing the 3D location of the camera in space.
-* A [scalar](../reference/primitives#scalar) error metric that was computed by the algorithm for each frame.
+primitives, also known as [entities](/concepts/entity-component.md):
+* [images](/reference/primitives#tensors--images) that were captured from a camera.
+* [2d keypoints](/reference/primitives#point-2d) that were detected and tracked in those images.
+* a [camera](/reference/primitives#pinhole) model that describes the relationship between 2D and 3D space.
+* [3d points](/reference/primitives#point-3d) that were computed by the COLMAP slam pipeline.
+* A sequence of [transforms](/reference/primitives#rigid3d) describing the 3D location of the camera in space.
+* A [scalar](/reference/primitives#scalar) error metric that was computed by the algorithm for each frame.
 
 ### Hover and selection
 You can find out more about these entities by hovering over them in the different views. Hovering will bring up a
 context popup with additional information. You can also click on entities to select them and see more details in the
-[Selection panel](../reference/viewer/selection.md).
+[Selection panel](/reference/viewer/selection.md).
 
 ![Hover Data](/docs-media/viewer_walkthrough4_hover.png)
 
@@ -108,7 +108,7 @@ Try each of the following:
 Note that the views are actually connected. As you hover over points in the `/ (Spatial)` view you will see information
 about the depth of the projection in the image view. Conversely as you hover over pixels in the `image` you will see the
 corresponding ray projected into the `/ (Spatial)` view. See the section on
-[Spaces and Transforms](../concepts/spaces-and-transforms.md) for more information on how this linking works.
+[Spaces and Transforms](/concepts/spaces-and-transforms.md) for more information on how this linking works.
 
 ### Rotate, zoom, and pan
 Clicking and dragging the contents of any view will move it. You can rotate 3d views, or pan 2d views and plots. You can
@@ -159,10 +159,10 @@ to the "frame" timeline and double-click the timeline panel to reset it to the d
 One thing to notice is there is a gap in the timeline in the "frame" view. This dataset is actually missing a few
 frames, and the timeline view of frames makes this easy to spot. This highlights the importance of applying meaningful
 timestamps to your data as you log it. You also aren't limited to frame and log_time. Rerun lets you define your own
-timelines however you would like. You can read more about timelines [here](../concepts/timelines.md).
+timelines however you would like. You can read more about timelines [here](/concepts/timelines.md).
 
 ## Configuring views
-Views in Rerun are configured by [Blueprints](../reference/viewer/blueprint.md). We will now use blueprints to adjust
+Views in Rerun are configured by [Blueprints](/reference/viewer/blueprint.md). We will now use blueprints to adjust
 both an individual entity as well as the contents of a space view itself.
 
 ### Adjusting entity properties
@@ -195,7 +195,7 @@ greyed out. For example, you cannot add a scalar to a spatial scene.
 ## Creating new views
 New views can be created using the "+" button at the top of the Blueprint panel. When you click this button you will
 need to choose a root for your new space. This is the space that will act as your origin within the
-[transform system](../concepts/spaces-and-transforms.md).
+[transform system](/concepts/spaces-and-transforms.md).
 
 ![Create a view](/docs-media/viewer_walkthrough10_create.png)
 
@@ -225,7 +225,7 @@ system to transform or project all data into the space root for the given view.
 That brings us to the end of this walkthrough. To recap, you have learned how to:
 - Install the `rerun-sdk` pypi package.
 - Run the Rerun Viewer using the `rerun_demo` helper.
-- Work with the [Blueprint](../reference/viewer/blueprint.md), [Selection](../reference/viewer/selection.md) and [Timeline](../reference/viewer/timeline.md) panels.
+- Work with the [Blueprint](/reference/viewer/blueprint.md), [Selection](/reference/viewer/selection.md) and [Timeline](/reference/viewer/timeline.md) panels.
 - Rearrange space view layouts.
 - Explore data through hover and selection.
 - Change the time selection.
@@ -243,4 +243,4 @@ To get started with writing a program to logging data with the Rerun SDK see the
 
 To see and explore other data, you can check out the [examples](examples.md).
 
-For deeper context on the ideas covered here, consult the [Concept overview](../concepts.md).
+For deeper context on the ideas covered here, consult the [Concept overview](/concepts.md).

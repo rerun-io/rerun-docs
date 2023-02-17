@@ -67,7 +67,7 @@ colors[:,0] = np.linspace(0,255,10)
 rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 ```
 
-When you run this script you will again be greeted with the [Rerun Viewer](../reference/viewer/overview.md), this time
+When you run this script you will again be greeted with the [Rerun Viewer](/reference/viewer/overview.md), this time
 only showing a simple line of red points.
 
 ![Simple Line](/docs-media/quickstart1_line.png)

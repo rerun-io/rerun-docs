@@ -51,7 +51,7 @@ Now start your application:
 cargo run
 ```
 
-Once everything finishes compiling, you will be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
+Once everything finishes compiling, you will be greeted with the [Rerun Viewer](/reference/viewer/overview.md):
 ![intro users - result](/docs-media/intro_users1_result.png)
 
 ## Using the viewer

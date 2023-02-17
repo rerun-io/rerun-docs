@@ -34,7 +34,7 @@ how data should be displayed.
 The assorted logging APIs all simply set different combinations of components on some specified entity, and the
 corresponding space views look for entities with these components in the data store.  
 For more information on the different primitives and how they relate to components see the
-[Primitives reference](../reference/primitives.md)
+[Primitives reference](/reference/primitives.md)
 
 ### Extension Components
 Your entity could have any number of other components as well. This isn't a problem. Any components that
