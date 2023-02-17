@@ -6,7 +6,7 @@ order: 2
 ## The Definition of Spaces
 
 Every Entity in Rerun exists in some *Space.* This is at the core of how Rerun organizes the visualizations of the data
-that you have logged.  In the [Rerun Viewer](/reference/viewer.md) you view data by configuring a "Space View," which is a view
+that you have logged.  In the [Rerun Viewer](/reference/viewer) you view data by configuring a "Space View," which is a view
 of a set of entities *as seen from a particular Space.*
 
 A "Space" is, very loosely, a generalization of the idea of a "Coordinate System" (sometimes known as a "Coordinate Frame") to arbitrary data. If a collection of

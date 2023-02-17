@@ -3,7 +3,7 @@ title: Primitives
 order: 3
 ---
 
-To learn what Primitives are, check the concept page on [Entities and Components](/concepts/entity-component.md).
+To learn what Primitives are, check the concept page on [Entities and Components](/concepts/entity-component).
 
 In [Python](https://rerun-io.github.io/rerun) every Primitive is typically backed by one or more function calls.
 In contrast, the [Rust API](https://docs.rs/rerun/) works by adding components explicitly.
@@ -48,7 +48,7 @@ which components the Viewer can interpret together as documented below.
 * Python: [log_mesh](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_mesh),
 [log_meshes](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_meshes),
 [log_mesh_file](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_mesh_file)
-* Rust (primary): [Mesh3D](https://docs.rs/rerun/latest/rerun/components/struct.Mesh3D.html)
+* Rust (primary): [Mesh3D](https://docs.rs/rerun/latest/rerun/components/enum.Mesh3D.html)
 * Primary component: `mesh3d`
 * Secondary components: `colorrgba`
 

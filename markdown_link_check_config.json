@@ -5,8 +5,8 @@
             "replacement": "{{BASEURL}}/docs-media/"
         },
         {
-            "pattern": "^/",
-            "replacement": "{{BASEURL}}/docs/"
+            "pattern": "^/(.*)",
+            "replacement": "{{BASEURL}}/docs/$1.md"
         }
     ]
 }

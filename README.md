@@ -54,5 +54,5 @@ This is run on the CI. To run it locally:
 
 ```sh
 npm install -g markdown-link-check
-markdown-link-check -q -c markdown_link_check_config.json docs/**/*.md
+markdown-link-check --quiet -c markdown_link_check_config.json docs/**/*.md
 ```

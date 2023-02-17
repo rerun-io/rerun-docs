@@ -57,13 +57,13 @@ fn main() {
 }
 ```
 
-Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](/reference/viewer/overview.md) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
+Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](/reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
 Check out the reference to learn more about how Rerun deals with [applications and sessions](/concepts/apps-and-sessions).
 
 ## Starting the Viewer
 
-Next up, we want to spawn the [Rerun Viewer](/reference/viewer/overview.md) itself.
+Next up, we want to spawn the [Rerun Viewer](/reference/viewer/overview) itself.
 
 ```rust
 fn run(mut session: Session) -> Result<(), MsgSenderError> {
@@ -116,7 +116,7 @@ Run your program once again and you should now see this scene in the viewer.
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._
-_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](/reference/viewer/overview.md) for a complete tour of the viewer's capabilities._
+_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](/reference/viewer/overview) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
@@ -135,7 +135,7 @@ The Rerun [Rust SDK](https://rerun-io.github.io/rerun/docs/rust) works at a lowe
 In particular, when using the Rust SDK, you work directly with [`components`](https://docs.rs/rerun/latest/rerun/components) instead of higher-level primitives.
 
 By logging multiple components to an Entity, one can build up Primitives that can later be visualized in the viewer.
-For more information on how the rerun data model works, refer to our section on [entities and components](/concepts/entity-component.md).
+For more information on how the rerun data model works, refer to our section on [entities and components](/concepts/entity-component).
 
 Logging components is a only a matter of calling [`MsgSender::with_component`](https://docs.rs/rerun/latest/rerun/struct.MsgSender.html#method.with_component) using any type that implements the [`Component` trait](https://docs.rs/rerun/latest/rerun/trait.Component.html). We provide [a few of those](https://docs.rs/rerun/latest/rerun/trait.Component.html#implementors)).
 

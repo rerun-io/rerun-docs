@@ -51,7 +51,7 @@ Now start your application:
 cargo run
 ```
 
-Once everything finishes compiling, you will be greeted with the [Rerun Viewer](/reference/viewer/overview.md):
+Once everything finishes compiling, you will be greeted with the [Rerun Viewer](/reference/viewer/overview):
 ![intro users - result](/docs-media/intro_users1_result.png)
 
 ## Using the viewer
@@ -66,6 +66,6 @@ If you're facing any difficulties, don't hesitate to [open an issue](https://git
 
 ## What's next
 
-If you're ready to move on to more advanced topics, check out the [Viewer Walkthrough](viewer-walkthrough.md) or our
-more advanced guide for [Logging Data in Rust](logging-rust.md) where we will explore the core concepts that make
+If you're ready to move on to more advanced topics, check out the [Viewer Walkthrough](viewer-walkthrough) or our
+more advanced guide for [Logging Data in Rust](logging-rust) where we will explore the core concepts that make
 Rerun tick and log our first non-trivial dataset.

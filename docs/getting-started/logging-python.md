@@ -33,13 +33,13 @@ import rerun as rr
 rr.init("DNA Abacus")
 ```
 
-Among other things, a stable [`ApplicationId`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init) will make it so the [Rerun Viewer](/reference/viewer/overview.md) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
+Among other things, a stable [`ApplicationId`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init) will make it so the [Rerun Viewer](/reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
 Check out the reference to learn more about how Rerun deals with [applications and sessions](/concepts/apps-and-sessions).
 
 ## Starting the Viewer
 
-Next up, we want to spawn the [Rerun Viewer](/reference/viewer/overview.md) itself.
+Next up, we want to spawn the [Rerun Viewer](/reference/viewer/overview) itself.
 
 To do this, you can add the line:
 ```python
@@ -94,7 +94,7 @@ Note that if the viewer was still running, Rerun will simply connect to this exi
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._
-_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](/reference/viewer/overview.md) for a complete tour of the viewer's capabilities._
+_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](/reference/viewer/overview) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
@@ -102,7 +102,7 @@ This tiny snippet of code actually holds much more than meets the eye...
 
 `Components`
 
-Although the Rerun [Python SDK](https://ref.rerun.io/docs/python) exposes concepts related to logging primitives such as points, and lines, under the hood these primitives are made up of individual components like positions, colors, and radii. For more information on how the rerun data model works, refer to our section on [entities and components](/concepts/entity-component.md).
+Although the Rerun [Python SDK](https://ref.rerun.io/docs/python) exposes concepts related to logging primitives such as points, and lines, under the hood these primitives are made up of individual components like positions, colors, and radii. For more information on how the rerun data model works, refer to our section on [entities and components](/concepts/entity-component).
 
 Our [Python SDK](https://ref.rerun.io/docs/python) integrates with the rest of the Python ecosystem: the points and colors returned by [`build_color_spiral`](https://ref.rerun.io/docs/python/latest/package/rerun_demo/data/#rerun_demo.data.build_color_spiral) in this example are vanilla `numpy` arrays.
 Rerun takes care of mapping those arrays to actual Rerun components depending on the context (e.g. we're calling [`log_points`](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_points) in this case).

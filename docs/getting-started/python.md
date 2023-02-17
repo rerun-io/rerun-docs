@@ -30,7 +30,7 @@ data usage policy. Rerun collects anonymous usage data to help improve the proje
 would like.*
 
 ### If you're having problems
- * Checkout out our [troubleshooting guide](troubleshooting.md).
+ * Checkout out our [troubleshooting guide](troubleshooting).
  * [open an issue](https://github.com/rerun-io/rerun/issues/new/choose).
  * Or [join the Discord server](https://discord.gg/PXtCgFBSmH).
 
@@ -45,7 +45,7 @@ Try out the following to interact with the viewer:
  * Hover and select individual points to see more information.
 
 This is just a taste of some of what you can do with the viewer. We will cover other functionality in much
-more detail later in the [Viewer Walkthrough](viewer-walkthrough.md)
+more detail later in the [Viewer Walkthrough](viewer-walkthrough)
 
 ## Logging your own data
 Now instead of using a prepackaged demo, let's create some data ourselves. We will start with an
@@ -67,7 +67,7 @@ colors[:,0] = np.linspace(0,255,10)
 rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 ```
 
-When you run this script you will again be greeted with the [Rerun Viewer](/reference/viewer/overview.md), this time
+When you run this script you will again be greeted with the [Rerun Viewer](/reference/viewer/overview), this time
 only showing a simple line of red points.
 
 ![Simple Line](/docs-media/quickstart1_line.png)
@@ -93,6 +93,6 @@ rr.log_points("my_points", positions=positions, colors=colors, radii=0.5)
 
 ## What's next
 
-If you're ready to move on to more advanced topics, check out the [Viewer Walkthrough](viewer-walkthrough.md) or our
-more advanced guide for [Logging Data in Python](logging-python.md) where we will explore the core concepts that make
+If you're ready to move on to more advanced topics, check out the [Viewer Walkthrough](viewer-walkthrough) or our
+more advanced guide for [Logging Data in Python](logging-python) where we will explore the core concepts that make
 Rerun tick and log our first non-trivial dataset.

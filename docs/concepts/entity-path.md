@@ -4,7 +4,7 @@ order: 1
 ---
 
 ## Entity Paths
-As mentioned in the [Entity Component](entity-component.md) overview, all Entities within Rerun have a unique _Entity Path_.
+As mentioned in the [Entity Component](/concepts/entity-component) overview, all Entities within Rerun have a unique _Entity Path_.
 
 The first argument to each log function is this path. Each time you log to a specific entity path you will update the entity, i.e. log a new instance of it along the timeline. Each logging to a path must be of the same type (you cannot log an image to the same path as a point cloud).
 
@@ -43,10 +43,10 @@ So for instance, `foo/bar/#42/5678/"CA426571"/a6a5e96c-fd52-4d21-a394-ffbb6e5def
 ### Path Hierarchy Functions
 Path hierarchy plays an important role in a number of different functions within Rerun:
 
- * With the [Transform System](spaces-and-transforms.md) the `transform` component logged to any Entity always describes
+ * With the [Transform System](spaces-and-transforms) the `transform` component logged to any Entity always describes
 the relationship between that Entity and its direct parent.
  * When resolving the meaning of `class_id` and `keypoint_id` components, Rerun uses the Annotation Context from the nearest ancestor in the hierarchy.
- * When adding data to [Blueprints](/reference/viewer/blueprint.md), it is common to add a path and all of its descendants.
+ * When adding data to [Blueprints](/reference/viewer/blueprint), it is common to add a path and all of its descendants.
  * When using the `log_cleared` API, it is possible to mark an entity and all of its descendants as being cleared.
  * In the future, it will also be possible to use path-hierarchy to set default-values for descendants.
    [#1158](https://github.com/rerun-io/rerun/issues/1158)
