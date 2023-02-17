@@ -17,12 +17,16 @@ jobs:
           files: |
             "**/*.md"
   markdown-link-check:
-    name: Markdown links
+    name: my-markdown-link-checker
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ruzickap/action-my-markdown-link-checker@v1
         with:
-          search_paths: |
-            /
-            /docs/
+          config_file: markdown-links.json
+  linkinator:
+    name: linkinator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JustinBeckwith/linkinator-action@v1
