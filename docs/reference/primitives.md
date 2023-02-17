@@ -48,7 +48,7 @@ which components the Viewer can interpret together as documented below.
 * Python: [log_mesh](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_mesh),
 [log_meshes](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_meshes),
 [log_mesh_file](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_mesh_file)
-* Rust (primary): [Mesh3D](https://docs.rs/rerun/latest/rerun/components/struct.Mesh3D.html)
+* Rust (primary): [Mesh3D](https://docs.rs/rerun/latest/rerun/components/enum.Mesh3D.html)
 * Primary component: `mesh3d`
 * Secondary components: `colorrgba`
 
@@ -97,4 +97,3 @@ Furthermore, only the spatial Space View is able to use the color component.
 * Rust (primary): [TextEntry](https://docs.rs/rerun/latest/rerun/components/struct.TextEntry.html)
 * Primary component: `text_entry`
 * Secondary components: `colorrgba`
-

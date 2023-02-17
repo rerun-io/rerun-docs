@@ -20,7 +20,7 @@ The reset button resets the entire Blueprint back to its heuristic-chosen defaul
 This includes all settings for Entities, Groups and Space Views.
 
 ### Add Space View
-With this control you can add new Space Views for arbitrary [Spaces](../../concepts/spaces.md).
+With this control you can add new Space Views for arbitrary [Spaces](../../concepts/spaces-and-transforms.md).
 
 Contents
 --------
