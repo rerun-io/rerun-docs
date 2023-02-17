@@ -57,13 +57,13 @@ fn main() {
 }
 ```
 
-Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](../reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
+Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](../reference/viewer/overview.md) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
 Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions).
 
 ## Starting the Viewer
 
-Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview) itself.
+Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview.md) itself.
 
 ```rust
 fn run(mut session: Session) -> Result<(), MsgSenderError> {
@@ -116,7 +116,7 @@ Run your program once again and you should now see this scene in the viewer.
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._
-_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](../reference/viewer/overview) for a complete tour of the viewer's capabilities._
+_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](../reference/viewer/overview.md) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
@@ -334,4 +334,4 @@ You can also save a recording (or a portion of it) as you're visualizing it, dir
 
 This closes our whirlwind tour of Rerun. We've barely scratched the surface of what's possible, but this should have hopefully given you plenty pointers to start experimenting.
 
-To go further, have a look at some of our other [examples](./examples).
+To go further, have a look at some of our other [examples](/examples).

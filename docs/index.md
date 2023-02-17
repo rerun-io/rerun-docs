@@ -8,10 +8,10 @@ order: 0
 Rerun is built to help developers debug and understand computer vision and robotics systems
 by quickly visualizing internal state and data.
 
-- Jump right in with the a quick start for [Python](getting-started/python.md) or [Rust](getting-started/rust.md).
-- Follow it up with the [Viewer Walkthrough](getting-started/viewer-walkthrough.md) and a tutorial on logging data with [Python](getting-started/logging-python) or [Rust](getting-started/logging-rust).
+- Jump right in with the a quick start for [Python](/getting-started/python.md) or [Rust](/getting-started/rust.md).
+- Follow it up with the [Viewer Walkthrough](/getting-started/viewer-walkthrough.md) and a tutorial on logging data with [Python](/getting-started/logging-python.md) or [Rust](/getting-started/logging-rust.md).
 - Dive deeper in the [Concepts](concepts) section.
-- The [Reference](reference) covers specific primitives, configuration and API details.
+- The [Reference](/reference) covers specific primitives, configuration and API details.
 
 ## What is Rerun?
 
@@ -22,8 +22,8 @@ You’ll even be able to embed single views inside other applications.
 
 It's made up of the Rerun SDK and the Rerun Viewer
 
-- The Rerun SDK lets you log data from [Python](getting-started/python) or [Rust](getting-started/rust)
-- The [Rerun Viewer](reference/viewer/overview) lets you view data live or from a recording.
+- The Rerun SDK lets you log data from [Python](/getting-started/python.md) or [Rust](/getting-started/rust.md)
+- The [Rerun Viewer](/reference/viewer/overview.md) lets you view data live or from a recording.
 
 ![overview](/docs-media/docs_overview.png)
 

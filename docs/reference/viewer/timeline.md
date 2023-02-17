@@ -6,7 +6,7 @@ order: 3
 Timeline controls
 --------------------------
 
-The timeline controls sit at the top of the timeline panel and allow you to control the playback and what [timeline](../../concepts/timelines) is active.
+The timeline controls sit at the top of the timeline panel and allow you to control the playback and what [timeline](/concepts/timelines) is active.
 
 ![timeline controls](/docs-media/timeline-controls.png)
 
@@ -22,7 +22,7 @@ The Streams panel can be hidden with the layout config buttons at the top right 
 
 ![streams](/docs-media/streams.png)
 
-On the right side you see circles for each logged [event](../../concepts/timelines.md) on the currently selected timeline over time.
+On the right side you see circles for each logged [event](/concepts/timelines.md) on the currently selected timeline over time.
 You can use the mouse to scrub the vertical time selector line to jump to arbitrary moments in time.
 The stream view allows panning with right click and zooming with `ctrl/cmd + scroll`.
 
