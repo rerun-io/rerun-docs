@@ -16,9 +16,12 @@ jobs:
         with:
           files: |
             "**/*.md"
-  markdown-link-check:
-    name: Markdown links
+  linkinator:
+    name: linkinator
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      - uses: actions/checkout@v3
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          linksToSkip: "https://crates.io/crates/rerun"

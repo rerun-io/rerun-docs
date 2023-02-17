@@ -17,7 +17,7 @@ At any time, you can checkout the complete code listing for this tutorial [here]
 
 ## Prerequisites
 
-We assume you have a working Rust environment and have started a new project with the `rerun` dependency. If not, check out the [setup page](rust).
+We assume you have a working Rust environment and have started a new project with the `rerun` dependency. If not, check out the [setup page](rust.md).
 
 For this example in particular, we're going to need all of these:
 ```toml
@@ -57,13 +57,13 @@ fn main() {
 }
 ```
 
-Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](../reference/viewer/overview) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
+Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](../reference/viewer/overview.md) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
-Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions).
+Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions.md).
 
 ## Starting the Viewer
 
-Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview) itself.
+Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview.md) itself.
 
 ```rust
 fn run(mut session: Session) -> Result<(), MsgSenderError> {
@@ -116,7 +116,7 @@ Run your program once again and you should now see this scene in the viewer.
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
 _This is a good time to make yourself familiar with the viewer: try interacting with the scene and exploring the different menus._
-_Checkout the [Viewer Walkthrough](viewer-walkthrough) and [viewer reference](../reference/viewer/overview) for a complete tour of the viewer's capabilities._
+_Checkout the [Viewer Walkthrough](viewer-walkthrough.md) and [viewer reference](../reference/viewer/overview.md) for a complete tour of the viewer's capabilities._
 
 ### Under the hood
 
@@ -126,8 +126,8 @@ Although there's not that much code yet, there's already quite a lot that's happ
 
 Note the two strings we're passing in when creating our `MsgSender`s: `"dna/structure/left"` & `"dna/structure/right"`.
 
-These are [Entity Paths](../concepts/entity-component), which uniquely identify each Entity in our scene. Every Entity is made up of a path and one or more Components.
-[Entity paths typically form a hierarchy](../concepts/entity-path) which plays an important role in how data is visualized and transformed (as we shall soon see).
+These are [Entity Paths](../concepts/entity-component.md), which uniquely identify each Entity in our scene. Every Entity is made up of a path and one or more Components.
+[Entity paths typically form a hierarchy](../concepts/entity-path.md) which plays an important role in how data is visualized and transformed (as we shall soon see).
 
 `Components`
 
@@ -142,7 +142,7 @@ Logging components is a only a matter of calling [`MsgSender::with_component`](h
 `Batches`
 
 One final observation: notice how we're logging a whole batch of points and colors all at once here.
-[Batches of data](../concepts/batches) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.
+[Batches of data](../concepts/batches.md) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.
 You're looking at one of these dedicated features right now in fact: notice how we're only logging a single radius for all these points, yet somehow it applies to all of them.
 
 ---
@@ -204,9 +204,9 @@ Once again, although we are getting fancier and fancier with our iterator mappin
 
 ### Introducing Time
 
-Up until this point, we've completely set aside one of the core concepts of Rerun: [Time and Timelines](../concepts/timelines).
+Up until this point, we've completely set aside one of the core concepts of Rerun: [Time and Timelines](../concepts/timelines.md).
 
-Even so, if you look at your [Timeline View](../reference/viewer/timeline) right now, you'll notice that Rerun has kept track of time on your behalf anyways by memorizing when each log call occurred.
+Even so, if you look at your [Timeline View](../reference/viewer/timeline.md) right now, you'll notice that Rerun has kept track of time on your behalf anyways by memorizing when each log call occurred.
 
 ![logging data - timeline closeup](/docs-media/logging_data6_timeline.png)
 
@@ -334,4 +334,4 @@ You can also save a recording (or a portion of it) as you're visualizing it, dir
 
 This closes our whirlwind tour of Rerun. We've barely scratched the surface of what's possible, but this should have hopefully given you plenty pointers to start experimenting.
 
-To go further, have a look at some of our other [examples](./examples).
+To go further, have a look at some of our other [examples](./examples.md).

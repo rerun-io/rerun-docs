@@ -9,7 +9,7 @@ The Blueprint includes all Space View configurations, Entity groupings and Entit
 
 This view shows the Blueprint for the active recording.
 Everything visible in the [Viewport](viewport.md) has a representation here,
-making it an easy way to select a Space View and the [Entities](../../concepts/entity-component) it shows.
+making it an easy way to select a Space View and the [Entities](../../concepts/entity-component.md) it shows.
 
 ![blueprint view](/docs-media/blueprint-view.png)
 
@@ -20,7 +20,7 @@ The reset button resets the entire Blueprint back to its heuristic-chosen defaul
 This includes all settings for Entities, Groups and Space Views.
 
 ### Add Space View
-With this control you can add new Space Views for arbitrary [Spaces](../../concepts/spaces.md).
+With this control you can add new Space Views for arbitrary [Spaces](../../concepts/spaces-and-transforms.md).
 
 Contents
 --------
