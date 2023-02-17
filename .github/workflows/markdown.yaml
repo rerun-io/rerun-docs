@@ -32,3 +32,4 @@ jobs:
       - uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: "**/*.md"
+          directoryListing: true
