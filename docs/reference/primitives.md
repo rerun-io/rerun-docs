@@ -66,6 +66,12 @@ which components the Viewer can interpret together as documented below.
 * Primary component: `point3d`
 * Secondary components: `colorrgba`, `radius`, `label`, `classid`, `keypointid`
 
+### Transform
+* Python: [log_rigid3](https://ref.rerun.io/docs/python/latest/common/transforms/#rerun.log_rigid3),
+[log_pinhole](https://ref.rerun.io/docs/python/latest/common/transforms/#rerun.log_pinhole)
+* Rust (primary): [Transform](https://docs.rs/rerun/latest/rerun/components/enum.Transform.html)
+* Primary component: `transform`
+
 ## Tensors & Images
 
 * Python:
