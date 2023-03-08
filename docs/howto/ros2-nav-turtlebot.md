@@ -22,8 +22,8 @@ All of the code for this guide can be found on Github in
 ## Prerequisites
 
 Other relevant tutorials:
- - [Logging with Python](../getting-started/logging-python)
- - [Viewer Walkthrough](../getting-started/viewer-walkthrough)
+ - [Logging with Python](../getting-started/logging-python.md)
+ - [Viewer Walkthrough](../getting-started/viewer-walkthrough.md)
 
 ### ROS 2 & navigation
 You will need to have installed [ROS 2 Humble Hawksbill](https://docs.ros.org/en/humble/index.html)
@@ -86,13 +86,13 @@ the environment.
 If you are familiar with the turtlebot nav example and rviz, this view will likely be familiar:
 
  * `map/box` is a placeholder for the map. (This will eventually be a map: [#1531](https://github.com/rerun-io/rerun/issues/1531).)
- * `map/robot` is a transform representing the robot pose logged as a [rigid3 transform](../reference/primitives#transform).
- * `map/robot/urdf` contains the `URDF` logged as a [mesh3d](../reference/primitives#mesh).
- * `map/robot/scan` contains a `LaserScan` msg logged as a [linestrip3d](../reference/primitives#line-3d). (This will eventually be a
+ * `map/robot` is a transform representing the robot pose logged as a [rigid3 transform](../reference/primitives.md#transform).
+ * `map/robot/urdf` contains the `URDF` logged as a [mesh3d](../reference/primitives.md#mesh).
+ * `map/robot/scan` contains a `LaserScan` msg logged as a [linestrip3d](../reference/primitives.md#line-3d). (This will eventually be a
    native type: [#1534](https://github.com/rerun-io/rerun/issues/1534).)
- * `map/robot/camera` contains a `CameraInfo` msg logged as a [pinhole transform](../reference/primitives#transform).
- * `map/robot/camera/img` contains an `Image` msg logged as an [image](../reference/primitives#image).
- * `map/robot/camera/points` contains a `PointCloud2` msg logged as a [point3d batch](../reference/primitives#point-3d).
+ * `map/robot/camera` contains a `CameraInfo` msg logged as a [pinhole transform](../reference/primitives.md#transform).
+ * `map/robot/camera/img` contains an `Image` msg logged as an [image](../reference/primitives.md#tensors--images).
+ * `map/robot/camera/points` contains a `PointCloud2` msg logged as a [point3d batch](../reference/primitives.md#point-3d).
  * `map/points` contains a second copy of `PointCloud2` with a different transform.  (This is a workaround until Rerun
    has support for ROS-style fixed frames [#1522](https://github.com/rerun-io/rerun/issues/1522).)
  * `odometry/vel` is a plot of the linear velocity of the robot.
@@ -130,7 +130,7 @@ again.
 
 ### TF to `log_rigid3`
 Next, we need to map the [ROS TF2](https://docs.ros.org/en/humble/Concepts/About-Tf2.html) transforms to the
-corresponding [Rerun Transforms](../concepts/spaces-and-transforms#space-transformations).
+corresponding [Rerun Transforms](../concepts/spaces-and-transforms.md#space-transformations).
 
 In Rerun, each path represents a coordinate frame, so we need to decide which TF frame each path will
 correspond to. In general, this is the frame_id of the sensor data that will be logged to that
