@@ -4,8 +4,11 @@ order: 1
 ---
 
 Rerun does not have native ROS support, but many of the concepts between ROS and Rerun 
-line up fairly well. In this guide will show you how to write a simple ROS2 python node
+line up fairly well. In this guide, you will learn how to write a simple ROS2 python node
 that subscribes to some common ROS topics and logs them to Rerun.
+
+For more information on future plans to enable ROS more natively,
+see [#1537](https://github.com/rerun-io/rerun/issues/1537)
 
 The following is primarily intended for existing ROS2 users. It will not spend much time
 covering how to use ROS2 itself.  If you are a Rerun user that is curious about ROS,
@@ -87,7 +90,7 @@ Assuming you are familiar with the turtlebot nav example and rviz, this view sho
    [linestrip3d](../reference/primitives#line-3d)
  * `map/robot/camera` contains a `CameraInfo` msg logged as a [pinhole transform](../reference/primitives#transform)
  * `map/robot/camera/img` contains an `Image` msg logged as an [image](../reference/primitives#image)
- * `map/robot/camera/points` contains a `PointCloud2` msg logged a
+ * `map/robot/camera/points` contains a `PointCloud2` msg logged as a
    [point3d batch](../reference/primitives#point-3d)
  * `map/points` contains a second copy of `PointCloud2` with a different transform. (This is a workaround until Rerun
    has support for ROS-style fixed frames [#1522](https://github.com/rerun-io/rerun/issues/1522))
@@ -127,7 +130,7 @@ corresponding [Rerun Transforms](../concepts/spaces-and-transforms#space-transfo
 
 In Rerun, each path represents a coordinate frame, so we need to decide which TF frame each path will
 correspond to. In general, this is the frame_id of the sensor data that will be logged to that
-path. For consistency we define this once in `__init__()`.
+path. For consistency, we define this once in `__init__()`.
 ```
 # Define a mapping for transforms
 self.path_to_frame = {
@@ -140,8 +143,14 @@ self.path_to_frame = {
 }
 ```
 
-Now, on each incoming log message, we want to use this mapping to update the transform
-at the timestamp in questions:
+Because we have chosen a Rerun path hierarchy that does not exactly match the TF graph topology
+the values for the transforms at these paths need to be derived using TF on the client logging
+side at log-time.  In the future, Rerun will support deriving these values in the viewer
+(see: [#1533](https://github.com/rerun-io/rerun/issues/1533) for more details), allowing all
+of this code to go away.
+
+For now, on each incoming log message, we want to use the mapping to update the transform
+at the timestamp in question:
 ```
 def log_tf_as_rigid3(self, path: str, time: Time) -> None:
     """Helper to look up a transform with tf and log using `log_rigid3`."""
@@ -166,7 +175,7 @@ def log_tf_as_rigid3(self, path: str, time: Time) -> None:
         print("Failed to get transform: {}".format(ex))
 ```
 
-As an example of the usage when logging points in the map frame, we simply call:
+As an example of logging points in the map frame, we simply call:
 ```
 rr.log_points("map/points", positions=pts, colors=colors)
 self.log_tf_as_rigid3("map/points", time)
@@ -195,10 +204,10 @@ def odom_callback(self, odom: Odometry) -> None:
 ```
 
 ### CameraInfo to `log_pinhole`
-Not all Transforms are rigid-transforms as defined in TF. The other transform we want to log
+Not all Transforms are rigid as defined in TF. The other transform we want to log
 is the pinhole projection that is stored in the `CameraInfo` msg.
 
-Fortunately the `image_geometry` has a `PinholeCameraModel` that exposes the intrinic Matrix
+Fortunately, the `image_geometry`` has a `PinholeCameraModel` that exposes the intrinic Matrix
 in the same structure used by Rerun:
 ```
 def __init__(self) -> None:
@@ -239,9 +248,8 @@ def image_callback(self, img: Image) -> None:
 
 ### PointCloud2 to `log_points`
 ROS [PointCloud2](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/PointCloud2.msg) message
-is stored as a binary blob which needs to be reinterpreted using the details about its fields, which
-are essentially names, offsets, and datatypes. This can be done with the `sensor_msgs_py` `point_cloud2` reader,
-which extract the fields based on their corresponding names.
+is stored as a binary blob that needs to be reinterpreted using the details about its fields, which
+are essentially names, offsets, and datatypes. This can be done with the `sensor_msgs_py` `point_cloud2` reader, which extracts the fields based on their corresponding names.
 
 These field-sets are initially returned as numpy structured arrays, whereas Rerun currently expects an unstructured
 array of Nx3 floats.
@@ -282,14 +290,14 @@ def points_callback(self, points: PointCloud2) -> None:
 
 ### LaserScan to `log_line_segments`
 Rerun does not yet have native support for a `LaserScan` style primitive so we need
-to do a bit of additional transformation logic here.
+to do a bit of additional transformation logic (see: [#1534](https://github.com/rerun-io/rerun/issues/1534).)
 
-First we convert the scan into a point-cloud using the `laser_geometry` package.
+First, we convert the scan into a point-cloud using the `laser_geometry` package.
 After converting to a point-cloud, we extract the pts just as above with `PointCloud2`.
 
-At this point we could have logged the Points directly using `log_points`, but for
+At this point, we could have logged the Points directly using `log_points`, but for
 the sake of this demo, we wanted to instead log a laser scan as a bunch of lines
-similarly to how it is depicted in gazebo.
+in a similar fashion to how it is depicted in gazebo.
 
 We generate a second matching set of points for each ray projected out 0.3m from
 the origin and then interlace the two sets of points using numpy hstack and reshape.
@@ -323,11 +331,11 @@ The URDF conversion is actually the most complex operation in this example. As s
 is split out into a separate [rerun/examples/python/ros/rerun_urdf.py](https://github.com/rerun-io/rerun/blob/main/examples/python/ros/rerun_urdf.py)
 helper.
 
-Loading the URDF from the `/robot_description` topic is relatively straight-forward since
-we use [yourdfpy](https://github.com/clemense/yourdfpy) library to do the heavy-lifting.
+Loading the URDF from the `/robot_description` topic is relatively straightforward since we use
+[yourdfpy](https://github.com/clemense/yourdfpy) library to do the heavy lifting.
 The main complication is that the actual mesh resources in that URDF need to be located via `ament`.
-Fortunately `yourdfpy` accepts a filename handler, which we shim together with a minimal usage
-of ament `get_package_share_directory`.
+Fortunately, `yourdfpy` accepts a filename handler, which we shim together with
+ament `get_package_share_directory`.
 ```
 def ament_locate_package(fname: str) -> str:
     """Helper to locate urdf resources via ament."""
@@ -348,7 +356,7 @@ We then use `rerun_urdf.load_urdf_from_msg` from the URDF subscription callback.
 
 Note that when developing this guide, we noticed that the camera mesh URDF was not having
 its scale applied to it. This seems like a bug in either `yourdfpy` or `pycollada`
-not respecting the scale hint.  To accomodate this, we manually re-scale the
+not respecting the scale hint.  To accommodate this, we manually re-scale the
 camera link.
 
 
@@ -373,9 +381,9 @@ def urdf_callback(self, urdf_msg: String) -> None:
 ```
 
 Back in `rerun_urdf.log_scene` all the code is doing is recursively walking through
-the trimesh scene graph and for each node, it extracting the transform to the parent,
-which it logs via `rr.log_rigid3`, and then as the new path, using `rr.log_mesh` to
-send the vertices, indices, and normals from the trimesh geometry:
+the trimesh scene graph and for each node. It extracts the transform to the parent,
+which it logs via `rr.log_rigid3`, and then uses `rr.log_mesh` to send the vertices,
+indices, and normals from the trimesh geometry:
 ```
 node_data = scene.graph.get(frame_to=node, frame_from=parent)
 
@@ -402,11 +410,11 @@ if node_data:
             timeless=timeless,
         )
 ```
-Color-data is also extracted from the trimesh, but omitted here for brevity.
+Color data is also extracted from the trimesh, but omitted here for brevity.
 
 ## Going Further
 This guide has only covered a small fraction of the possible ROS messages that could
-be sent to Rerun. Hopefully it has given you some tools to apply to your own project.
+be sent to Rerun. Hopefully, it has given you some tools to apply to your own project.
 
-If you find that specific functionality is lacking for your use-case, please
+If you find that specific functionality is lacking for your use case, please
 [open an issue](https://github.com/rerun-io/rerun/issues/new/choose) on Github.
