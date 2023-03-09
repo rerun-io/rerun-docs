@@ -38,7 +38,7 @@ For more information on the different primitives and how they relate to componen
 
 ### Extension Components
 Your entity could have any number of other components as well. This isn't a problem. Any components that
-aren't relevant to the scene that the space view is drawing are safely ignored. In fact, Rerun even lets you to log you
+aren't relevant to the scene that the space view is drawing are safely ignored. In fact, Rerun even allows you to log your
 own components.
 
 In Python this is done via [log_extension_components](https://ref.rerun.io/docs/python/latest/common/extension_components/#rerun.log_extension_components)
