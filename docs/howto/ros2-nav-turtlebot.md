@@ -1,6 +1,8 @@
 ---
 title: Using Rerun with ROS 2
 order: 1
+ogImageUrl: /docs-media/og-howto-ros.jpg
+description: Rerun does not yet have native ROS support, but many of the concepts in ROS and Rerun line up fairly well. In this guide, you will learn how to write a simple ROS 2 python node that subscribes to some common ROS topics and logs them to Rerun. 
 ---
 
 Rerun does not yet have native ROS support, but many of the concepts in ROS and Rerun 
@@ -33,6 +35,7 @@ Installing ROS is outside the scope of this guide, but you will need the equival
 ```
 $ sudo apt install ros-humble-desktop gazebo ros-humble-navigation2 ros-humble-turtlebot3 ros-humble-turtlebot3-gazebo
 ```
+If you don't already have ROS installed, we recommend trying [RoboStack](https://robostack.github.io/) for setting up your installation.
 
 Before proceeding, you should follow the [navigation example](https://navigation.ros.org/getting_started/index.html)
 and confirm that you can successfully run:
