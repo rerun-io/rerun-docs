@@ -34,7 +34,7 @@ how data should be displayed.
 The assorted logging APIs all simply set different combinations of components on some specified entity, and the
 corresponding space views look for entities with these components in the data store.  
 For more information on the different primitives and how they relate to components see the
-[Primitives reference](../reference/primitives.md)
+[Primitives reference](../reference/primitives.md).
 
 ### Extension Components
 Your entity could have any number of other components as well. This isn't a problem. Any components that
@@ -59,5 +59,4 @@ Entities based on the Components they possess.
 
 Rerun does not currently have formalized Systems, although the patterns employed by the Rerun Space Views are very much
 "System like" in their operation. Proper Systems may be a feature investigated in the future
-([#1155](https://github.com/rerun-io/rerun/issues/1155))
-s
+([#1155](https://github.com/rerun-io/rerun/issues/1155)).
