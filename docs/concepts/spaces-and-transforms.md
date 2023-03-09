@@ -105,7 +105,7 @@ Note that none of the names in the paths are special.
 
 
 ## View coordinates
-You can use [rerun.log_view_coordinates](https://ref.rerun.io/docs/python/latest/common/transforms/#rerun.log_view_coordinates)) to set your preferred view coordinate systems, giving semantic meaning to the XYZ axes of the space.
+You can use [rerun.log_view_coordinates](https://ref.rerun.io/docs/python/latest/common/transforms/#rerun.log_view_coordinates) to set your preferred view coordinate systems, giving semantic meaning to the XYZ axes of the space.
 
 This is in particular useful when taking the point of view of a given entity in the viewer. The view coordinates will then answer e.g. which axis is forward.
 
