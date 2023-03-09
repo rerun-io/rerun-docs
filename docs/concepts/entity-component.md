@@ -51,7 +51,7 @@ code-example: extension-components
 ### Empty Entities
 An Entity, without Components, is nothing more than an identity (represented by its Entity
 Path). It contains no data, and has no type. When you log a piece of data, all that you are doing is setting the values
-of of one or more *Components* associated with that *Entity*. 
+of one or more *Components* associated with that *Entity*. 
 
 ## ECS Systems
 In most ECS architectures, there is a third concept we haven't touched on: Systems are processes which operate on the
