@@ -34,11 +34,11 @@ how data should be displayed.
 The assorted logging APIs all simply set different combinations of components on some specified entity, and the
 corresponding space views look for entities with these components in the data store.  
 For more information on the different primitives and how they relate to components see the
-[Primitives reference](../reference/primitives.md)
+[Primitives reference](../reference/primitives.md).
 
 ### Extension Components
 Your entity could have any number of other components as well. This isn't a problem. Any components that
-aren't relevant to the scene that the space view is drawing are safely ignored. In fact, Rerun even lets you to log you
+aren't relevant to the scene that the space view is drawing are safely ignored. In fact, Rerun even allows you to log your
 own components.
 
 In Python this is done via [log_extension_components](https://ref.rerun.io/docs/python/latest/common/extension_components/#rerun.log_extension_components)
@@ -51,7 +51,7 @@ code-example: extension-components
 ### Empty Entities
 An Entity, without Components, is nothing more than an identity (represented by its Entity
 Path). It contains no data, and has no type. When you log a piece of data, all that you are doing is setting the values
-of of one or more *Components* associated with that *Entity*. 
+of one or more *Components* associated with that *Entity*. 
 
 ## ECS Systems
 In most ECS architectures, there is a third concept we haven't touched on: Systems are processes which operate on the
@@ -59,5 +59,4 @@ Entities based on the Components they possess.
 
 Rerun does not currently have formalized Systems, although the patterns employed by the Rerun Space Views are very much
 "System like" in their operation. Proper Systems may be a feature investigated in the future
-([#1155](https://github.com/rerun-io/rerun/issues/1155))
-s
+([#1155](https://github.com/rerun-io/rerun/issues/1155)).
