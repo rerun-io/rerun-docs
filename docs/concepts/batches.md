@@ -50,7 +50,7 @@ logged array.  When querying a batched component, the component-values are joine
 Logically, this happens as a **left-join** using the "primary" component for the entity. For example, if you log 3
 points and then later log 5 colors, you will still only see 3 points in the viewer.
 
-In the future you will be able to specify the instance keys manually while logging. [#1309](https://github.com/rerun-io/rerun/issues/1309)).
+In the future you will be able to specify the instance keys manually while logging ([#1309](https://github.com/rerun-io/rerun/issues/1309)).
 
 ## Splats
 
