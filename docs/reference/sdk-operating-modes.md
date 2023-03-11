@@ -20,7 +20,7 @@ This is the default behavior you get when running all of our Python & Rust examp
 
 #### `Python`
 
-Call [`rr.spawn`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.spawn) once at the start of your program to start a Rerun Viewer in an external process and stream all the data to it via TCP. If an external viewer was already running, `spawn` will connect to that one instead of spawning a new one.
+Call [`rr.spawn`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.spawn) once at the start of your program to start a Rerun Viewer in an external process and stream all the data to it via TCP. If an external viewer was already running, `spawn` will connect to that one instead of spawning a new one.
 
 #### `Rust`
 
@@ -34,7 +34,7 @@ You will need to start a stand-alone viewer first, either by using `python -m re
 
 #### `Python`
 
-[`rr.connect`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.connect)
+[`rr.connect`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.connect)
 
 #### `Rust`
 
@@ -46,7 +46,7 @@ This starts the web version of the Rerun Viewer in your browser, and streams dat
 
 #### `Python`
 
-Use [`rr.serve`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.serve).
+Use [`rr.serve`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.serve).
 
 #### `Rust`
 
@@ -62,7 +62,7 @@ To visualize the saved file, use `python -m rerun path/to/file.rrd` if you've in
 
 #### `Python`
 
-Use [`rr.save`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/__init__/#rerun.save).
+Use [`rr.save`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.save).
 
 #### `Rust`
 
@@ -72,7 +72,7 @@ Use [`Session::save`](https://docs.rs/rerun/latest/rerun/struct.Session.html#met
 
 We provide helpers for both Python & Rust to effortlessly add and properly handle all of these flags in your programs.
 
-- For Python, checkout the [`script_helpers`](https://ref.rerun.io/docs/python/v0.2.0/package/rerun/script_helpers/) module.
+- For Python, checkout the [`script_helpers`](https://ref.rerun.io/docs/python/latest/package/rerun/script_helpers/) module.
 - For Rust, checkout our [`clap`]() [integration](https://docs.rs/rerun/latest/rerun/clap/index.html).
 
 Have a look at the [official examples](../getting-started/examples.md) to see these helpers in action.
