@@ -39,7 +39,7 @@ In this example a short video clip has been processed offline by the COLMAP pipe
 
 
 ```bash
-pip install -r examples/colmap/requirements.txt
+pip install -r examples/python/colmap/requirements.txt
 python examples/python/colmap/main.py
 ```
 ---
@@ -53,7 +53,7 @@ python examples/python/colmap/main.py
 Generate Signed Distance Fields for arbitrary meshes using both traditional methods as well as the one described in the [DeepSDF paper](https://arxiv.org/abs/1901.05103), and visualize the results using the Rerun SDK.
 
 ```bash
-pip install -r examples/deep_sdf/requirements.txt
+pip install -r examples/python/deep_sdf/requirements.txt
 python examples/python/deep_sdf/main.py
 ```
 ---
@@ -67,7 +67,7 @@ python examples/python/deep_sdf/main.py
 Example using a [DICOM](https://en.wikipedia.org/wiki/DICOM) MRI scan. This demonstrates the flexible tensor slicing capabilities of the Rerun viewer.
 
 ```bash
-pip install -r examples/dicom/requirements.txt
+pip install -r examples/python/dicom/requirements.txt
 python examples/python/dicom/main.py
 ```
 ---
@@ -81,7 +81,7 @@ python examples/python/dicom/main.py
 Use the [MediaPipe](https://google.github.io/mediapipe/) Pose solution to detect and track a human pose in video.
 
 ```bash
-pip install -r examples/mp_pose/requirements.txt
+pip install -r examples/python/mp_pose/requirements.txt
 python examples/python/mp_pose/main.py
 ```
 ---
@@ -95,7 +95,7 @@ python examples/python/mp_pose/main.py
 Example using an [example dataset](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) from New York University with RGB and Depth channels.
 
 ```bash
-pip install -r examples/nyud/requirements.txt
+pip install -r examples/python/nyud/requirements.txt
 python examples/python/nyud/main.py
 ```
 ---
@@ -111,7 +111,7 @@ Example of using the Rerun SDK to log the [Objectron](https://github.com/google-
 > The Objectron dataset is a collection of short, object-centric video clips, which are accompanied by AR session metadata that includes camera poses, sparse point-clouds and characterization of the planar surfaces in the surrounding environment.
 
 ```bash
-pip install -r examples/objectron/requirements.txt
+pip install -r examples/python/objectron/requirements.txt
 python examples/python/objectron/main.py
 ```
 ---
@@ -125,7 +125,7 @@ python examples/python/objectron/main.py
 This example demonstrates how to use the Rerun SDK to log raw 3D meshes (so-called "triangle soups") and their transform hierarchy. Simple material properties are supported.
 
 ```bash
-pip install -r examples/raw_mesh/requirements.txt
+pip install -r examples/python/raw_mesh/requirements.txt
 python examples/python/raw_mesh/main.py
 ```
 ---
@@ -141,7 +141,7 @@ A more elaborate example running Depth Guided Stable Diffusion 2.0.
 For more info see [here](https://github.com/Stability-AI/stablediffusion).
 
 ```bash
-pip install -r examples/stable_diffusion/requirements.txt
+pip install -r examples/python/stable_diffusion/requirements.txt
 python examples/python/stable_diffusion/main.py
 ```
 ---
@@ -157,7 +157,7 @@ Another more elaborate example applying simple object detection and segmentation
 For more info see: https://huggingface.co/docs/transformers/index
 
 ```bash
-pip install -r examples/tracking_hf_opencv/requirements.txt
+pip install -r examples/python/tracking_hf_opencv/requirements.txt
 python examples/python/tracking_hf_opencv/main.py
 ```
 
@@ -191,7 +191,7 @@ python examples/python/api_demo/main.py
 A very simple 2D car is drawn using OpenCV, and a depth image is simulated and logged as a point cloud.
 
 ```bash
-pip install -r examples/car/requirements.txt
+pip install -r examples/python/car/requirements.txt
 python examples/python/car/main.py
 ```
 ---
