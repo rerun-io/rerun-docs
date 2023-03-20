@@ -7,6 +7,10 @@ order: 6
 
 In the Rerun [GitHub](https://github.com/rerun-io/rerun) repository we maintain a list of examples that demonstrate using the Rerun logging APIs. Generally the examples are individually self-contained, and can be run directly from a Git clone of the repository. Many of the Python examples need additional dependencies set up in a `requirements.txt` next to the example. These are noted in the individual example sections below.
 
+> Note: Make sure your SDK version matches the examples.
+For example, if your SDK version is `0.3.1`, check out the matching tag
+in the Rerun repository by running `git checkout v0.3.1`.
+
 ## Minimal example
 
 [Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/minimal/main.py) | [Rust](https://github.com/rerun-io/rerun/tree/latest/examples/rust/minimal/src/main.rs)
