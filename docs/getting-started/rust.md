@@ -21,11 +21,11 @@ use rerun::demo_util::grid;
 use rerun::external::glam;
 use rerun::{
     components::{ColorRGBA, Point3D, Radius},
-    MsgSender, Session,
+    MsgSender,
 };
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut session = Session::new();
+    let mut session = rerun::SessionBuilder::new("my_app").buffered();
 
     let points = grid(glam::Vec3::splat(-10.0), glam::Vec3::splat(10.0), 10)
         .map(Point3D::from)
@@ -40,7 +40,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with_splat(Radius(0.5))?
         .send(&mut session)?;
 
-    session.show()?;
+    rerun::native_viewer::show(&session)?;
 
     Ok(())
 }

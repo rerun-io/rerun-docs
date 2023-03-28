@@ -47,35 +47,27 @@ Already you can see the two most important types we'll interact with:
 - [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html), our entrypoint into the logging SDK.
 - [`MsgSender`](https://docs.rs/rerun/latest/rerun/struct.MsgSender.html), a builder-like type that we'll use to pack our data in order to prep it for logging.
 
-## Initializing the SDK
+## Initializing the SDK & Starting the Viewer
 
-The first thing we want to do is creating a [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html) and name the dataset we're working on by setting its [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html):
+To get going we want to create a [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html) and start the viewer.
+We can do all of this with the [`rerun::native_viewer::spawn`](https://docs.rs/rerun/latest/rerun/native_viewer/fn.spawn.html) utility method.
+It takes a [RecordingInfo](https://docs.rs/rerun/latest/rerun/external/re_log_types/struct.RecordingInfo.html)
+which allows us to name the dataset we're working on by setting its [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html):
 
 ```rust
+fn run(mut session: Session) {}
+
 fn main() {
-    let session = Session::init("DNA Abacus", true);
+    rerun::native_viewer::spawn(rerun::new_recording_info("DNA Abacus"), |session| {
+        run(session).expect("Failed to log or send data")
+    })
+    .unwrap();
 }
 ```
 
 Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](../reference/viewer/overview.md) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
 Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions.md).
-
-## Starting the Viewer
-
-Next up, we want to spawn the [Rerun Viewer](../reference/viewer/overview.md) itself.
-
-```rust
-fn run(mut session: Session) -> Result<(), MsgSenderError> {
-    Ok(())
-}
-
-fn main() {
-    let session = Session::init("DNA Abacus", true);
-
-    session.spawn(run).unwrap();
-}
-```
 
 Now you can run your application just as you would any other Rust program:
 ```
