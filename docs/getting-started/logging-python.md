@@ -257,7 +257,7 @@ Checkout `python -m rerun --help` for more options.
 Sometimes, sending the data over the network is not an option. Maybe you'd like to share the data, attach it to a bug report, etc.
 
 Rerun has you covered:
-- Use [`rr.save`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.save) to save all the data logged so far to disk.
+- Use [`rr.save`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.save) to stream all logged data to disk.
 - Visualize it via `python -m rerun path/to/recording.rrd`
 
 You can also save a recording (or a portion of it) as you're visualizing it, directly from the viewer.

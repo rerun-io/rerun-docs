@@ -315,7 +315,7 @@ Checkout `rerun --help` for more options.
 Sometimes, sending the data over the network is not an option. Maybe you'd like to share the data, attach it to a bug report, etc.
 
 Rerun has you covered:
-- Use [`Session::save`](https://docs.rs/rerun/latest/rerun/struct.Session.html#save) to save all the data logged so far to disk.
+- Use [`Session::save`](https://docs.rs/rerun/latest/rerun/struct.Session.html#save) to stream all logging data to disk.
 - Visualize it via `rerun path/to/recording.rrd`
 
 You can also save a recording (or a portion of it) as you're visualizing it, directly from the viewer.
