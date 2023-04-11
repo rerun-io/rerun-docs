@@ -59,7 +59,7 @@ There are other means of sending data to a viewer as we'll see at the end of thi
 
 ---
 The following sections will require importing a few different things to your script.
-We will do so incrementally, but if you just want to update your imports once and call it a day, add the following to the top of your script right now:
+We will do so incrementally, but if you just want to update your imports once and call it a day, feel free to add the following to the top of your script:
 ```python
 from math import tau
 import numpy as np
@@ -123,7 +123,7 @@ You're looking at one of these dedicated features right now in fact: notice how 
 ---
 
 A _lot_ is happening in these two simple function calls.
-Good news is: once you've digested all of the above, logging any other Component will simply be more of the same. In fact, let's log everything else in the scene right now.
+Good news is: once you've digested all of the above, logging any other Component will simply be more of the same. In fact, let's go ahead and log everything else in the scene now.
 
 ## Adding the missing pieces
 
