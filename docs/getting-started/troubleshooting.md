@@ -17,9 +17,9 @@ On Fedora Rawhide you need to run:
 
 `dnf install clang clang-devel clang-tools-extra libxkbcommon-devel pkg-config openssl-devel libxcb-devel`
 
-On WSL2 you need to run:
+On WSL2, in addition to the above packages for Linux, you also need to run:
 
-`sudo apt-get install -y libvulkan1 libxcb-randr0 mesa-vulkan-drivers`
+`sudo apt-get install -y libvulkan1 libxcb-randr0 mesa-vulkan-drivers adwaita-icon-theme-full`
 
 [TODO(#1250)](https://github.com/rerun-io/rerun/issues/1250): Running with the wayland window manager 
 sometimes causes Rerun to crash. Try setting `WINIT_UNIX_BACKEND=x11` as a workaround.
