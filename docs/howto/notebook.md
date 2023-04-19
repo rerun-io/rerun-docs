@@ -4,8 +4,8 @@ order: 1
 description: How to embed Rerun in notebooks like Jupyter or Colab
 ---
 
-As of Rerun 0.5.0, Rerun now has limited support for embedding the Rerun viewer directly within IPython-style notebooks.
-This makes it extremely easy to iterate on API calls as well as to share data with others.
+As of version 0.5.0, Rerun now has limited support for embedding the Rerun viewer directly within IPython-style
+notebooks.  This makes it easy to iterate on API calls as well as to share data with others.
 
 Rerun has been tested with:
  - [Jupyter Notebook Classic](https://jupyter.org/)
@@ -15,47 +15,51 @@ Rerun has been tested with:
 
 ## Basic Concept
 
-Rather than logging to a file or a remote server, the Rerun SDK is configured to store data in
-a local [MemoryRecording](https://ref.rerun.io/docs/python/latest/package/rerun/recording/#rerun.recording.MemoryRecording).
+Rather than logging to a file or a remote server, you can also configure the Rerun SDK to store data in a local
+[MemoryRecording](https://ref.rerun.io/docs/python/latest/package/rerun/recording/#rerun.recording.MemoryRecording).
 
-This `MemoryRecording` is then used to produce an inline HTML snippet that can be directly displayed
-in most notebook environments. The snippet fully contains an embedded copy of an RRD file and some javascript
-that loads that RRD file into an iFrame. 
+This `MemoryRecording` can then used to produce an inline HTML snippet to be directly displayed in most notebook
+environments. The snippet includes an embedded copy of an RRD file and some javascript that loads that RRD file into an
+IFrame. 
 
-Each cell is fully isolated from the other notebook cells and will only display the data from the
-provided RRD.
+Each cell in the notebook is fully isolated from the other cells and will only display the data from the source
+`MemoryRecording`.
 
 ## The APIs
 
-In order to create a new `MemoryRecording`, you can simply call:
+In order to create a new `MemoryRecording`, you call:
 ```
 rec = rr.memory_recording()
 ```
-Note that this is an alternative to calling `rr.connect()` or `rr.save()`.
+This is similar to calling `rr.connect()` or `rr.save()` in that it configures the Rerun SDK to use this new
+recording as a target for future API calls. 
 
-After creating this `MemoryRecording` all the normal Rerun commands will work as expected and log
-to this recording instance.
-
-When you are ready to show it you can return it at the end of your cell or call [rec.show()](https://ref.rerun.io/docs/python/latest/package/rerun/recording/#rerun.recording.MemoryRecording.show).
-
-Specifically the `show()` API allows you to additionally specify the width and height of the IFrame:
+After logging data to the recording you can display it in a cell by calling the
+[show()](https://ref.rerun.io/docs/python/latest/package/rerun/recording/#rerun.recording.MemoryRecording.show) method
+on the `MemoryRecording`. The `show()` method also takes optional arguments for specifying the width and height of the IFrame. For example:
 ```
 rec.show(width=400, height=400)
 ```
 
-## A working example
+The `MemoryRecording` also implements `_repr_html_()` which means in most notebook environments, if it is the last
+expression returned in a cell it will display itself automatically, without the need to call `show()`.
+```
+rec = rr.memory_recording()
+rr.log("img", my_image)
+rec
+```
+## Some working examples
 
+To experiment with notebooks yourself, there are a few options.
 ### Running locally
-
-The easiest way to get a feel for working with notebooks is to use it.
 
 The GitHub repo includes a [notebook example](https://github.com/rerun-io/rerun/blob/main/examples/python/notebook/cube.ipynb).
 
 If you have a local checkout of Rerun, you can:
 ```
-cd examples/python/notebook
-pip install -r requirements.txt
-jupyter notebook cube.ipynb
+$ cd examples/python/notebook
+$ pip install -r requirements.txt
+$ jupyter notebook cube.ipynb
 ```
 
 This will open a browser window showing the notebook where you can follow along.
@@ -69,25 +73,24 @@ After running this cell you will need to restart the Runtime for the Rerun packa
 
 ## Sharing your notebook
 
-Because the embedded Rerun viewer in the notebook is just an embedded HTML snippet it also works with
+Because the Rerun viewer in the notebook is just an embedded HTML snippet it also works with
 tools like nbconvert.
 
-For example, you can convert the notebook to HTML using the following command:
+You can convert the notebook to HTML using the following command:
 ```
-jupyter nbconvert --to=html --ExecutePreprocessor.enabled=True examples/python/notebook/cube.ipynb
+$ jupyter nbconvert --to=html --ExecutePreprocessor.enabled=True examples/python/notebook/cube.ipynb
 ```
 
-This will create a new file `cube.html` that could be hosted on any static web server such as gh-pages.
+This will create a new file `cube.html` that can be hosted on any static web server.
 
 ## Limitations
 
-While convenient, the approach of fully inlining an RRD file as an HTML snippet has some drawbacks. In particular, it
-results in a very large HTML file that is not very efficient for sharing.
+Although convenient, the approach of fully inlining an RRD file as an HTML snippet has some drawbacks. In particular, 
+it is not suited to large RRD files.  The RRD file is embedded as a base64 encoded string which can
+result in a very large HTML file. This can cause problems in some browsers. If you want to share large datasets,
+we recommend using the `save()` API to create a separate file and hosting it as a separate standalone asset.
 
 ## Future Work
 
 We are actively working on improving the notebook experience and welcome any feedback or suggestions.
-The ongoing roadmap is being tracked in [GitHub issue #1815](https://github.com/rerun-io/rerun/issues/1815)
-
-
-
+The ongoing roadmap is being tracked in [GitHub issue #1815](https://github.com/rerun-io/rerun/issues/1815).
