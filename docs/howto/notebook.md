@@ -4,7 +4,7 @@ order: 1
 description: How to embed Rerun in notebooks like Jupyter or Colab
 ---
 
-As of version 0.5.0, Rerun now has limited support for embedding the Rerun viewer directly within IPython-style
+Starting with version 0.5.0, Rerun now has limited support for embedding the Rerun viewer directly within IPython-style
 notebooks.  This makes it easy to iterate on API calls as well as to share data with others.
 
 Rerun has been tested with:
@@ -82,6 +82,8 @@ $ jupyter nbconvert --to=html --ExecutePreprocessor.enabled=True examples/python
 ```
 
 This will create a new file `cube.html` that can be hosted on any static web server.
+
+[Example cube.html](/docs-media/cube.html)
 
 ## Limitations
 
