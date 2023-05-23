@@ -22,7 +22,7 @@ We assume you have a working Rust environment and have started a new project wit
 For this example in particular, we're going to need all of these:
 ```toml
 [dependencies]
-rerun = "0.4.0"
+rerun = "0.5.0"
 itertools = "0.10"
 rand = "0.8"
 ```
@@ -47,21 +47,25 @@ Already you can see the two most important types we'll interact with:
 - [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html), our entrypoint into the logging SDK.
 - [`MsgSender`](https://docs.rs/rerun/latest/rerun/struct.MsgSender.html), a builder-like type that we'll use to pack our data in order to prep it for logging.
 
-## Initializing the SDK & Starting the Viewer
 
-To get going we want to create a [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html) and start the viewer.
-We can do all of this with the [`rerun::native_viewer::spawn`](https://docs.rs/rerun/latest/rerun/native_viewer/fn.spawn.html) utility method.
-It takes a [RecordingInfo](https://docs.rs/rerun/latest/rerun/external/re_log_types/struct.RecordingInfo.html)
-which allows us to name the dataset we're working on by setting its [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html):
+## Starting the viewer
+Just run `rerun` to start the [Rerun Viewer](../reference/viewer/overview.md). It will wait for your application to log some data to it. This viewer is in fact a server that's ready to accept data over TCP (it's listening on `0.0.0.0:9876` by default).
+
+Checkout `rerun --help` for more options.
+
+![logging data - waiting for data](/docs-media/logging_data2_waiting.png)
+
+## Initializing the SDK
+
+To get going we want to create a [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html):
+We can do all of this with the [`rerun::SessionBuilder::new`](https://docs.rs/rerun/latest/rerun/struct.SessionBuilder.html#method.new) method which allows us to name the dataset we're working on by setting its [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html):
 
 ```rust
 fn run(mut session: Session) {}
 
 fn main() {
-    rerun::native_viewer::spawn(rerun::new_recording_info("DNA Abacus"), |session| {
-        run(session).expect("Failed to log or send data")
-    })
-    .unwrap();
+    let mut session = rerun::SessionBuilder::new("DNA Abacus")
+        .connect(rerun::default_server_addr());
 }
 ```
 
@@ -69,16 +73,6 @@ Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/reru
 
 Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions.md).
 
-Now you can run your application just as you would any other Rust program:
-```
-$ cargo run
-```
-
-And with that, we're ready to start sending out data:
-![logging data - waiting for data](/docs-media/logging_data2_waiting.png)
-
-When using a `spawn` callback like we just did, the SDK will start a viewer on the main thread and execute your callback on another, automatically piping the data through.
-There are other means of sending data to a viewer as we'll see at the end of this section, but for now this will work great as we experiment.
 
 ## Logging our first points
 
@@ -103,7 +97,7 @@ MsgSender::new("dna/structure/right")
     .send(&mut session)?;
 ```
 
-Run your program once again and you should now see this scene in the viewer.
+Run your program with `cargo run` and you should now see this scene in the viewer:
 
 ![logging data - first points](/docs-media/logging_data3_first_points.png)
 
@@ -114,14 +108,14 @@ _Checkout the [Viewer Walkthrough](viewer-walkthrough.md) and [viewer reference]
 
 Although there's not that much code yet, there's already quite a lot that's happening under the hood.
 
-`Entities & hierarchies`
+#### `Entities & hierarchies`
 
 Note the two strings we're passing in when creating our `MsgSender`s: `"dna/structure/left"` & `"dna/structure/right"`.
 
 These are [Entity Paths](../concepts/entity-component.md), which uniquely identify each Entity in our scene. Every Entity is made up of a path and one or more Components.
 [Entity paths typically form a hierarchy](../concepts/entity-path.md) which plays an important role in how data is visualized and transformed (as we shall soon see).
 
-`Components`
+#### `Components`
 
 The Rerun [Rust SDK](https://rerun-io.github.io/rerun/docs/rust) works at a lower-level of abstraction than the [Python one](https://ref.rerun.io/docs/python).
 In particular, when using the Rust SDK, you work directly with [`components`](https://docs.rs/rerun/latest/rerun/components) instead of higher-level primitives.
@@ -131,7 +125,7 @@ For more information on how the rerun data model works, refer to our section on 
 
 Logging components is a only a matter of calling [`MsgSender::with_component`](https://docs.rs/rerun/latest/rerun/struct.MsgSender.html#method.with_component) using any type that implements the [`Component` trait](https://docs.rs/rerun/latest/rerun/trait.Component.html). We provide [a few of those](https://docs.rs/rerun/latest/rerun/trait.Component.html#implementors)).
 
-`Batches`
+#### `Batches`
 
 One final observation: notice how we're logging a whole batch of points and colors all at once here.
 [Batches of data](../concepts/batches.md) are first-class citizens in Rerun and come with all sorts of performance benefits and dedicated features.
@@ -298,24 +292,12 @@ Voila!
 
 ## Other ways of logging & visualizing data
 
-[`Session::spawn`](https://docs.rs/rerun/latest/rerun/struct.Session.html#spawn) is great when you're experimenting on a single machine like we did in this tutorial, but what if the process that's doing the logging doesn't have a graphical interface to begin with?
-
-Rerun offers several solutions for these use cases.
-
-### Logging data over the network
-
-At any time, you can start a Rerun Viewer by running `rerun` (you need to install it first: `cargo install rerun`). This viewer is in fact a server that's ready to accept data over TCP (it's listening on `0.0.0.0:9876` by default).
-
-On the logger side, simply use [`Session::connect`](https://docs.rs/rerun/latest/rerun/struct.Session.html#connect) instead of [`Session::spawn`](https://docs.rs/rerun/latest/rerun/struct.Session.html#spawn) to start sending the data over to any TCP address.
-
-Checkout `rerun --help` for more options.
-
 ### Saving & loading to/from RRD files
 
 Sometimes, sending the data over the network is not an option. Maybe you'd like to share the data, attach it to a bug report, etc.
 
 Rerun has you covered:
-- Use [`Session::save`](https://docs.rs/rerun/latest/rerun/struct.Session.html#save) to stream all logging data to disk.
+- Use [`SessionBuilder::save`](https://docs.rs/rerun/latest/rerun/struct.SessionBuilder.html#method.save) to stream all logging data to disk.
 - Visualize it via `rerun path/to/recording.rrd`
 
 You can also save a recording (or a portion of it) as you're visualizing it, directly from the viewer.

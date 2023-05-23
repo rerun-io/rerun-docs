@@ -188,7 +188,7 @@ button labeled "Add/Remove Entities". This pop-up shows all of the entities that
 You can click on the "+" or "-" buttons to add or remove entities from this view. Go ahead and remove the entity called
 "keypoints," and then add them back again. Unlike hiding an entity, you will notice that as you remove entities they
 completely disappear from the blueprint panel on the left. Entities that are incompatible with the selected view will be
-greyed out. For example, you cannot add a scalar to a spatial scene.
+grayed out. For example, you cannot add a scalar to a spatial scene.
 
 ![Add/Remove Entities](/docs-media/viewer_walkthrough9_add_remove.png)
 
