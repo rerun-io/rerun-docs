@@ -4,14 +4,17 @@ order: 2
 ---
 
 ## Installing Rerun
-The Rerun SDK for Rust requires a working installation of Rust 1.67+.
+The Rerun SDK for Rust requires a working installation of Rust 1.69+.
 
-Everything you need to use Rerun is available via the [rerun](https://crates.io/crates/rerun) crate.
+To use Rerun, you need to install the `rerun` binary with `cargo install rerun-cli`, and [the rerun crate](https://crates.io/crates/rerun) with `cargo add rerun`.
 
 Let's try it out in a brand new Rust project:
 ```bash
 $ cargo init cube && cd cube && cargo add rerun
 ```
+
+## Starting the viewer
+Just run `rerun` to start the [Rerun Viewer](../reference/viewer/overview.md). It will wait for your application to log some data to it.
 
 ## Logging some data
 Add the following code to your `main.rs`
@@ -25,7 +28,8 @@ use rerun::{
 };
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut session = rerun::SessionBuilder::new("my_app").buffered();
+    let mut session = rerun::SessionBuilder::new("my_app")
+        .connect(rerun::default_server_addr());
 
     let points = grid(glam::Vec3::splat(-10.0), glam::Vec3::splat(10.0), 10)
         .map(Point3D::from)
@@ -40,18 +44,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with_splat(Radius(0.5))?
         .send(&mut session)?;
 
-    rerun::native_viewer::show(&session)?;
-
     Ok(())
 }
 ```
 
-Now start your application:
+Now run your application:
 ```
 cargo run
 ```
 
-Once everything finishes compiling, you will be greeted with the [Rerun Viewer](../reference/viewer/overview.md):
+Once everything finishes compiling, you will see the points in the Rerun Viewer:
 ![intro users - result](/docs-media/intro_users1_result.png)
 
 ## Using the viewer
