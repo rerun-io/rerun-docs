@@ -25,7 +25,8 @@ For this tutorial you will also need to `pip install numpy scipy`.
 
 Start by opening your editor of choice and creating a new file called `dna_example.py`.
 
-The first thing we want to do is to import `rerun` and name the dataset we're working on by setting its [`ApplicationId`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init):
+The first thing we need to do is to import `rerun` and initialize the SDK by calling [`rr.init`](https://ref.rerun.io/docs/python/latest/common/initialization/#rerun.init). This init call is required prior to using any of the global
+logging calls, and allows us to name our recording using an `ApplicationId`.
 
 ```python
 import rerun as rr
