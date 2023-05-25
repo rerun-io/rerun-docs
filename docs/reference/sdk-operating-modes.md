@@ -24,7 +24,7 @@ Call [`rr.spawn`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__
 
 #### `Rust`
 
-[`Session::spawn`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.spawn) spawns a new viewer on the main thread (for platform compatibility reasons) and continues executing user code on a new thread, streaming data between the two in real-time using an in-memory channel.
+`rerun::native_viewer::spawn` spawns a new viewer on the main thread (for platform compatibility reasons) and continues executing user code on a new thread, streaming data between the two in real-time using an in-memory channel.
 
 ## Connect
 
@@ -38,7 +38,7 @@ You will need to start a stand-alone viewer first, either by using `python -m re
 
 #### `Rust`
 
-[`Session::connect`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.connect)
+[`RecordingStream::connect`](https://docs.rs/rerun/latest/rerun/struct.RecordingStream.html#method.connect)
 
 ## Serve
 
@@ -47,10 +47,9 @@ This starts the web version of the Rerun Viewer in your browser, and streams dat
 #### `Python`
 
 Use [`rr.serve`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.serve).
+```
 
-#### `Rust`
-
-Make sure you have enabled the `web` feature when building, and then call [`Session::serve`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.serve).
+```
 
 ## Save
 
@@ -66,7 +65,7 @@ Use [`rr.save`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#
 
 #### `Rust`
 
-Use [`Session::save`](https://docs.rs/rerun/latest/rerun/struct.Session.html#method.save).
+Use [`RecordingStream::save`](https://docs.rs/rerun/latest/rerun/struct.RecordingStream.html#method.save).
 
 ## Adding the standard flags to your programs
 
