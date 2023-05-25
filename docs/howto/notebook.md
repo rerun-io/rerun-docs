@@ -28,7 +28,7 @@ Each cell in the notebook is fully isolated from the other cells and will only d
 ## The APIs
 
 In order to create a new `MemoryRecording`, you call:
-```
+```python
 rec = rr.memory_recording()
 ```
 This is similar to calling `rr.connect()` or `rr.save()` in that it configures the Rerun SDK to use this new
@@ -37,13 +37,13 @@ recording as a target for future API calls.
 After logging data to the recording you can display it in a cell by calling the
 [show()](https://ref.rerun.io/docs/python/latest/package/rerun/recording/#rerun.recording.MemoryRecording.show) method
 on the `MemoryRecording`. The `show()` method also takes optional arguments for specifying the width and height of the IFrame. For example:
-```
+```python
 rec.show(width=400, height=400)
 ```
 
 The `MemoryRecording` also implements `_repr_html_()` which means in most notebook environments, if it is the last
 expression returned in a cell it will display itself automatically, without the need to call `show()`.
-```
+```python
 rec = rr.memory_recording()
 rr.log("img", my_image)
 rec
@@ -56,7 +56,7 @@ To experiment with notebooks yourself, there are a few options.
 The GitHub repo includes a [notebook example](https://github.com/rerun-io/rerun/blob/main/examples/python/notebook/cube.ipynb).
 
 If you have a local checkout of Rerun, you can:
-```
+```bash
 $ cd examples/python/notebook
 $ pip install -r requirements.txt
 $ jupyter notebook cube.ipynb
@@ -77,7 +77,7 @@ Because the Rerun viewer in the notebook is just an embedded HTML snippet it als
 tools like nbconvert.
 
 You can convert the notebook to HTML using the following command:
-```
+```bash
 $ jupyter nbconvert --to=html --ExecutePreprocessor.enabled=True examples/python/notebook/cube.ipynb
 ```
 

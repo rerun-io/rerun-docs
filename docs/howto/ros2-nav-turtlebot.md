@@ -32,14 +32,14 @@ You will need to have installed [ROS 2 Humble Hawksbill](https://docs.ros.org/en
 and the [turtlebot3 navigation getting-started example](https://navigation.ros.org/getting_started/index.html).
 
 Installing ROS is outside the scope of this guide, but you will need the equivalent of the following packages:
-```
+```bash
 $ sudo apt install ros-humble-desktop gazebo ros-humble-navigation2 ros-humble-turtlebot3 ros-humble-turtlebot3-gazebo
 ```
 If you don't already have ROS installed, we recommend trying [RoboStack](https://robostack.github.io/) for setting up your installation.
 
 Before proceeding, you should follow the [navigation example](https://navigation.ros.org/getting_started/index.html)
 and confirm that you can successfully run:
-```
+```bash
 $ export TURTLEBOT3_MODEL=waffle
 $ export GAZEBO_MODEL_PATH=/opt/ros/humble/share/turtlebot3_gazebo/models
 $ ros2 launch nav2_bringup tb3_simulation_launch.py headless:=False
@@ -52,7 +52,7 @@ running in the background for the remainder of the guide.
 
 The code for this guide is in the `rerun` repository. If you do not already have rerun cloned,
 you should do so now:
-```
+```bash
 git clone git@github.com:rerun-io/rerun.git
 cd rerun
 ```
@@ -64,7 +64,7 @@ In addition to the ROS dependencies, the Rerun node makes use of some dependenci
 Rerun recommends using `venv` (or the equivalent) to create an environment for installing these
 dependencies.  Note that *after* setting up your virtualenv you will need to activate your ROS2
 environment.
-```
+```bash
 $ python3 -m venv venv
 $ source venv/bin/active
 (venv) $ pip install -r examples/python/ros/requirements.txt
@@ -74,7 +74,7 @@ $ source venv/bin/active
 ## Running the example
 
 With the previous dependencies installed, and gazebo running, you should now be able to launch the Rerun ROS example:
-```
+```bash
 (venv) $ python3 examples/python/ros/main.py
 ```
 
@@ -122,7 +122,7 @@ To do this, we will use a Rerun timeline called `ros_time`.
 
 Each callback follows a common pattern of updating `ros_time` based on the stamped time of the message that was
 received.
-```
+```python
 def some_msg_callback(self, msg: Msg):
     time = Time.from_msg(msg.header.stamp)
     rr.set_time_nanos("ros_time", time.nanoseconds)
@@ -138,7 +138,7 @@ corresponding [Rerun Transforms](../concepts/spaces-and-transforms.md#space-tran
 In Rerun, each path represents a coordinate frame, so we need to decide which TF frame each path will
 correspond to. In general, this is the frame_id of the sensor data that will be logged to that
 path. For consistency, we define this once in `__init__()`.
-```
+```python
 # Define a mapping for transforms
 self.path_to_frame = {
     "map": "map",
@@ -158,7 +158,7 @@ of this code to go away.
 
 For now, on each incoming log message, we want to use the mapping to update the transform
 at the timestamp in question:
-```
+```python
 def log_tf_as_rigid3(self, path: str, time: Time) -> None:
     """Helper to look up a transform with tf and log using `log_rigid3`."""
     # Get the parent path
@@ -183,7 +183,7 @@ def log_tf_as_rigid3(self, path: str, time: Time) -> None:
 ```
 
 As an example of logging points in the map frame, we simply call:
-```
+```python
 rr.log_points("map/points", positions=pts, colors=colors)
 self.log_tf_as_rigid3("map/points", time)
 ```
@@ -216,7 +216,7 @@ is the pinhole projection that is stored in the `CameraInfo` msg.
 
 Fortunately, the `image_geometry` package has a `PinholeCameraModel` that exposes
 the intrinsic matrix in the same structure used by Rerun `rr.log_pinhole`:
-```
+```python
 def __init__(self) -> None:
     # ...
     self.model = PinholeCameraModel()
@@ -239,7 +239,7 @@ def cam_info_callback(self, info: CameraInfo) -> None:
 ### Image to `log_image`
 ROS Images can also be mapped to Rerun very easily, using the `cv_bridge` package.
 The output of `cv_bridge.imgmsg_to_cv2` can be fed directly into `rr.log_image`:
-```
+```python
 def __init__(self) -> None:
     # ...
     self.cv_bridge = cv_bridge.CvBridge()
@@ -266,7 +266,7 @@ Color is extracted in a similar way, although the realsense gazebo driver does n
 the r,g,b channels, requiring us to patch the field values.
 
 After extracting the positions and colors as numpy arrays, the entire cloud can be logged as a batch with `rr.log_points`
-```
+```python
 def points_callback(self, points: PointCloud2) -> None:
     """Log a `PointCloud2` with `log_points`."""
     time = Time.from_msg(points.header.stamp)
@@ -312,7 +312,7 @@ We generate a second matching set of points for each ray projected out 0.3m from
 the origin and then interlace the two sets of points using numpy hstack and reshape.
 This results in a set of alternating points defining rays from the origin to each
 laser scan result, which is the format expected by `rr.log_line_segments`:
-```
+```python
 def __init__(self) -> None:
     # ...
     self.laser_proj = laser_geometry.laser_geometry.LaserProjection()
@@ -345,7 +345,7 @@ Loading the URDF from the `/robot_description` topic is relatively straightforwa
 The main complication is that the actual mesh resources in that URDF need to be located via `ament`.
 Fortunately, `yourdfpy` accepts a filename handler, which we shim together with
 ament `get_package_share_directory`.
-```
+```python
 def ament_locate_package(fname: str) -> str:
     """Helper to locate urdf resources via ament."""
     if not fname.startswith("package://"):
@@ -370,7 +370,7 @@ camera link.
 
 Once we have correctly re-scaled the camera component, we can send the whole scene to rerun with
 `rerun_urdf.log_scene`. 
-```
+```python
 def urdf_callback(self, urdf_msg: String) -> None:
     """Log a URDF using `log_scene` from `rerun_urdf`."""
     urdf = load_urdf_from_msg(urdf_msg)
@@ -393,7 +393,7 @@ the trimesh scene graph. For each node, it extracts the transform to the parent,
 which it logs via `rr.log_rigid3` before then using `rr.log_mesh` to send the vertices,
 indices, and normals from the trimesh geometry. This code is almost entirely
 URDF-independent and is a good candidate for a future Python API ([#1536](https://github.com/rerun-io/rerun/issues/1536).)
-```
+```python
 node_data = scene.graph.get(frame_to=node, frame_from=parent)
 
 if node_data:

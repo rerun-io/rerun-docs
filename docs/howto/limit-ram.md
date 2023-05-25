@@ -16,4 +16,4 @@ NOTE: This currently only work when you are using [`rr.connect`](https://ref.rer
 
 If you have multiple processes generating log data to Rerun it could happen that the Viewer builds up a backlog of unprocessed log messages. This can induce latency and also use up memory, which `--memory-limit` cannot fix. To handle this case, you can use `rerun --drop-at-latency 500ms` to start ignoring _new_ data if the input buffer exceeds 500ms of data.
 
-This is a seldome used feature, and is mostly documented here for completeness.
+This is a rarely used feature, and is mostly documented here for completeness.
