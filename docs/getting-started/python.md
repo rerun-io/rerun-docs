@@ -78,6 +78,11 @@ take any Nx2 or Nx3 numpy array as a collection of positions.
 Feel free to modify the code to log a different set of points. If you want to generate the colored cube from the
 built-in demo, you can use the following numpy incantation.
 ```python
+import rerun as rr
+import numpy as np
+
+rr.init("my data", spawn=True)
+
 SIZE = 10
 
 pos_grid = np.meshgrid(*[np.linspace(-10, 10, SIZE)]*3)
