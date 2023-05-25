@@ -215,13 +215,15 @@ There's only one thing left: our original scene had the abacus rotate along its 
 As was the case with time, (hierarchical) space transformations are first class-citizens in Rerun.
 Now it's just a matter of combining the two: we need to log the transform of the scaffolding at each timestamp.
 
-Expand the previous loop to also include:
+Either expand the previous loop to include logging transforms or
+simply add a second loop like this:
 ```python
 # new imports
 from scipy.spatial.transform import Rotation
 
 for i in range(400):
-    # [...]
+    time = i * 0.01
+    rr.set_time_seconds("stable_time", time)
     rr.log_rigid3(
         "dna/structure",
         parent_from_child=(
