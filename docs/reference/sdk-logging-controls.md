@@ -34,7 +34,7 @@ When you want to turn logging back on, you simply continue to use the previous r
 ### Rust
 
 In Rust you always pass the recording explicitly, making this fully transparent.
-In order to create a no-op recording call [`RecordingStream::disabled()`](https://docs.rs/rerun/latest/rerun/recording_stream/struct.RecordingStream.html#disabled)
+In order to create a no-op recording call `RecordingStream::disabled()`.
 
 ```rust
 let noop_rec = RecordingStream::disabled();
@@ -43,7 +43,7 @@ let noop_rec = RecordingStream::disabled();
 ### Python
 
 The Python API uses the global recording stream by default.
-To swap it out with a no-op recording call [`set_global_data_recording`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.set_global_data_recording) with `None`. You can check if there is a global recording set via [`set_global_data_recording`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.set_global_data_recording)
+To swap it out with a no-op recording call `set_global_data_recording` with `None`.
 
 ```python
 # Disabling logging
