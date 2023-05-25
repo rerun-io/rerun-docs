@@ -23,7 +23,7 @@ which components the Viewer can interpret together as documented below.
 [log_rects](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_rects)
 * Rust (primary): [Rect2D](https://docs.rs/rerun/latest/rerun/components/enum.Rect2D.html)
 * Primary component: `rect2d`, 
-* Secondary components: `colorrgba`, `radius`, `label`, `classid`
+* Secondary components: `colorrgba`, `radius`, `label`, `classid`, `draw_order`
 
 ### Box 3D
 * Python: [log_obb](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_obb)
@@ -36,7 +36,7 @@ which components the Viewer can interpret together as documented below.
 , [log_line_segments](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_line_segments)
 * Rust (primary): [LineStrip2D](https://docs.rs/rerun/latest/rerun/components/struct.LineStrip2D.html)
 * Primary component: `linestrip2d`
-* Secondary components: `colorrgba`, `radius`
+* Secondary components: `colorrgba`, `radius`, `draw_order`
 
 ### Line 3D
 * Python: [log_line_strip](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_line_strip), [log_line_segments](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_line_segments)
@@ -57,7 +57,7 @@ which components the Viewer can interpret together as documented below.
 [log_points](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_points)
 * Rust (primary): [Point2D](https://docs.rs/rerun/latest/rerun/components/struct.Point2D.html)
 * Primary component: `point2d`
-* Secondary components: `colorrgba`, `radius`, `label`, `classid`, `keypointid`
+* Secondary components: `colorrgba`, `radius`, `label`, `classid`, `keypointid`, `draw_order`
 
 ### Point 3D
 * Python: [log_point](https://ref.rerun.io/docs/python/latest/common/spatial_primitives/#rerun.log_point),
@@ -82,7 +82,7 @@ which components the Viewer can interpret together as documented below.
 [log_segmentation_image](https://ref.rerun.io/docs/python/latest/common/images/#rerun.log_segmentation_image**)
 * Rust (primary): [Tensor](https://docs.rs/rerun/latest/rerun/components/struct.Tensor.html)
 * Primary component: `tensor`
-* Secondary components: `colorrgba`
+* Secondary components: `colorrgba`, `draw_order`
 
 `colorrgba` is currently only supported for images,
 i.e. tensors with 2 dimensions and an optional 3rd that can be interpreted as color channels.
