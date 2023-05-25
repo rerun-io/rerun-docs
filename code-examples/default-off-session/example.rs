@@ -1,1 +1,1 @@
-let mut session = rerun::Session::with_default_enabled(false);
+let recording = rerun::RecordingStreamBuilder::new("pouet").default_enabled(false);

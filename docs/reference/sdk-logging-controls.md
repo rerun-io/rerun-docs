@@ -1,5 +1,5 @@
 ---
-title: Control Logging
+title: SDK Logging Controls
 order: 0
 ---
 
@@ -25,10 +25,3 @@ The `RERUN` environment variable is read once during SDK initialization. The acc
 The "default-on" behavior can also be changed to a "default-off" behavior:
 
 code-example: default-off-session
-
-## Dynamically turn logging on/off
-
-* Rust: See the [`is_enabled()`](https://docs.rs/re_sdk/latest/re_sdk/struct.Session.html#method.is_enabled), [`set_enabled()`](https://docs.rs/re_sdk/latest/re_sdk/struct.Session.html#method.set_enabled) methods for Rust.
-* Python: See the [`is_enabled()`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.is_enabled), [`set_enabled()`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.set_enabled) methods for Python.
-
-code-example: turn-logging-onoff
