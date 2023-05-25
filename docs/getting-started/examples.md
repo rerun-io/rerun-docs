@@ -39,6 +39,16 @@ python examples/python/minimal/main.py
 
 The following examples illustrate using the Rerun logging SDK with potential real-world (if toy) use cases.  They all require additional data to be downloaded, so an internet connection is needed at least once. The dataset fetching logic is all built into the examples, so no additional steps are needed. In some of the examples such as [Stable Diffusion](#stable-diffusion), the algorithm is run on-line, and may benefit from a GPU-enabled PyTorch machine.
 
+
+### ARKitScenes
+
+[Python](https://github.com/rerun-io/rerun/blob/latest/examples/python/arkitscenes/main.py)
+
+Visualizes the [ARKitScenes dataset](https://github.com/apple/ARKitScenes/) using the Rerun SDK.
+The dataset contains color+depth images, the reconstructed mesh and labeled bounding boxes around furniture.
+
+![arkitscenes](/docs-media/arkitscenes.png)
+
 ### COLMAP
 
 [Python](https://github.com/rerun-io/rerun/tree/latest/examples/python/colmap/main.py)
