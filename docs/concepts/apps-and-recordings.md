@@ -18,4 +18,3 @@ This means you can have multiple recordings with different Recording IDs sharing
 
 If you want to log from multiple processes and want all the log data to show up
 together in the viewer, you need to make sure all processes use the same Recording ID.
-You can use [`rr.set_recording_id`](https://ref.rerun.io/docs/python/latest/common/viewer_control/#rerun.set_recording_id) for this.
