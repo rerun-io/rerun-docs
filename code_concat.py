@@ -12,7 +12,10 @@ md_files_with_python = [
     "docs/getting-started/logging-python.md",
     "docs/getting-started/python.md",
 ]
-md_files_with_rust = ["docs/getting-started/logging-rust.md"]
+md_files_with_rust = [
+    "docs/getting-started/logging-rust.md",
+    "docs/getting-started/rust.md",
+]
 
 
 def extract_strings_between(
