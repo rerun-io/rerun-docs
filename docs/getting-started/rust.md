@@ -20,16 +20,16 @@ Just run `rerun` to start the [Rerun Viewer](../reference/viewer/overview.md). I
 Add the following code to your `main.rs`
 (This example also lives in the `rerun` source tree [example](https://github.com/rerun-io/rerun/tree/latest/examples/rust/minimal/src/main.rs))
 ```rust
-use rerun::demo_util::grid;
-use rerun::external::glam;
 use rerun::{
     components::{ColorRGBA, Point3D, Radius},
-    MsgSender,
+    demo_util::grid,
+    external::glam,
+    MsgSender, RecordingStreamBuilder,
 };
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut session = rerun::SessionBuilder::new("my_app")
-        .connect(rerun::default_server_addr());
+    let recording =
+        RecordingStreamBuilder::new("minimal").connect(rerun::default_server_addr())?;
 
     let points = grid(glam::Vec3::splat(-10.0), glam::Vec3::splat(10.0), 10)
         .map(Point3D::from)
@@ -42,7 +42,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with_component(&points)?
         .with_component(&colors)?
         .with_splat(Radius(0.5))?
-        .send(&mut session)?;
+        .send(&recording)?;
 
     Ok(())
 }
