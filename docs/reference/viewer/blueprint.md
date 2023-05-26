@@ -4,7 +4,7 @@ order: 1
 ---
 
 The blueprint is how you configure what is displayed in the Rerun viewer.
-It is saved between sessions and is unique to a given [application id](../../concepts/apps-and-sessions.md).
+It is saved between sessions and is unique to a given [application id](../../concepts/apps-and-recordings.md).
 The Blueprint includes all Space View configurations, Entity groupings and Entity settings, also known as Data Blueprints.
 
 This view shows the Blueprint for the active recording.
