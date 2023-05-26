@@ -24,7 +24,7 @@ Call [`rr.spawn`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__
 
 #### `Rust`
 
-`rerun::native_viewer::spawn` spawns a new viewer on the main thread (for platform compatibility reasons) and continues executing user code on a new thread, streaming data between the two in real-time using an in-memory channel.
+[`rerun::native_viewer::spawn`](https://docs.rs/rerun/latest/rerun/native_viewer/fn.spawn.html) spawns a new viewer on the main thread (for platform compatibility reasons) and continues executing user code on a new thread, streaming data between the two in real-time using an in-memory channel.
 
 ## Connect
 
@@ -47,9 +47,10 @@ This starts the web version of the Rerun Viewer in your browser, and streams dat
 #### `Python`
 
 Use [`rr.serve`](https://ref.rerun.io/docs/python/latest/package/rerun/__init__/#rerun.serve).
-```
 
-```
+#### `Rust`
+
+[TODO(#2232)](https://github.com/rerun-io/rerun/issues/2232): This is not available for the time being.
 
 ## Save
 
