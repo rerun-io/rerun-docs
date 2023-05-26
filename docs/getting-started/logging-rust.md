@@ -39,12 +39,12 @@ use rerun::{
     demo_util::{bounce_lerp, color_spiral},
     external::glam,
     time::{Time, TimeType, Timeline},
-    MsgSender, MsgSenderError, Session,
+    MsgSender, MsgSenderError, RecordingStream,
 };
 ```
 
 Already you can see the two most important types we'll interact with:
-- [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html), our entrypoint into the logging SDK.
+- [`RecordingStream`](https://docs.rs/rerun/latest/rerun/struct.RecordingStream.html), our entrypoint into the logging SDK.
 - [`MsgSender`](https://docs.rs/rerun/latest/rerun/struct.MsgSender.html), a builder-like type that we'll use to pack our data in order to prep it for logging.
 
 
@@ -57,21 +57,21 @@ Checkout `rerun --help` for more options.
 
 ## Initializing the SDK
 
-To get going we want to create a [`Session`](https://docs.rs/rerun/latest/rerun/struct.Session.html):
-We can do all of this with the [`rerun::SessionBuilder::new`](https://docs.rs/rerun/latest/rerun/struct.SessionBuilder.html#method.new) method which allows us to name the dataset we're working on by setting its [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html):
+To get going we want to create a [`RecordingStream`](https://docs.rs/rerun/latest/rerun/struct.RecordingStream.html):
+We can do all of this with the [`rerun::RecordingStreamBuilder::new`](https://docs.rs/rerun/latest/rerun/struct.RecordingStreamBuilder.html#method.new) function which allows us to name the dataset we're working on by setting its [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html):
 
 ```rust
-fn run(mut session: Session) {}
-
 fn main() {
-    let mut session = rerun::SessionBuilder::new("DNA Abacus")
-        .connect(rerun::default_server_addr());
+    let recording =
+        rerun::RecordingStreamBuilder::new("DNA Abacus").connect(rerun::default_server_addr())?;
+
+    Ok(())
 }
 ```
 
 Among other things, a stable [`ApplicationId`](https://docs.rs/rerun/latest/rerun/struct.ApplicationId.html) will make it so the [Rerun Viewer](../reference/viewer/overview.md) retains its UI state across runs for this specific dataset, which will make our lives much easier as we iterate.
 
-Check out the reference to learn more about how Rerun deals with [applications and sessions](../concepts/apps-and-sessions.md).
+Check out the reference to learn more about how Rerun deals with [applications and recordings](../concepts/apps-and-recordings.md).
 
 
 ## Logging our first points
@@ -88,13 +88,13 @@ MsgSender::new("dna/structure/left")
     .with_component(&points1.iter().copied().map(Point3D::from).collect_vec())?
     .with_component(&colors1.iter().copied().map(ColorRGBA::from).collect_vec())?
     .with_splat(Radius(0.08))?
-    .send(&mut session)?;
+    .send(&recording)?;
 
 MsgSender::new("dna/structure/right")
     .with_component(&points2.iter().copied().map(Point3D::from).collect_vec())?
     .with_component(&colors2.iter().copied().map(ColorRGBA::from).collect_vec())?
     .with_splat(Radius(0.08))?
-    .send(&mut session)?;
+    .send(&recording)?;
 ```
 
 Run your program with `cargo run` and you should now see this scene in the viewer:
@@ -150,7 +150,7 @@ let scaffolding = all_points
 MsgSender::new("dna/structure/scaffolding")
     .with_component(&scaffolding)?
     .with_splat(ColorRGBA::from([128, 128, 128, 255]))?
-    .send(&mut session)?;
+    .send(&mut recording)?;
 ```
 
 Which only leaves the beads:
@@ -179,7 +179,7 @@ MsgSender::new("dna/structure/scaffolding/beads")
     .with_component(&beads)?
     .with_component(&colors)?
     .with_splat(Radius(0.06))?
-    .send(&mut session)?;
+    .send(&recording)?;
 ```
 
 Once again, although we are getting fancier and fancier with our iterator mappings, there is nothing new here: it's all about building out vectors of [`Component`s](https://docs.rs/rerun/latest/rerun/trait.Component.html) and feeding them to the Rerun API.
@@ -231,7 +231,7 @@ for i in 0..400 {
         .with_component(&beads)?
         .with_component(&colors)?
         .with_splat(Radius(0.06))?
-        .send(&mut session)?;
+        .send(&recording)?;
 }
 ```
 
@@ -279,7 +279,7 @@ for i in 0..400 {
             )),
             ..Default::default()
         })])?
-        .send(&mut session)?;
+        .send(&recording)?;
 }
 ```
 
@@ -297,7 +297,7 @@ Voila!
 Sometimes, sending the data over the network is not an option. Maybe you'd like to share the data, attach it to a bug report, etc.
 
 Rerun has you covered:
-- Use [`SessionBuilder::save`](https://docs.rs/rerun/latest/rerun/struct.SessionBuilder.html#method.save) to stream all logging data to disk.
+- Use [`RecordingStream::save`](https://docs.rs/rerun/latest/rerun/struct.RecordingStream.html#method.save) to stream all logging data to disk.
 - Visualize it via `rerun path/to/recording.rrd`
 
 You can also save a recording (or a portion of it) as you're visualizing it, directly from the viewer.
