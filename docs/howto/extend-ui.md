@@ -1,5 +1,5 @@
 ---
-title: How To Extend the Viewer UI using Rust
+title: Extend the Viewer UI in Rust
 order: 4
 description: How to extend the Rerun Viewer UI using Rust and egui
 ---
